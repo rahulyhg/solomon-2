@@ -1,0 +1,145 @@
+    <div *ngIf="user">
+      <md-card>Simple card<br>asdfasdfasdfasfsadfas<br>asdfafadsf</md-card>
+      <row-meta [rowmetadata]="user"></row-meta>
+<form #UserFormRef="ngForm" (ngSubmit)="onSubmit(UserFormRef.value)" name="UserForm" class="userform">
+             <md-input-container>
+                <input mdInput name="UserName" #usernameRef="ngModel" required minlength="3"  [(ngModel)]="user.UserName"  placeholder="Enter User Name">
+             </md-input-container>
+                <div *ngIf="usernameRef.errors?.required">UserName is required!</div>
+                <div *ngIf="usernameRef.errors?.minlength"> UserName must be greater than three characters</div>
+             <md-input-container>
+                <input mdInput  type="password"  name="Pass" #passwordRef="ngModel" required  [(ngModel)]="user.Password" placeholder="Enter Password">
+            </md-input-container>
+             <md-input-container>
+                <input mdInput type="email" name="Email"  #emailRef="ngModel" required [(ngModel)]="user.Email"  placeholder="Email" >
+            </md-input-container>
+             <md-input-container>
+                <input mdInput type="text" name="Country" #countryRef="ngModel" required  [(ngModel)]="user.Country" name="Country">
+            </md-input-container>
+             <md-input-container>
+                <input mdInput  type="text"placeholder="Language" [(ngModel)]="user.Lang" name="Lang" >
+            </md-input-container>
+            <md-input-container class="Did">
+                <input mdInput type="number" placeholder="Did" [(ngModel)]="user.Did" name="Did">
+            </md-input-container>
+            <md-input-container class="Acct">
+                <input mdInput  type="number" placeholder="Acct" [(ngModel)]="user.Acct" name="Acct">
+            </md-input-container>
+            <md-input-container class="Admin">
+              <input mdInput  type="number" placeholder="Admin" [(ngModel)]="user.Admin" name="Admin">
+            </md-input-container>
+            <md-input-container class="LangEd">
+              <input mdInput  type="number" placeholder="LangEd" [(ngModel)]="user.LangEd" name="LangEd">
+            </md-input-container>
+            <md-input-container class="Sales">
+              <input mdInput  type="number" placeholder="Sales" [(ngModel)]="user.Sales" name="Sales">
+            </md-input-container>  
+            <md-input-container class="LangBar">
+              <input mdInput type="text" placeholder="LangBar" [(ngModel)]="user.LangBar" name="LangBar">
+            </md-input-container>
+            <md-input-container class="Agent">
+                <input mdInput placeholder="Agent" [(ngModel)]="user.Agent" name="Agent">
+            </md-input-container>
+            <md-input-container class="Source">
+                <input mdInput placeholder="Source" [(ngModel)]="user.Source" name="Source">
+            </md-input-container>
+            <md-input-container class="Followups">
+                <input mdInput placeholder="Followups" [(ngModel)]="user.Followups" name="Followups">
+              </md-input-container>
+              <md-input-container class="DriveMax">
+                <input mdInput type="number" placeholder="DriveMax" [(ngModel)]="user.DriveMax" name="DriveMax">
+                </md-input-container>
+                <md-input-container class="DriveMin">
+                <input mdInput type="number" placeholder="DriveMin" [(ngModel)]="user.DriveMin" name="DriveMin">
+                </md-input-container>
+                <md-input-container class="DriveRate">
+                <input mdInput type="number"  placeholder="DriveRate" [(ngModel)]="user.DriveRate" name="DriveRate">
+                </md-input-container>
+                <md-input-container class="DriveFee">
+                <input mdInput  type="number"  placeholder="DriveFee" [(ngModel)]="user.DriveFee" name="DriveFee">
+              </md-input-container>
+              <md-input-container class="MapPrefs">
+                <input mdInput type="text" placeholder="MapPrefs" [(ngModel)]="user.MapPrefs" name="MapPrefs">
+              </md-input-container>
+                  <section class="MailPrefs">
+                      <md-button-toggle-group name="MailPrefs" [vertical]="isVertical" (click)="setmailprefs($event)" >
+                      <md-button-toggle value="images"><md-icon>format_align_left</md-icon></md-button-toggle>
+                      <md-button-toggle value="html"><md-icon>format_align_center</md-icon></md-button-toggle>
+                      <md-button-toggle value="text"><md-icon>format_align_right</md-icon></md-button-toggle>
+                      <md-button-toggle value="None" [disabled]="isDisabled"><md-icon>format_align_justify</md-icon></md-button-toggle>
+                      </md-button-toggle-group>
+                  </section>
+                 <md-input-container class="MailPrefs">
+                     <input mdInput placeholder="MailPrefs" [(ngModel)]="user.MailPrefs" name="MailPrefs">
+                  </md-input-container>
+                 <md-input-container class="MatchPrefs">
+                <input mdInput placeholder="MatchPrefs" [(ngModel)]="user.MatchPrefs" name="MatchPrefs">
+              </md-input-container>
+
+      <button md-raised-button (click)="goToUserList()">Back</button>
+      <button md-raised-button (click)="goToUserList()">Save</button>
+  </form>
+        <md-card>
+    <div class="container">
+       <md-card>
+        <table>
+              <tbody><tr><th colspan="3">Outputs</th></tr>
+                <tr><th>Id</th><th>Date</th><th>Letter</th></tr>
+                <tr *ngFor="let output of this.outputs" (click)="onSelect(output)"
+                [class.selected]="output === selectedOutput" class="list-group-item">
+                      <td class="Id"><b>{{output.Id}}</b><td>{{output.DFC | date}}</td><td>{{output.OutputType}}</td>
+                </tr>
+              </tbody>
+            </table> 
+      </md-card>   
+         <md-card>
+      <table class="table floattable">
+          <tbody><tr><th colspan="2">Drives</th></tr>
+            <tr><th>Date<br>Id</th><th>Drive From<br>Drive To</th></tr>
+            <tr *ngFor="let drive of drives" (click)="onSelect(drive)"
+            [class.selected]="drive === selectedDrive" class="list-group-item driverecord">
+                  <td class="driverecord"><b>{{drive.DriveDate | date:'MMM d'}}</b><br>{{drive.Id}}</td><td>{{drive.DriveFromName}}<br>{{drive.DriveToName}}</td>
+            </tr>
+          </tbody>
+        </table>
+     </md-card>
+
+      <table class="table floattable">
+          <tbody><tr><th colspan="2">Rides</th></tr>
+           <tr><th class="left">Date<br>Id</th><th class="left">Ride From<br>Ride To</th></tr>
+            <tr *ngFor="let ride of rides" (click)="onSelect(drive)"
+            [class.selected]="ride === selectedRide" class="list-group-item">
+              <td class="driverecord"><b>{{ride.RideDate | date:'MMM d'}}</b><br>{{ride.Id}}</td><td>{{ride.RideFromName}}<br>{{ride.RideToName}}</td>
+            </tr>
+          </tbody>
+        </table>
+  
+      <table class="table floattable">
+              <tbody><tr><th>Runs</th></tr>
+                <tr *ngFor="let run of runs" (click)="onSelect(run)"
+                [class.selected]="run === selectedRun" class="list-group-item">
+                      <td class="Id"><b>{{run.Id}}</b> {{run.DriveFromName}}{{run.DriveToName}}</td>
+                </tr>
+              </tbody>
+            </table> 
+
+  <table class="table floattable">
+          <tbody><tr><th>Comments</th></tr>
+          <tr><th class="left">Id-RD-Scr<br>Date</th><th class="left">Trip From<br>Trip To</th></tr>
+            <tr *ngFor="let comment of comments" (click)="onSelect(comment)"
+            [class.selected]="comment === selectedComment" class="list-group-item">
+            <td *ngIf="user.Id == comment.DrivePid" class="drive left"><b>{{comment.Id}}</b>-D-{{comment.DriveScore}}<br>{{comment.DriveDate | date:'MMM d'}}</td><td *ngIf="user.Id == comment.DrivePid" class="drive left">{{comment.DriveComments}}</td>
+            <td *ngIf="user.Id == comment.RidePid" class="ride left"><b>{{comment.Id}}</b>-R-{{comment.RideScore}}<br>{{comment.RideDate  | date:'MMM d'}}</td><td *ngIf="user.Id == comment.RidePid" class="ride left">{{comment.RideComments}}</td>
+            </tr>
+          </tbody>
+        </table>   
+       
+   <table class="table floattable">
+          <tbody><tr><th>Places</th></tr>
+            <tr *ngFor="let place of places" (click)="onSelect(place)"
+            [class.selected]="place === selectedPlace" class="list-group-item">
+                  <td class="name"><b>{{place.Id}}</b> {{place.Name}}</td>
+            </tr>
+          </tbody>
+        </table>
+</div>

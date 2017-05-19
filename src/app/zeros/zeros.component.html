@@ -1,0 +1,127 @@
+<div class="container">	
+<div *ngIf="selectedZero" class="selectedZero">
+<div class="row">
+<div class="card text-xs-center">
+<div class="card-block">
+   <div class="card-header">
+      <fieldset class="form-group  col-md-12">
+        {{selectedZero.RideDate}}
+      </fieldset>
+      <fieldset class="form-group col-md-3">
+              {{selectedZero.Id}} 
+      </fieldset>
+      <fieldset class="form-group col-md-3">
+              {{selectedZero.DFC | date}} 
+      </fieldset>
+      <fieldset class="form-group col-md-3">
+              {{selectedZero.DLC | date}} 
+      </fieldset>
+      <fieldset class="form-group col-md-3">
+              {{selectedZero.User}}
+      </fieldset>
+      <fieldset class="form-group  col-md-12">
+        <label>PO: </label>
+        <input [(ngModel)]="selectedZero.PO" placeholder="PO"/>
+     </fieldset>
+      <fieldset class="form-group">
+        <label>RideId: </label>
+        <input [(ngModel)]="selectedZero.RideId" placeholder="RideId"/>
+      </fieldset>
+      <fieldset class="form-group">
+        <label>RidePid: </label>
+        <input [(ngModel)]="selectedZero.RidePid" placeholder="RidePid"/>
+     </fieldset>
+		 <fieldset class="form-group">
+        <label>RideDate: </label>
+        <input [(ngModel)]="selectedZero.RideDate" placeholder="RideDate"/>
+     </fieldset>
+		 <fieldset class="form-group">
+        <label>RideTime: </label>
+        <input [(ngModel)]="selectedZero.RideTime" placeholder="RideTime"/>
+     </fieldset>
+		 <fieldset class="form-group">
+        <label>RideToName: </label>
+        <input [(ngModel)]="selectedZero.RideToName" placeholder="RideToName"/>
+     </fieldset>
+		 <fieldset class="form-group">
+        <label>RideFromName: </label>
+        <input [(ngModel)]="selectedZero.RideFromName" placeholder="RideFromName"/>
+     </fieldset>
+		 <fieldset class="form-group">
+        <label>RideScore: </label>
+        <input [(ngModel)]="selectedZero.RideScore" placeholder="RideScore"/>
+     </fieldset>
+		 <fieldset class="form-group">
+        <label>RideComments: </label>
+        <input [(ngModel)]="selectedZero.RideComments" placeholder="RideComments"/>
+     </fieldset>
+		 <fieldset class="form-group">
+        <label>DriveId: </label>
+        <input [(ngModel)]="selectedZero.DriveId" placeholder="DriveId"/>
+     </fieldset>
+		 <fieldset class="form-group">
+        <label>DrivePid: </label>
+        <input [(ngModel)]="selectedZero.DrivePid" placeholder="DrivePid"/>
+     </fieldset>
+		 <fieldset class="form-group">
+        <label>DriveDate: </label>
+        <input [(ngModel)]="selectedZero.DriveDate" placeholder="DriveDate"/>
+     </fieldset>
+		 <fieldset class="form-group">
+        <label>DriveTime: </label>
+        <input [(ngModel)]="selectedZero.DriveTime" placeholder="DriveTime"/>
+     </fieldset>
+		 	 <fieldset class="form-group">
+        <label>DriveToName: </label>
+        <input [(ngModel)]="selectedZero.DriveToName" placeholder="DriveToName"/>
+     </fieldset>
+		 	 <fieldset class="form-group">
+        <label>DriveFromName: </label>
+        <input [(ngModel)]="selectedZero.DriveFromName" placeholder="DriveFromName"/>
+     </fieldset>
+		 	 <fieldset class="form-group">
+        <label>DriveScore: </label>
+        <input [(ngModel)]="selectedZero.DriveScore" placeholder="DriveScore"/>
+     </fieldset>
+		 	 <fieldset class="form-group">
+        <label>DriveComments: </label>
+        <input [(ngModel)]="selectedZero.DriveComments" placeholder="DriveComments"/>
+     </fieldset>
+		 	 <fieldset class="form-group">
+        <label>Charge: </label>
+        <input [(ngModel)]="selectedZero.Charge" placeholder="Charge"/>
+     </fieldset>
+		
+ <button class="btn btn-warning"  (click)="onDeSelect()">View zero</button>
+ <button class="btn btn-success" (click)="onDeSelect()">View List</button>
+  </div></div></div></div></div>
+
+<div *ngIf!="selectedZero">
+  <div class="row">
+  <div class="card text-xs-center">
+        <div class="card-block">
+            <label>Zeros by UserId:</label><input #zeroSearch (input)="term$.next($event.target.value)" placeholder="Enter Id or zero" />
+             <button class="btn btn-danger" (click)="add(zeroSearch.value)"> Add </button>
+      </div>
+<div class="table-responsive">
+  <table class="table">
+  <tbody>
+  <tr *ngFor="let zero of zeros" (click)="onSelect(zero)"
+      [class.selected]="zero === selectedZero" class="list-group-item">
+        <td class="Id"><b>{{zero.Id}}</b></td> 
+        <td class="DFC">{{zero.DFC}}<br>{{zero.DLC}}</td> 
+        <td class="DFC">{{zero.User}}<br>{{zero.PO}}</td> 
+        <td class="DFC">{{zero.RideId}}<br>{{zero.DriveId}}</td> 
+        <td class="DFC">{{zero.RidePid}}<br>{{zero.DrivePid}}</td> 
+        <td class="DFC">{{zero.RideDate}} {{zero.RideTime}}<br>{{zero.DriveDate}} {{zero.DriveTime}}</td> 
+        <td class="DFC">{{zero.RideFromName}} {{zero.RideToName}}<br>{{zero.DriveFromName}} {{zero.DriveToName}}</td> 
+        <td class="DFC">{{zero.RideScore}}<br>{{zero.RideComments}}</td> 
+        <td class="DFC">{{zero.DriveScore}}<br>{{zero.DriveComments}}</td> 
+        <td class="Referer">{{zero.Charge}}</td>  
+      	<td><button class="btn-xs btn-danger" (click)="delete(zero); $event.stopPropagation()">x</button></td>
+    </tr>
+</tbody>
+</table>
+        </div>
+</div></div></div></div>
+

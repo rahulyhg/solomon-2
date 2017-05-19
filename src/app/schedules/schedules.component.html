@@ -1,0 +1,163 @@
+<div class="container">	
+    <div *ngIf="selectedSchedule" class="selectedSchedule">
+       <div class="row">
+        <div class="card text-xs-center">
+                <div class="card-block">
+                        <div class="card-header">
+                                 {{selectedSchedule.Id}}<br>
+                    {{selectedSchedule.Id}} {{selectedSchedule.DFC | date}} {{selectedSchedule.DLC | date}} {{selectedSchedule.User}}
+                <fieldset class="form-group  col-md-12">
+                      <label>Did: </label>
+                      <input [(ngModel)]="selectedSchedule.Did" placeholder="Did"/>
+                </fieldset>
+                <fieldset class="form-group  col-md-12">
+                      <label>Pid: </label>
+                      <input [(ngModel)]="selectedSchedule.Pid" placeholder="Pid" />
+                  </fieldset>
+                  <fieldset class="form-group  col-md-12">
+                        <label>RT: </label>
+                        <input [(ngModel)]="selectedSchedule.RT" placeholder="RT" />
+                </fieldset>
+		<fieldset class="form-group  col-md-12">
+                        <label>LastRun: </label>
+                        <input [(ngModel)]="selectedSchedule.LastRun" placeholder="LastRun" />
+                </fieldset>
+		<fieldset class="form-group  col-md-12">
+                        <label>PO: </label>
+                        <input [(ngModel)]="selectedSchedule.PO" placeholder="PO" />
+                </fieldset>
+		<fieldset class="form-group  col-md-12">
+                        <label>SchedFromId: </label>
+                        <input [(ngModel)]="selectedSchedule.SchedFromId" placeholder="SchedFromId" />
+                </fieldset>
+		<fieldset class="form-group  col-md-12">
+                        <label>SchedToId: </label>
+                        <input [(ngModel)]="selectedSchedule.SchedToId" placeholder="SchedToId" />
+                </fieldset>
+		<fieldset class="form-group  col-md-12">
+                        <label>Distance: </label>
+                        <input [(ngModel)]="selectedSchedule.Distance" placeholder="Distance" />
+                </fieldset>
+		<fieldset class="form-group  col-md-12">
+                        <label>Duration: </label>
+                        <input [(ngModel)]="selectedSchedule.Duration" placeholder="Duration" />
+                </fieldset>
+		<fieldset class="form-group  col-md-12">
+                        <label>Extra: </label>
+                        <input [(ngModel)]="selectedSchedule.Extra" placeholder="Extra" />
+                </fieldset>
+		<fieldset class="form-group  col-md-12">
+                        <label>Weight: </label>
+                        <input [(ngModel)]="selectedSchedule.Weight" placeholder="Weight" />
+                </fieldset>
+		<fieldset class="form-group  col-md-12">
+                        <label>M: </label>
+                        <input [(ngModel)]="selectedSchedule.M" placeholder="M" />
+                </fieldset>
+		<fieldset class="form-group  col-md-12">
+                        <label>T: </label>
+                        <input [(ngModel)]="selectedSchedule.T" placeholder="T" />
+                </fieldset>
+		<fieldset class="form-group  col-md-12">
+                        <label>W: </label>
+                        <input [(ngModel)]="selectedSchedule.W" placeholder="W" />
+                </fieldset>
+		<fieldset class="form-group  col-md-12">
+                        <label>Th: </label>
+                        <input [(ngModel)]="selectedSchedule.Th" placeholder="Th" />
+                </fieldset>
+		<fieldset class="form-group  col-md-12">
+                        <label>F: </label>
+                        <input [(ngModel)]="selectedSchedule.F" placeholder="F" />
+                </fieldset>
+		<fieldset class="form-group  col-md-12">
+                        <label>Sa: </label>
+                        <input [(ngModel)]="selectedSchedule.Sa" placeholder="Sa" />
+                </fieldset>
+		<fieldset class="form-group  col-md-12">
+                        <label>Su: </label>
+                        <input [(ngModel)]="selectedSchedule.Su" placeholder="Su" />
+                </fieldset>
+		<fieldset class="form-group  col-md-12">
+                        <label>StartTime: </label>
+                        <input [(ngModel)]="selectedSchedule.StartTime" placeholder="StartTime" />
+                </fieldset>
+		<fieldset class="form-group  col-md-12">
+                        <label>EndTime: </label>
+                        <input [(ngModel)]="selectedSchedule.EndTime" placeholder="EndTime" />
+                </fieldset>
+		<fieldset class="form-group  col-md-12">
+                        <label>DriveMin: </label>
+                        <input [(ngModel)]="selectedSchedule.DriveMin" placeholder="DriveMin" />
+                </fieldset>
+		<fieldset class="form-group  col-md-12">
+                        <label>DriveMax: </label>
+                        <input [(ngModel)]="selectedSchedule.DriveMax" placeholder="DriveMax" />
+                </fieldset>
+		<fieldset class="form-group  col-md-12">
+                        <label>DriveRate: </label>
+                        <input [(ngModel)]="selectedSchedule.DriveRate" placeholder="DriveRate" />
+                </fieldset>
+		<fieldset class="form-group  col-md-12">
+                        <label>DriveFee: </label>
+                        <input [(ngModel)]="selectedSchedule.DriveFee" placeholder="DriveFee" />
+                </fieldset>
+		<fieldset class="form-group  col-md-12">
+                        <label>DriveCost: </label>
+                        <input [(ngModel)]="selectedSchedule.DriveCost" placeholder="DriveCost" />
+                </fieldset>
+                <button class="btn btn-warning" (click)="onDeSelect()">Back</button>
+                <button class="btn btn-success" (click)="onDeSelect()">Save</button>
+</div></div></div></div></div>
+
+<div *ngIf!="selectedSchedule">
+ <div class="container">	
+  <div class="row">
+    <div class="card text-xs-center">
+          <div class="card-block">
+              <label>Search Schedules by User Id:</label> <input #scheduleSearch (input)="term$.next($event.target.value)" placeholder="Enter Id or Text" />
+              <button class="btn btn-danger" (click)="add(scheduleSearch.value)"> Add </button>
+          </div>
+          <div class="table-responsive">
+                <table class="table">
+                    <tbody>
+                 <tr *ngFor="let schedule of schedules" (click)="onSelect(schedule)"
+                 [class.selected]="schedule === selectedSchedule" class="list-group-item">
+                        <div *ngIf!="appservice.admin">
+                        <td>{{schedule.Id}}</td>
+                        <td>{{schedule.DFC}}</td> 
+                        <td>{{schedule.DLC}}</td>
+                        <td>{{schedule.User}}</td>
+                        <td>{{schedule.Did}}</td>
+                        <td>{{schedule.Pid}}</td>
+                        <td>{{schedule.RT}}</td>
+                        <td>{{schedule.LastRun}}</td>
+                        <td>{{schedule.PO}}</td>
+                        <td>{{schedule.SchedFromId}}</td>
+                        <td>{{schedule.SchedToId}}</td>
+                        <td>{{schedule.Distance}}</td>
+                        <td>{{schedule.Duration}}</td>
+                        <td>{{schedule.Extra}}</td>
+                        <td>{{schedule.Weight}}</td>
+                        <td>{{schedule.M}}</td>
+                        <td>{{schedule.T}}</td>
+                        <td>{{schedule.W}}</td>
+                        <td>{{schedule.Th}}</td>
+                        <td>{{schedule.F}}</td>
+                        <td>{{schedule.Sa}}</td>
+                        <td>{{schedule.Su}}</td>
+                        <td>{{schedule.StartTime}}</td>
+                        <td>{{schedule.EndTime}}</td>
+                        <td>{{schedule.DriveMin}}</td>
+                        <td>{{schedule.DriveMax}}</td>
+                        <td>{{schedule.DriveRate}}</td>
+                        <td>{{schedule.DriveFee}}</td>
+                        <td>{{schedule.DriveCost}}</td>
+                        <td><button class="btn-sm btn-danger"
+                    (click)="delete(event); $event.stopPropagation()">x</button></td>
+               </div> </tr>
+            </tbody></table>
+</div></div></div></div></div>
+
+
+  

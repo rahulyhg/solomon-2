@@ -1,0 +1,17 @@
+.meta{
+    width: 200dp;
+     background-color: white;
+    display:block;
+    float:right;
+    border: 1px black solid;
+    margin-right: 10px;
+}
+.left{
+    text-align: left;
+    padding: 5dp;
+}
+
+.right{
+    text-align: right;
+    padding: 5dp;
+}

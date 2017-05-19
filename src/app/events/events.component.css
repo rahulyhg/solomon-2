@@ -1,0 +1,64 @@
+    .Id{width: 50px;}
+    .DFC{width: 150px;}
+    .DLC{width: 90px;}
+    .User{width: 50px;}
+    .Country{width: 50px;}
+	.Did{width: 50px;}
+	.EventName{
+		width: 400px;
+		text-align: left;
+		margin-left:80px;}
+	.SearchTerms{width: 50px;}
+	.Descrip{
+		width: 400px;
+		margin-left:80px;
+	}
+	.Route{width: 30px;}
+	.EventDate{width: 400px;margin-left:80px;}
+	.StartTime{width: 100px;}
+	.EndTime{width: 100px;float:left;margin-left:80px;}
+	.SiteName{width: 50px;}
+	.Phone{
+		width: 150px;
+		text-align: center;
+		}
+	.MapAddress{width: 400px;
+				margin-left:80px;}
+.eventbutton{
+	display:block;
+	margin-left:80px;
+	margin-top:20px;
+}
+	.Website{width: 50px;}
+	.Invitation{width: 150px;}
+	.selectedevent{
+		background-color: yellow;
+		align-content: center;
+		width:800px;
+	}
+	.eventform{
+		width:850dp;
+		display:block;
+	}
+	.firstcol{
+		width:400px;
+		border-width: 2px;
+	}
+	.floatright{
+		float: right;
+	}
+	.clear{
+		float:none;
+	}
+	.tablewidth{
+		border: 1px;
+			width:850px;
+			margin-left: 20px;
+
+	}
+	.MRight100{
+		margin-right:100px;
+	}
+	.red{
+		background-color: red;
+	}

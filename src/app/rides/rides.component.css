@@ -1,0 +1,34 @@
+
+.full-width {
+  width: 100%;
+}
+.searchwidth{
+	width: 300px;
+}
+.rightM100{
+	margin-right:100px;
+}
+.floatright{
+	float: right;
+}
+.leftm5{
+	padding-right: 50dp;
+	padding-left: 10dp;
+}
+.selectedUser md-input-container{
+	display: block;
+}
+.userform{
+	  width: 300px;
+}
+.searchusers{
+	width: 200px;
+}
+.userbutton{
+	float: right;
+	width:60px;
+}
+.sebm-google-map-container {
+  height: 300px;
+	width: 400px;
+}

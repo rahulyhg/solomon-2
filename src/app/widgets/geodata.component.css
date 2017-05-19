@@ -1,0 +1,21 @@
+.MapAddress{
+ font-size: 24dp
+}
+.Lat{
+ font-size: 12dp
+}
+.GeoType{
+ font-size: 10dp
+}
+.GeoPlaceId{
+ font-size: 10dp
+}
+.geodata{
+    float:right;
+    width: 300px;
+    background-color: greenyellow;
+}
+.MapAddress{
+        width: 100px;
+            background-color: red;
+}

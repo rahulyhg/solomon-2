@@ -1,0 +1,41 @@
+	
+.Id {width: 30px;}
+.Name{width: 150px;}
+.DFC{width: 100px;}
+.Time{width: 100px;}
+.Rate{width: 75px;}
+.DateText{width: 200px;}
+.Lat{width: 60px;}
+.Lng{width: 60px;}
+.TimeNum{width: 60px;}
+
+
+.full-width {
+  width: 100%;
+}
+.searchwidth{
+	width: 300px;
+}
+.rightM100{
+	margin-right:100px;
+}
+.floatright{
+	float: right;
+}
+.leftm5{
+	padding-right: 50dp;
+	padding-left: 10dp;
+}
+.selectedUser md-input-container{
+	display: block;
+}
+.userform{
+	  width: 300px;
+}
+.searchusers{
+	width: 200px;
+}
+.userbutton{
+	float: right;
+	width:60px;
+}

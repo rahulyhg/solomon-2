@@ -1,0 +1,188 @@
+    <div *ngIf="selectedPerson">
+      <row-meta [rowmetadata]="selectedPerson"></row-meta>
+<form #UserFormRef="ngForm" (ngSubmit)="onSubmit(PersonFormRef.value)" name="PersonForm" class="personform">  
+      <md-input-container> 
+         <input mdInput name="Did" #DidRef="ngModel"  [(ngModel)]="selectedPerson.Did" placeholder="Did"/>
+    </md-input-container>
+      <md-input-container>
+         <input mdInput name="ImgP" #ImgPRef="ngModel"  [(ngModel)]="selectedPerson.ImgP" placeholder="ImgP"/>
+     </md-input-container>
+      <md-input-container>
+         <input mdInput name="ImgV" #ImgVRef="ngModel"  [(ngModel)]="selectedPerson.ImgV" placeholder="ImgV"/>
+    </md-input-container>
+      <md-input-container>
+         <input mdInput name="Texting" #TextingRef="ngModel"  [(ngModel)]="selectedPerson.Texting" placeholder="Texting"/>
+      </md-input-container>
+      <md-input-container>
+         <input mdInput name="Name" #NameRef="ngModel"  [(ngModel)]="selectedPerson.Name" placeholder="Name"/>
+     </md-input-container>
+      <md-input-container>
+         <input mdInput name="H_Phone" #H_PhoneRef="ngModel"  [(ngModel)]="selectedPerson.H_Phone" placeholder="H_Phone"/>
+       </md-input-container>
+      <md-input-container>
+         <input mdInput name="CellDom" #CellDomRef="ngModel"  [(ngModel)]="selectedPerson.CellDom" placeholder="CellDom"/>
+    </md-input-container>
+      <md-input-container>
+         <input mdInput name="M_Phone" #M_PhoneRef="ngModel"  [(ngModel)]="selectedPerson.M_Phone" placeholder="M_Phone"/>
+      </md-input-container>
+      <md-input-container>
+         <input mdInput name="CellValid" #CellValidRef="ngModel"  [(ngModel)]="selectedPerson.CellValid" placeholder="CellValid"/>
+     </md-input-container>
+      <md-input-container>
+         <input mdInput name="MapAddress" #MapAddressRef="ngModel"  [(ngModel)]="selectedPerson.MapAddress" placeholder="MapAddress"/>
+     </md-input-container>
+      <md-input-container>
+         <input mdInput name="Descrip" #DescripRef="ngModel"  [(ngModel)]="selectedPerson.Descrip" placeholder="Descrip"/>
+      </md-input-container>
+      <md-input-container>      
+         <input mdInput name="CSurf" #CSurfRef="ngModel"  [(ngModel)]="selectedPerson.CSurf" placeholder="CSurf"/>
+     </md-input-container>
+	   <md-input-container>
+         <input mdInput name="FaceBook" #FaceBookRef="ngModel"  [(ngModel)]="selectedPerson.FaceBook" placeholder="FaceBook"/>
+     </md-input-container>
+	   <md-input-container>
+         <input mdInput name="GooglePlus" #GooglePlusRef="ngModel"  [(ngModel)]="selectedPerson.GooglePlus" placeholder="GooglePlus"/>
+     </md-input-container>
+	   <md-input-container>
+         <input mdInput name="Twitter" #TwitterRef="ngModel"  [(ngModel)]="selectedPerson.Twitter" placeholder="Twitter"/>
+     </md-input-container>
+	   <md-input-container>
+         <input mdInput name="Website" #WebsiteRef="ngModel"  [(ngModel)]="selectedPerson.Website" placeholder="Website"/>
+     </md-input-container>
+	   <md-input-container>
+         <input mdInput name="Logins" #LoginsRef="ngModel"  [(ngModel)]="selectedPerson.Logins" placeholder="Logins"/>
+     </md-input-container>
+	   <md-input-container>
+         <input mdInput name="Acts" #ActsRef="ngModel"  [(ngModel)]="selectedPerson.Acts" placeholder="Acts"/>
+     </md-input-container>
+	   <md-input-container>
+         <input mdInput name="Places" #PlacesRef="ngModel"  [(ngModel)]="selectedPerson.Places" placeholder="Places"/>
+     </md-input-container>
+	   <md-input-container>
+         <input mdInput name="Named" #NamedRef="ngModel"  [(ngModel)]="selectedPerson.Named" placeholder="Named"/>
+     </md-input-container>
+	    <md-input-container>
+         <input mdInput name="Rides" #RidesRef="ngModel"  [(ngModel)]="selectedPerson.Rides" placeholder="Rides"/>
+     </md-input-container>
+	    <md-input-container>
+         <input mdInput name="Drives" #DrivesRef="ngModel"  [(ngModel)]="selectedPerson.Drives" placeholder="Drives"/>
+     </md-input-container>
+	    <md-input-container>
+         <input mdInput name="Runs" #RunsRef="ngModel"  [(ngModel)]="selectedPerson.Runs" placeholder="Runs"/>
+     </md-input-container>
+	    <md-input-container>
+         <input mdInput name="Scheds" #SchedsRef="ngModel"  [(ngModel)]="selectedPerson.Scheds" placeholder="Scheds"/>
+     </md-input-container>
+	    <md-input-container>
+         <input mdInput name="Hits" #HitsRef="ngModel"  [(ngModel)]="selectedPerson.Hits" placeholder="Hits"/>
+     </md-input-container>
+	    <md-input-container>
+         <input mdInput name="EReset" #EResetRef="ngModel"  [(ngModel)]="selectedPerson.EReset" placeholder="EReset"/>
+     </md-input-container>
+	    <md-input-container>
+         <input mdInput name="TCode" #TCodeRef="ngModel"  [(ngModel)]="selectedPerson.TCode" placeholder="TCode"/>
+     </md-input-container>
+	    <md-input-container>
+         <input mdInput name="TCode2" #TCode2Ref="ngModel"  [(ngModel)]="selectedPerson.TCode2" placeholder="TCode2"/>
+     </md-input-container>
+	    <md-input-container>
+         <input mdInput name="EStop" #EStopRef="ngModel"  [(ngModel)]="selectedPerson.EStop" placeholder="EStop"/>
+     </md-input-container>
+	   <md-input-container>
+         <input mdInput name="ETell" #ETellRef="ngModel"  [(ngModel)]="selectedPerson.ETell" placeholder="ETell"/>
+     </md-input-container>
+	   <md-input-container>
+         <input mdInput name="EDRate" #EDRateRef="ngModel"  [(ngModel)]="selectedPerson.EDRate" placeholder="EDRate"/>
+     </md-input-container>
+	   <md-input-container>
+         <input mdInput name="ERRate" #ERRateRef="ngModel" [(ngModel)]="selectedPerson.ERRate" placeholder="ERRate"/>
+     </md-input-container>
+      <button md-raised-button (click)="onDeSelect()">Back</button>
+      <button md-raised-button (click)="onDeSelect()">Save</button>
+  </form>
+</div>
+
+<div *ngIf="!selectedPerson" >
+    <div class="floatright">
+          <md-input-container class="searchPeople">
+              <input mdInput #peopleSearch md-autofocus type="search" (input)="term$.next($event.target.value)" placeholder="Enter Id or Name" />
+          </md-input-container>
+          <button md-raised-button color="accent" (click)="add(peopleSearch.value)"><md-icon>add</md-icon> </button> 
+     </div> 
+ <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp full-width">
+        <thead align="left">
+          <tr>
+            <div *ngIf="!appservice.admin">
+              <th><b>Id</b><br>Did</th>
+              <th>Name<br>M_Phone</th>
+              <th>ImgV<br>ImgP</th>
+              <th>Text<br>CellDom/CellVal</th>
+              <th>logins<br>Acts</th>
+              <th>logins<br>Acts</th>
+              <th>Places<br>Named</th>
+              <th>Rides<br>Drives</th>
+              <th>Runs<br>Sched</th>
+              <th>Hits<br>Reset</th>
+              <th>TCode<br>TCode2</th>
+              <th>EStop<br>ETell</th>
+              <th>DRate<br>RRate</th>
+              <th class="full-width mdl-data-table__cell--non-numeric"></th>
+              <th class="mdl-data-table__cell--non-numeric">Delete</th> 
+              <th class="mdl-data-table__cell--non-numeric">Detail</th>
+            </div>
+            <div *ngIf="appservice.admin">
+              <th><b>Id</b><br>Did</th>
+              <th>First<br>Last</th>
+              <th>Did<br>User</th>
+              <th>Lat<br>Lng</th>
+              <th>Type<br>Qual</th>
+              <th>CSurf<br>FaceB</th>
+              <th>Plus<br>Twitter</th>
+              <th>Place_Id<br>H_Phone</th>
+              <th>Map Address<br>Descrip</th>
+              <th>Website</th>
+              <th class="full-width mdl-data-table__cell--non-numeric"></th>
+              <th class="mdl-data-table__cell--non-numeric">Delete</th> 
+              <th class="mdl-data-table__cell--non-numeric">Detail</th> 
+            </div>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let person of people" (click)="onSelect(person)"
+            [class.selected]="person === selectedPerson" class="list-group-item">
+          <div *ngIf="!appservice.admin">
+                <td><b>{{person.Id}}</b><br>{{person.Did}}</td>
+                <td>{{person.Name}}<br>{{person.M_Phone}}</td>
+                <td>{{person.ImgV}}<br>{{person.ImgP}}</td>
+                <td>{{person.Texting}}<br>{{person.CellDom}}-{{person.CellValid}}</td>
+                <td>{{person.Logins}}<br>{{person.Acts}}</td>
+                <td>{{person.Places}}<br>{{person.Named}}</td>
+                <td>{{person.Rides}}<br>{{person.Drives}}</td>
+                <td>{{person.Runs}}<br>{{person.Scheds}}</td>
+                <td>{{person.Hits}}<br>{{person.EReset}}</td>
+                <td>{{person.TCode}}<br>{{person.TCode2}}</td>
+                <td>{{person.EStop}}<br>{{person.ETell}}</td>
+                <td>{{person.EDRate}}<br>{{person.ERRate}}</td>
+                <td  class="full-width mdl-data-table__cell--non-numeric"></td>
+                <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(person); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
+                <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="gotoDetail(person); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
+              </div>
+            <div *ngIf="appservice.admin">
+                <td><b>{{person.Id}}</b><br>{{person.Did}}</td>
+                <td>{{person.DFC}}<br>{{person.DLC}}</td>
+                <td>{{person.Did}}<br>{{person.User}}</td>
+                <td>{{person.Lat}}<br>{{person.Lng}}</td>
+                <td>{{person.GeoType}}<br>{{person.GeoQual}}</td>
+                <td>{{person.CSurf}}<br>{{person.FaceBook}}</td>
+                <td>{{person.GooglePlus}}<br>{{person.Twitter}}</td>
+                <td>{{person.GeoPlaceId}}<br>{{person.H_Phone}}</td>
+                <td>{{person.MapAddress}}<br>{{person.Descrip}}</td>
+                <td>{{person.Website}}</td>
+         <td  class="full-width mdl-data-table__cell--non-numeric"></td>
+                <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(person); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
+                <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="gotoDetail(person); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
+          </div>
+  </tr>
+</tbody>
+    </table>
+</div><!--EndNGIf-->

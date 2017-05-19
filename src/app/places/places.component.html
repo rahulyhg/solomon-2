@@ -1,0 +1,150 @@
+<div *ngIf="selectedPlace" class="selectedplace">
+ <row-meta [rowmetadata]="selectedPlace"></row-meta> 
+
+<sebm-google-map [latitude]="selectedPlace.Lat" [longitude]="selectedPlace.Lng">
+  <sebm-google-map-marker [latitude]="selectedPlace.Lat" [longitude]="selectedPlace.Lng"></sebm-google-map-marker>
+ <sebm-google-map-marker [latitude]="selectedPlace.Lat +3" [longitude]="selectedPlace.Lng"></sebm-google-map-marker>
+
+</sebm-google-map>
+
+ <!--
+<sebm-google-map 
+      [styles]="styles"
+      [latitude]="Lat"
+      [longitude]="Lng"
+      [zoom]="zoom"
+      [disableDefaultUI]="false"
+      [zoomControl]="false"
+      (mapClick)="mapClicked($event)"
+      [draggable]="draggable">
+    
+     <sebm-google-map-marker 
+          *ngFor="let m of markers; let i = index"
+          (markerClick)="clickedMarker(m.label, i)"
+          [latitude]="m.lat"
+          [longitude]="m.lng"
+          [label]="m.label"
+          [markerDraggable]="m.draggable"
+          (dragEnd)="markerDragEnd(m, $event)"
+          [iconUrl]="m.icon"
+      
+          
+        <sebm-google-map-info-window>
+          <strong>InfoWindow content</strong>
+        </sebm-google-map-info-window>
+        
+      </sebm-google-map-marker>
+       
+      <sebm-google-map-circle [latitude]="lat + 0.3" [longitude]="lng" 
+          [radius]="5000"
+          [fillColor]="'red'"
+          [circleDraggable]="true"
+          [editable]="true"
+          >
+      </sebm-google-map-circle>
+  
+    </sebm-google-map>
+    -->
+  <form #PlaceFormRef="ngForm" (ngSubmit)="onSubmit(PlaceFormRef.value)" name="PlaceForm">
+        <md-input-container class="Name"> 
+          <input mdInput #nameRef="ngModel" required  [(ngModel)]="selectedPlace.Name" name="Name" placeholder="Enter  Name">
+            <div *ngIf="nameRef.$error?.required">
+              <div ng-message="required">Name is required!</div>
+            </div>
+        </md-input-container>
+
+      <md-input-container class="MapAddress"> 
+            <input mdInput #mapaddressRef="ngModel" required [(ngModel)]="selectedPlace.MapAddress" name="MapAddress" placeholder="Enter Address">
+            <div *ngIf="mapaddressRef.$error?.required">
+              <div ng-message="required">Address is required!</div>
+            </div>
+        </md-input-container>
+             
+
+           <md-input-container class="Country"> 
+           <input mdInput #countryRef="ngModel" required [(ngModel)]="selectedPlace.Country" name="Country" placeholder="Enter Country">
+            <div *ngIf="countryRef.$error?.required">
+              <div ng-message="required">Country is required!</div>
+            </div>
+        </md-input-container>
+
+       <md-input-container class="Did"> 
+           <input mdInput #didRef="ngModel" required [(ngModel)]="selectedPlace.Did" name="Did" placeholder="Enter Did">
+            <div *ngIf="didRef.$error?.required">
+              <div ng-message="required">Domain Id is required!</div>
+            </div>
+        </md-input-container>
+
+        <md-input-container class="Pid"> 
+            <input mdInput #pidRef="ngModel" required [(ngModel)]="selectedPlace.Pid" name="Pid" placeholder="Enter Pid">
+            <div *ngIf="pidRef.$error?.required">
+              <div ng-message="required">Pid is required!</div>
+            </div>
+        </md-input-container>
+
+  <app-geodata [geodata]="selectedPlace"></app-geodata> 
+
+      <button md-raised-button (click)="onDeSelect()">Back</button>
+      <button md-raised-button (click)="onDeSelect()">Save</button>
+  </form>
+</div>
+
+ <div *ngIf="!selectedPlace">
+     <div class="floatright rightM100">
+             <md-input-container class="searchPlaces">
+              <input mdInput #placeSearch md-autofocus type="search" (input)="term$.next($event.target.value)" placeholder="Enter Id or Place" />
+          </md-input-container>
+          <button md-raised-button color="accent" (click)="add(placeSearch.value)"><md-icon>add</md-icon> </button> 
+          </div>
+  <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp full-width">
+        <thead align="left">
+          <tr>
+            <div *ngIf="!appservice.admin">
+                  <th class="Id">Id</th>
+                  <th class="mdl-data-table__cell--non-numeric">Pid<br>Did</th>
+                  <th class="mdl-data-table__cell--non-numeric">Country<br>Name</th>
+                  <th class="mdl-data-table__cell--non-numeric">Source<br>Place</th>
+                  <th>Lat<br>Lng</th>
+                  <th>Type<br>Qual</th>
+                  <th class="mdl-data-table__cell--non-numeric">Map<br>Address</th>
+                  <th class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></th>
+                  <th class="mdl-data-table__cell--non-numeric">Delete</th> 
+                  <th class="mdl-data-table__cell--non-numeric">Detail</th>
+              </div>
+              <div *ngIf="appservice.admin">
+                <th class="mdl-data-table__cell--non-numeric">Id</th>
+                <th class="mdl-data-table__cell--non-numeric">First<br>Last</th>
+                <th class="mdl-data-table__cell--non-numeric">User</th>
+                <th class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></th>
+                <th class="mdl-data-table__cell--non-numeric">Delete</th> 
+                <th class="mdl-data-table__cell--non-numeric">Detail</th>
+             </div>
+          </tr>
+        </thead>
+  <tbody>
+  <tr *ngFor="let place of places" (click)="onSelect(place)"
+      [class.selected]="place === selectedPlace" class="list-group-item">
+          <div *ngIf="!appservice.admin">
+                <td><b>{{place.Id}}</b></td> 
+                <td><b>{{place.Pid}}</b><br>{{place.Did}}</td> 
+                <td>{{place.Country}}<br>{{place.Name}}</td> 
+                <td>{{place.GeoSource}}<br>{{place.GeoPlaceId}}</td>
+                <td>{{place.GeoType}}<br>{{place.GeoType}}</td>
+                <td>{{place.GeoType}}<br>{{place.GeoQual}}</td>
+                <td>{{place.MapAddress}}</td>
+                <td  class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></td>
+                <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(place); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
+                <td class="mdl-data-table__cell--non-numeric"><button class="md-button" redtoggle (click)="gotoDetail(place); $event.stopPropagation()"><md-icon>list</md-icon></button></td>              
+        </div>
+        <div *ngIf="appservice.admin">
+                <td><b>{{place.Id}}</b></td> 
+                <td>{{place.DFC}}<br>{{place.DLC}}</td> 
+                <td>{{place.User}}</td> 
+                <td class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></td>
+                <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(user); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
+                <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="gotoDetail(place); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
+          </div>
+      </tr>
+  </tbody>
+  </table>
+</div>

@@ -1,0 +1,35 @@
+.toggle{
+	color:red;
+}
+
+#page-padding {
+	padding: 0 2.5em 2.5em 2.5em; 
+}
+.full-width {
+  width: 100%;
+}
+
+.floatright{
+	align-self: right;
+	float: right;
+	width: 400px;
+}
+.leftm5{
+	padding-right: 50dp;
+	padding-left: 10dp;
+}
+md-input-container{
+	width: 200px;
+}
+
+.personbutton{width: 80px;}
+
+.personform{
+    width: 300px;
+}
+.floatright{
+float: right;
+}
+.tablewidth{
+    width: 850px;
+}

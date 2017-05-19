@@ -1,0 +1,66 @@
+    .Id{width: 50dp;}
+    .DFC{width: 150dp;}
+    .DLC{width: 90dp;}
+    .User{width: 50dp;}
+    .Lang{width: 50dp;}
+	.Acct{width: 100dp;}
+	.Country{width: 150dp;}
+	.Did{width: 1000dp;}
+	.Admin{width: 50dp;}
+	.LangEd{width: 30dp;}
+	.Sales{width: 150dp;}
+	.UserName{width: 4000dp;}
+	.Pass{width: 80dp;}
+	.Email{width: 400dp;}
+	.EmailConfirm{width: 100dp;}
+	.Agent{width: 100dp;}
+	.Source{width: 50dp;}
+	.IP{width: 50dp;}
+	.Followups{width: 50dp;}
+	.DriveMax{width: 50dp;}
+	.DriveMin{width: 50dp;}
+	.DriveRate{width: 50dp;}
+	.DriveFee{width: 50dp;}
+	.MapPrefs{width: 150dp;}
+	.MailPrefs{width: 150dp;}
+	.MatchPrefs{width: 150dp;}
+	.LangBar{width: 150dp;}
+
+	.toggle{
+		color:red;
+	}
+
+	#page-padding {
+		padding: 0 2.5em 2.5em 2.5em; 
+	}
+.full-width {
+  width: 100%;
+}
+.searchwidth{
+	width: 300px;
+}
+.rightM100{
+	margin-right:100px;
+}
+.floatright{
+	float: right;
+}
+.leftm5{
+	padding-right: 50dp;
+	padding-left: 10dp;
+}
+.selectedUser md-input-container{
+	display: block;
+}
+.userform{
+	  width: 300px;
+}
+.searchusers{
+	width: 200px;
+}
+.userbutton{
+	float: right;
+	width:60px;
+} .redhot{
+	color: red;
+}

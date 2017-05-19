@@ -1,0 +1,23 @@
+.active{
+    background-color: blue;
+}
+.error{
+    background-color: red;
+}
+.toggle{
+     float: right;
+     margin-right: 200px;
+}
+.title{
+    background-color: yellow;
+}
+.blueflash{
+    color: blue;
+}
+.redhot{
+    color:yellow;
+}
+.sebm-google-map-container {
+  height: 300px;
+	width: 400px;
+}

@@ -1,0 +1,66 @@
+
+  <div class="container">	
+    <div *ngIf="selectedSched86" class="selectedSched86">
+       <div class="row">
+        <div class="card text-xs-center">
+                <div class="card-block">
+                        <div class="card-header">
+                <fieldset class="form-group  col-md-12">
+                  {{selectedSched86.EventName}}
+                    </fieldset>
+                <fieldset class="form-group col-md-3">
+                        {{selectedSched86.Id}} 
+                </fieldset>
+                <fieldset class="form-group col-md-3">
+                        {{selectedSched86.DFC | date}} 
+                </fieldset>
+                <fieldset class="form-group col-md-3">
+                        {{selectedSched86.DLC | date}} 
+                </fieldset>
+                <fieldset class="form-group col-md-3">
+                        {{selectedSched86.User}}
+                </fieldset>
+                <fieldset class="form-group  col-md-12">
+                      <label>RideSchedId: </label>
+                      <input [(ngModel)]="selectedSched86.RideSchedId" placeholder="RideSchedId"/>
+                </fieldset>
+                <fieldset class="form-group  col-md-12">
+                      <label>DriveSchedId: </label>
+                      <input [(ngModel)]="selectedSched86.DriveSchedId" placeholder="DriveSchedId" />
+                  </fieldset>
+                  <fieldset class="form-group  col-md-12">
+                        <label>DayOfWeek: </label>
+                        <input [(ngModel)]="selectedSched86.DayOfWeek" placeholder="DayOfWeek" />
+                </fieldset>
+          
+                <button class="btn btn-warning" (click)="onDeSelect()">Back</button>
+                <button class="btn btn-success" (click)="onDeSelect()">Save</button>
+</div></div></div></div></div>
+<div *ngIf!="selectedSched86">
+  <div class="row">
+    <div class="card text-xs-center">
+          <div class="card-block">
+              <label>Search Sched86s by User Id:</label> <input #sched86Search (input)="term$.next($event.target.value)" placeholder="Enter User Id" />
+              <button class="btn btn-danger" (click)="add(sched86Search.value)"> Add </button>
+          </div>
+          <div class="table-responsive">
+                <table class="table table-striped">
+                    <tbody>
+                 <tr *ngFor="let sched86 of sched86s" (click)="onSelect(sched86)"
+                 [class.selected]="sched86 === selectedSched86" class="list-group-item">
+                        <td>{{sched86.Id}}</td>
+                        <td>{{sched86.DFC}}</td> 
+                        <td>{{sched86.DLC}}</td>
+                        <td>{{sched86.User}}</td>
+                        <td>{{sched86.RideSchedId}}</td>
+                        <td>{{sched86.DriveSchedId}}</td>
+                        <td>{{sched86.DayOfWeek}}</td>
+                        <td><button class="btn-sm btn-danger"
+                    (click)="delete(event); $event.stopPropagation()">x</button></td>
+                </tr>
+            </tbody></table>
+        </div>
+</div></div></div></div>
+
+
+ 

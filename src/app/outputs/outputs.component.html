@@ -1,0 +1,136 @@
+
+<div *ngIf="selectedOutput" class="selectedOutput">
+        <row-meta [rowmetadata]="selectedOutput"></row-meta>
+<form #commentformRef="ngForm" (ngSubmit)="onSubmit(UserFormRef.value)" name="CommentForm" class="commentform">                  
+<md-input-container>
+        <input mdInput type="number" name="Admin"  #adminRef="ngModel"  [(ngModel)]="selectedOutput.Admin" placeholder="Admin"/>
+</md-input-container>
+<md-input-container>
+<input mdInput type="number" name="Did"  #didRef="ngModel" [(ngModel)]="selectedOutput.Did" placeholder="Did" />
+</md-input-container>
+<md-input-container>                                 
+        <input mdInput type="number" name="Pid"  #pidRef="ngModel"  [(ngModel)]="selectedOutput.Pid" placeholder="Pid" />
+</md-input-container>
+<md-input-container>                                 
+        <input mdInput type="email" name="PidDFC"  #piddfcRef="ngModel"  [(ngModel)]="selectedOutput.PidDFC" placeholder="PidDFC">
+</md-input-container>
+<md-input-container>                                  
+        <input mdInput type="text" name="OutputType"  #outputtypeRef="ngModel"  [(ngModel)]="selectedOutput.OutputType" placeholder="OutputType" />
+</md-input-container>
+        <md-input-container>                                       
+        <input mdInput type="number" name="Trys"  #trysRef="ngModel"  [(ngModel)]="selectedOutput.Trys" placeholder="Trys" />
+</md-input-container>
+        <md-input-container>                                 
+        <input mdInput type="number" name="Sent"  #sentRef="ngModel"  [(ngModel)]="selectedOutput.Sent" placeholder="Sent" />
+</md-input-container>
+        <md-input-container>                                
+        <input mdInput type="number" name="Delay"  #delayRef="ngModel"  [(ngModel)]="selectedOutput.Delay" placeholder="Delay" />
+</md-input-container>
+        <md-input-container>                              
+        <input mdInput type="email" name="Email"  #emailRef="ngModel"  [(ngModel)]="selectedOutput.Email" placeholder="Email" />
+</md-input-container>
+<md-input-container>                             
+        <input mdInput type="number" name="MatchPid"  #matchpidRef="ngModel"  [(ngModel)]="selectedOutput.MatchPid" placeholder="MatchPid" />
+</md-input-container>
+<md-input-container>    
+        <input mdInput type="date" name="TripDate"  #tripdateRef="ngModel"  [(ngModel)]="selectedOutput.TripDate" placeholder="TripDate" />
+</md-input-container>
+<md-input-container>                
+        <input mdInput type="text" name="FromName"  #fromnameRef="ngModel"  [(ngModel)]="selectedOutput.FromName" placeholder="FromName" />
+</md-input-container>
+<md-input-container>               
+        <input mdInput type="text" name="ToName"  #tonameRef="ngModel"  [(ngModel)]="selectedOutput.ToName" placeholder="ToName" />
+</md-input-container>
+<md-input-container>            
+        <input mdInput type="number" name="CellDom"  #celldomRef="ngModel"  [(ngModel)]="selectedOutput.CellDom" placeholder="CellDom" />
+</md-input-container>
+<md-input-container>      
+        <input mdInput type="email" name="M_Phone"  #m_phoneRef="ngModel"  [(ngModel)]="selectedOutput.M_Phone" placeholder="M_Phone" />
+</md-input-container>
+<md-input-container>               
+        <input mdInput type="emanumberil" name="RunId"  #runidRef="ngModel"  [(ngModel)]="selectedOutput.RunId" placeholder="RunId" />
+</md-input-container>
+<md-input-container>        
+        <input mdInput type="number" name="CellValid"  #cellvalidRef="ngModel"  [(ngModel)]="selectedOutput.CellValid" placeholder="CellValid" />
+</md-input-container>
+<md-input-container> 
+        <input mdInput type="number" name="RD"  #rdRef="ngModel"  [(ngModel)]="selectedOutput.RD" placeholder="RD" />
+</md-input-container>
+<md-input-container>      
+        <input mdInput type="number" name="RDId"  #rdidRef="ngModel"  [(ngModel)]="selectedOutput.RDId" placeholder="RDId" />
+</md-input-container>
+<md-input-container>       
+        <input mdInput type="date" name="RDDFC"  #rddfcRef="ngModel"  [(ngModel)]="selectedOutput.RDDFC" placeholder="RDDFC" />
+</md-input-container>
+</form>
+                        
+</div>
+<div *ngIf="!selectedOutput">
+       <div class="floatright MRight100">
+          <md-input-container class="searchOutputs">
+              <input type="search" mdInput #outputSearch  md-autofocus type="search" (input)="term$.next($event.target.value)" placeholder="Enter Id or Output" />
+          </md-input-container>
+          <button md-raised-button color="accent" (click)="add(outputsearch.value)"><md-icon>add</md-icon> </button> 
+        </div>    
+        <table class="tablewidth mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+                <thead align="left">
+                <tr>
+                <div *ngIf="!appservice.admin">
+                        <th><b>Id</b><br>To</th>
+                        <th>Domain<br>Lang</th>
+                        <th>Tries<br>Sent</th>
+                        <th>OutputType<br>Email</th>
+                        <th>From<br>To</th>
+                        <th>Delay<br>PidDFC</th>
+                        <th>RunId<br>MatchPid</th>
+                        <th>Trip Date</th>
+                        <th>CellDom<br>M_Phone</th>
+                        <th>CellValid<br>RD</th>
+                        <th>RDId<br>RDDFC</th>
+                        <th class="full-width mdl-data-table__cell--non-numeric"><div class="spacer"></div></th>
+                        <th class="mdl-data-table__cell--non-numeric">Delete</th> 
+                        <th class="mdl-data-table__cell--non-numeric">Detail</th>
+                </div>
+                <div *ngIf="appservice.admin">
+                        <th><b>Id</b><br>To</th>
+                        <th>First<br>Last</th>
+                        <th>User<br>Admin</th>
+                        <th class="full-width mdl-data-table__cell--non-numeric"></th>
+                        <th class="mdl-data-table__cell--non-numeric">Delete</th> 
+                        <th class="mdl-data-table__cell--non-numeric">Detail</th>
+                </div>
+                </tr></thead><tbody>
+
+
+        <tr *ngFor="let output of outputs" (click)="onSelect(output)"
+        [class.selected]="output === selectedOutput" class="list-group-item">
+                <div *ngIf="!appservice.admin">
+                        <td><b>{{output.Id}}</b><br>{{output.Pid}}</td>
+                        <td>{{output.Did}}<br>{{output.Lang}}</td>
+                        <td>{{output.Trys}}<br>{{output.Sent}}</td> 
+                        <td>{{output.OutputType}}<br>{{output.Email  | slice:0:10}}</td>
+                        <td>{{output.FromName}}<br>{{output.ToName}}</td>
+                        <td>{{output.Delay}}<br>{{output.PidDFC}}</td>
+                        <td>{{output.RunId}}<br>{{output.MatchPid}}</td>
+                        <td>{{output.TripDate}}</td>
+                        <td>{{output.CellDom}}<br>{{output.M_Phone}}</td>
+                        <td>{{output.CellValid}}<br>{{output.RD}}</td>
+                        <td>{{output.RDId}}<br>{{output.RDDFC }}</td>
+                        <td  class="full-width mdl-data-table__cell--non-numeric"><div class="spacer"></div></td>
+                        <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(output); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
+                        <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="gotoDetail(output); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
+                 
+                </div>
+                <div *ngIf="appservice.admin">
+                        <td><b>{{output.Id}}</b><br>{{output.Pid}}</td>
+                        <td>{{output.DFC | date}}<br>{{output.DLC | date}}</td>
+                        <td>{{output.User}}<br>{{output.Admin}}</td>
+                        <td  class="full-width mdl-data-table__cell--non-numeric"></td>
+                        <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(output); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
+                        <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="gotoDetail(output); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
+   
+                </div>
+ 
+        </tr>
+        </tbody></table>
+</div>

@@ -1,0 +1,147 @@
+<div *ngIf="selectedDrive"class="selecteddrive">
+      <row-meta [rowmetadata]="selectedDrive"></row-meta>
+  <form #DriveFormRef="ngForm" (ngSubmit)="onSubmit(DriveFormRef.value)" name="DriveForm" class="driveform">      
+     <md-input-container>
+         <input type="number" mdInput #DidRef="ngModel" [(ngModel)]="selectedDrive.Did"  name="Did" placeholder="Did">
+    </md-input-container>
+     <md-input-container>
+         <input type="number" mdInput #PidRef="ngModel" [(ngModel)]="selectedDrive.Pid"  name="Pid" placeholder="Pid">
+   </md-input-container>
+     <md-input-container>
+         <input type="number" mdInput #ProcessedRef="ngModel" [(ngModel)]="selectedDrive.Processed"  name="Processed" placeholder="Processed">
+    </md-input-container>
+   <md-input-container>
+         <input type="number" mdInput #PORef="ngModel" [(ngModel)]="selectedDrive.PO"  name="PO" placeholder="PO">
+   </md-input-container>
+     <md-input-container>
+         <input type="number" mdInput #DriveFromIdRef="ngModel" [(ngModel)]="selectedDrive.DriveFromId"  name="DriveFromId" placeholder="DriveFromId">
+   </md-input-container>
+     <md-input-container>
+         <input type="text" mdInput #DriveFromNameRef="ngModel" [(ngModel)]="selectedDrive.DriveFromName"  name="DriveFromName" placeholder="DriveFromName">
+  </md-input-container>
+     <md-input-container>
+         <input type="text" mdInput #DriveFromLatRef="ngModel" [(ngModel)]="selectedDrive.DriveFromLat"  name="DriveFromLat" placeholder="DriveFromLat">
+   </md-input-container>
+     <md-input-container>
+         <input type="text" mdInput #DriveFromLngRef="ngModel" [(ngModel)]="selectedDrive.DriveFromLng"  name="DriveFromLng" placeholder="DriveFromLng">
+    </md-input-container>
+     <md-input-container>
+         <input type="number" mdInput #DriveToIdRef="ngModel" [(ngModel)]="selectedDrive.DriveToId"  name="DriveToId" placeholder="DriveToId">
+    </md-input-container>
+     <md-input-container>
+         <input type="text" mdInput #DriveToNameRef="ngModel" [(ngModel)]="selectedDrive.DriveToName"  name="DriveToName" placeholder="DriveToName">
+  </md-input-container>
+     <md-input-container>
+         <input type="text" mdInput #DriveToLatRef="ngModel" [(ngModel)]="selectedDrive.DriveToLat"  name="DriveToLat" placeholder="DriveToLat">
+    </md-input-container>
+     <md-input-container>
+         <input type="text" mdInput #DriveToLngRef="ngModel" [(ngModel)]="selectedDrive.DriveToLng"  name="DriveToLng" placeholder="DriveToLng">
+   </md-input-container>
+    <md-input-container>
+         <input type="number" mdInput #DriveDistanceRef="ngModel" [(ngModel)]="selectedDrive.DriveDistance"  name="DriveDistance" placeholder="DriveDistance">
+   </md-input-container>
+     <md-input-container>
+         <input type="number" mdInput #DriveDurationRef="ngModel" [(ngModel)]="selectedDrive.DriveDuration"  name="DriveDuration" placeholder="DriveDuration">
+   </md-input-container>
+     <md-input-container>
+         <input type="date" mdInput type="date" #DriveDateRef="ngModel" [(ngModel)]="selectedDrive.DriveDate"  name="DriveDate" placeholder="DriveDate">
+    </md-input-container>
+     <md-input-container>
+         <input type="time" mdInput type="time" #DriveStartTimeRef="ngModel" [(ngModel)]="selectedDrive.DriveStartTime"  name="DriveStartTime" placeholder="DriveStartTime">
+    </md-input-container>
+     <md-input-container>
+         <input type="time" mdInput type="time" #DriveEndTimeRef="ngModel" [(ngModel)]="selectedDrive.DriveEndTime"  name="Id" placeholder="DriveEndTime">
+    </md-input-container>
+     <md-input-container>
+         <input type="datetime" mdInput type="datetime" #DriveStartRef="ngModel" [(ngModel)]="selectedDrive.DriveStart"  name="Id" placeholder="DriveStart">
+    </md-input-container>
+     <md-input-container>
+         <input type="datetime" mdInput  type="datetime" #DriveEndRef="ngModel" [(ngModel)]="selectedDrive.DriveEnd"  name="Id" placeholder="DriveEnd">
+   </md-input-container>
+   <md-input-container>
+         <input type="number" mdInput #DriveMaxRef="ngModel" [(ngModel)]="selectedDrive.DriveMax"  name="Id" placeholder="DriveMax">
+   </md-input-container>
+   <md-input-container>
+         <input type="number" mdInput #DriveMinRef="ngModel" [(ngModel)]="selectedDrive.DriveMin"  name="Id" placeholder="DriveMin">
+  </md-input-container>
+   <md-input-container>
+         <input type="number" mdInput #DriveRateRef="ngModel" [(ngModel)]="selectedDrive.DriveRate"  name="Id" placeholder="DriveRate">
+  </md-input-container>
+ <md-input-container>
+         <input type="number" mdInput #DriveFeeRef="ngModel" [(ngModel)]="selectedDrive.DriveFee"  name="Id" placeholder="DriveFee">
+  </md-input-container>
+    <button md-raised-button (click)="onDeSelect()">Back</button>
+    <button md-raised-button (click)="onDeSelect()">Save</button>
+   </form> 
+</div>
+<div *ngIf="!selectedDrive">
+       <div class="floatright searchwidth MRight100">
+            <md-input-container>
+                <input mdInput type="search"  #driveSearch  md-autofocus type="search" (input)="term$.next($event.target.value)" placeholder="User Id or DriveFromName" />
+            </md-input-container>
+            <button md-raised-button color="accent"  (click)="add(eventSearch.value)"><md-icon>add</md-icon> </button> 
+        </div>
+        <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp full-width">
+        <thead align="left">
+          <tr>
+            <div *ngIf="!appservice.admin">
+                <th>Id</th>
+                <th>Pid<br>Did</th>
+                <th class="mdl-data-table__cell--non-numeric">DriveFromName<br>DriveToName</th>
+                <th class="mdl-data-table__cell--non-numeric">DriveDate</th>
+                <th class="mdl-data-table__cell--non-numeric">DriveStart<br>DriveEnd</th>
+                <th>Min<br>Max</th>
+                <th>Dist<br>Duration</th>
+                <th class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></th>
+                <th class="mdl-data-table__cell--non-numeric">Delete</th> 
+                <th class="mdl-data-table__cell--non-numeric">Details</th>
+            </div>
+            <div *ngIf="appservice.admin">
+                <th>Id</th>
+                <th>First<br>Last</th>
+                <th>Done<br>Sched</th>
+                <th>PO<br>User</th>
+                <th>From</th>
+                <th>Lat<br>Lng</th>
+                <th>To</th>
+                <th>Lat<br>Lng</th>
+                <th>Start<br>End</th>
+                <th class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></th>
+                <th class="mdl-data-table__cell--non-numeric">Delete</th> 
+                <th class="mdl-data-table__cell--non-numeric">Details</th>
+            </div>
+          </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let drive of drives" (click)="onSelect(drive)"
+            [class.selected]="drive === selectedDrive" class="list-group-item">
+          <div *ngIf="!appservice.admin">
+                <td><b>{{drive.Id}}</b></td>
+                <td><b>{{drive.Pid}}</b><br>{{drive.Did}}</td>
+                <td>{{drive.DriveFromName}}<br>{{drive.DriveToName}}</td>
+                <td>{{drive.DriveDate | date}}</td>
+                <td>{{drive.DriveStartTime}}<br>{{drive.DriveEndTime}}</td>
+                <td>{{drive.DriveMin}}<br>{{drive.DriveMax}}</td>
+                <td>{{drive.DriveDistance}}<br>{{drive.DriveDuration}}</td>
+                <td>{{drive.DriveRate}}<br>{{drive.DriveFee | currency:'USD':true}}</td>
+                <td  class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></td>
+                <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(drive); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
+                <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="gotoDetail(drive); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
+             </div>
+          <div *ngIf="appservice.admin">
+                <td><b>{{drive.Id}}</b></td>
+                <td>{{drive.DFC}}<br>{{drive.DLC}}</td>
+                <td>{{drive.Processed}}<br>{{drive.SchedId}}</td>
+                <td>{{drive.PO}}<br>{{drive.User}}</td>
+                <td>{{drive.DriveFromId}}</td>
+                <td>{{drive.DriveFromLat}}<br>{{drive.DriveFromLng}}</td>
+                <td>{{drive.DriveToId}}</td>
+                <td>{{drive.DriveToLat}}<br>{{drive.DriveToLng}}</td>
+                <td>{{drive.DriveStart}}<br>{{drive.DriveEnd}}</td>
+                <td  class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></td>
+                <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(drive); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
+                <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="gotoDetail(drive); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
+              </div>
+        </tr>
+        </tbody></table>
+</div>

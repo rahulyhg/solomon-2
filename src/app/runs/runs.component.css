@@ -1,0 +1,29 @@
+.full-width {
+  width: 100%;
+}
+.searchwidth{
+	width: 300px;
+}
+.rightM100{
+	margin-right:100px;
+}
+.floatright{
+	float: right;
+}
+.leftm5{
+	padding-right: 50dp;
+	padding-left: 10dp;
+}
+.selectedUser md-input-container{
+	display: block;
+}
+.userform{
+	  width: 300px;
+}
+.searchruns{
+	width: 200px;
+}
+.runbutton{
+	float: right;
+	width:60px;
+}

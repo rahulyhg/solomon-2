@@ -1,0 +1,138 @@
+
+       <div *ngIf="selectedComment" class="selectedComment"> 
+         <row-meta [rowmetadata]="selectedComment"></row-meta>
+               <form #CommentFormRef="ngForm" (ngSubmit)="onSubmit(CommentFormRef.value)" name="CommentForm" class="commentform">      
+                <md-input-container>
+                    <input mdInput type="number"  name="PO"  #poRef="ngModel"  [(ngModel)]="selectedComment.PO" placeholder="PO"/>
+               </md-input-container>
+                <md-input-container>
+                  <input  mdInput type="number"  name="RideId"  #rideidRef="ngModel"  [(ngModel)]="selectedComment.RideId" placeholder="RideId"/>
+               </md-input-container>
+                <md-input-container>
+                  <input  mdInput type="number"  name="RidePid"  #ridepidRef="ngModel"  [(ngModel)]="selectedComment.RidePid" placeholder="RidePid"/>
+               </md-input-container>
+                <md-input-container>
+                <input  mdInput type="date"  name="RideDate"  #ridedateRef="ngModel"  [(ngModel)]="selectedComment.RideDate" placeholder="RideDate"/>
+               </md-input-container>
+                <md-input-container>
+                <input  mdInput type="time"  name="RideTime"  #ridetimeRef="ngModel"  [(ngModel)]="selectedComment.RideTime" placeholder="RideTime"/>
+               </md-input-container>
+                <md-input-container>
+                <input  mdInput type="text"  name="RideToName"  #ridetonameRef="ngModel"  [(ngModel)]="selectedComment.RideToName" placeholder="RideToName"/>
+               </md-input-container>
+              <md-input-container>
+                <input  mdInput type="text" name="RideFromName"  #ridefromnameRef="ngModel"   [(ngModel)]="selectedComment.RideFromName" placeholder="RideFromName"/>
+              </md-input-container>
+              <md-input-container>
+                <input  mdInput type="number"  name="RideScore"  #ridescoreRef="ngModel"  [(ngModel)]="selectedComment.RideScore" placeholder="RideScore"/>
+             </md-input-container> 
+              <md-input-container>
+                <input  mdInput type="text"  name="RideComments"  #ridecommentsRef="ngModel"  [(ngModel)]="selectedComment.RideComments" placeholder="RideComments"/>
+             </md-input-container>
+              <md-input-container>
+                <input  mdInput type="number"  name="DriveId"  #driveidRef="ngModel"  [(ngModel)]="selectedComment.DriveId" placeholder="DriveId"/>
+             </md-input-container>
+              <md-input-container>
+                <input  mdInput type="number"  name="DrivePid"  #drivepidRef="ngModel"  [(ngModel)]="selectedComment.DrivePid" placeholder="DrivePid"/>
+           </md-input-container>
+              <md-input-container>
+                <input  mdInput type="date"  name="DriveDate"  #drivedateRef="ngModel"  [(ngModel)]="selectedComment.DriveDate" placeholder="DriveDate"/>
+             </md-input-container>
+              <md-input-container>
+                <input  mdInput type="time"  name="DriveTime"  #drivetimeRef="ngModel"  [(ngModel)]="selectedComment.DriveTime" placeholder="DriveTime"/>
+             </md-input-container>
+              <md-input-container>
+                <input  mdInput type="text" name="DriveToName"  #drivetonameRef="ngModel"   [(ngModel)]="selectedComment.DriveToName" placeholder="DriveToName"/>
+             </md-input-container>
+              <md-input-container>
+                <input  mdInput type="text"  name="DriveFromName"  #drivefromnameRef="ngModel"  [(ngModel)]="selectedComment.DriveFromName" placeholder="DriveFromName"/>
+             </md-input-container>
+              <md-input-container>
+                <input  mdInput type="number" name="DriveScore"  #drivescoreRef="ngModel"   [(ngModel)]="selectedComment.DriveScore" placeholder="DriveScore"/>
+             </md-input-container>
+              <md-input-container>
+                <input  mdInput type="text" name="DriveComments"  #drivecommentsRef="ngModel"   [(ngModel)]="selectedComment.DriveComments" placeholder="DriveComments"/>
+             </md-input-container>
+              <md-input-container>
+                <input  mdInput type="number"  name="Charge"  #chargeRef="ngModel"    [(ngModel)]="selectedComment.Charge" placeholder="Charge"/>
+             </md-input-container>
+        <button md-raised-button type="button"  (click)="onDeSelect()">Back</button>
+        <button md-raised-button (click)="onDeSelect()">Save</button>
+      </form>
+  </div>
+   <div *ngIf="!selectedComment">
+        <div class="floatright rightM100">
+            <md-input-container class="searchComments">
+                <input mdInput type="search"  #commentSearch md-autofocus (input)="term$.next($event.target.value)" placeholder="Enter Id or Name" />
+          </md-input-container>
+          <button md-raised-button color="accent" (click)="add(commentSearch.value)"><md-icon>add</md-icon></button> 
+        </div>
+    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp full-width">
+        <thead align="left">
+          <tr>
+            <div *ngIf="!appservice.admin">
+              <th><b>Id</b><br>PO</th>
+              <th>RideId<br>RidePid</th>
+              <th>Date<br>Time</th>
+              <th>Ride_From<br>Ride_To</th>
+               <th>Score</th>
+              <th>Comments</th>
+              <th>DriveId<br>DrivePid</th>
+              <th>Date<br>Time</th>
+              <th>Drive From<br>Drive To</th>
+              <th>Score</th>
+              <th>Comments</th>
+              <th class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></th>
+              <th class="mdl-data-table__cell--non-numeric">Delete</th> 
+              <th class="mdl-data-table__cell--non-numeric">Details</th>
+            </div>
+            <div *ngIf="appservice.admin">
+                <th>Id</th>
+                <th>First<br>Last</th>
+                <th>PO<br>User</th>
+                <th class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></th>
+                <th class="mdl-data-table__cell--non-numeric">Delete</th> 
+                <th class="mdl-data-table__cell--non-numeric">Details</th>
+            </div>
+          </tr>
+        </thead>
+        <tbody>
+	  <tr *ngFor="let comment of comments" (click)="onSelect(comment)"
+      [class.selected]="comment === selectedComment"  class="list-group-item">
+      <div *ngIf="!appservice.admin">
+        <td><b>{{comment.Id}}</b><br>{{comment.PO}}</td> 
+        <td><b>{{comment.RideId}}</b><br>{{comment.RidePid}}</td> 
+        <td><b>{{comment.RideDate| date}}</b><br>{{comment.RideTime}}</td> 
+        <td><b>{{comment.RideToName}}</b><br>{{comment.RideFromName}}</td> 
+			  <td>{{comment.RideScore}}</td> 
+				<td>{{comment.RideComments}}</td> 
+        <td><b>{{comment.DriveId}}</b><br>{{comment.DrivePid}}</td> 
+        <td><b>{{comment.DriveDate| date}}</b><br>{{comment.DriveTime}}</td> 
+        <td><b>{{comment.DriveToName}}</b><br>{{comment.DriveFromName}}</td> 
+			  <td>{{comment.DriveScore}}</td> 
+				<td>{{comment.DriveComments}}</td> 
+        <td class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></td>
+        <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(user); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
+        <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="gotoDetail(user); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
+      </div>
+      <div *ngIf="appservice.admin">
+        <td><b>{{comment.Id}}</b></td> 
+        <td>{{comment.DFC| date}}</td>
+				<td>{{comment.DLC | date}}</td>
+				<td>{{comment.DrivePid}}</td> 
+				<td>{{comment.DriveDate | date}}</td> 
+				<td>{{comment.DriveTime}}</td> 
+				<td>{{comment.DriveToName}}</td> 
+				<td>{{comment.DriveFromName}}</td> 
+				<td>{{comment.DriveScore}}</td> 
+				<td>{{comment.DriveComments}}</td> 
+				<td>{{comment.Charge}}</td> 
+        <td  class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></td>
+        <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(user); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
+        <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="gotoDetail(user); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
+      </div>
+    </tr>
+</tbody>
+ </table>
+</div>
+

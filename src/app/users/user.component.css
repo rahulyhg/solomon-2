@@ -1,0 +1,38 @@
+.table{
+    width:250px;
+    padding: 1px;
+    border: 1px solid black;
+    max-height: 300px;
+
+}
+
+.floattable{
+    float:left;
+}
+.example-form {
+  width: 500px;
+}
+
+.example-full-width {
+  width: 100%;
+}
+.red{
+  color: red;
+}
+.driverecord{
+  padding-bottom: 10px;
+  padding-top: 5px;
+}
+.left{
+  text-align: left;
+}
+.ride{
+  background-color: lawngreen;
+}
+.drive{
+  background-color: cornflowerblue;
+}
+.container{
+  display: -ms-grid;
+
+}

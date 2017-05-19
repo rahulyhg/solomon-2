@@ -1,0 +1,108 @@
+
+    <div *ngIf="selectedEvent" class="selectedevent">
+        <row-meta [rowmetadata]="selectedEvent"></row-meta>   
+        <form #EventFormRef="ngForm" (ngSubmit)="onSubmit(EventFormRef.value)" name="EventForm" class="eventform">
+               <div class="firstcol"> 
+                        <md-input-container class="EventName"> 
+                        <input mdInput #nameRef="ngModel" required  [(ngModel)]="selectedEvent.EventName" name="Name" placeholder="Enter Name">
+                                <div *ngIf="nameRef.error?.required">
+                                <div ng-message="required">Event Name is required!</div>
+                                </div>
+                        </md-input-container>
+                        <md-input-container class="Descrip"> 
+                                <input mdInput #eventdescripRef="ngModel" required  [(ngModel)]="selectedEvent.Descrip" name="Description" placeholder="Enter Description">
+                        </md-input-container>
+                          <md-input-container class="MapAddress"> 
+                                <input mdInput #eventmapaddressRef="ngModel" required  [(ngModel)]="selectedEvent.MapAddress" name="MapAddress" placeholder="Enter Address">
+                        </md-input-container>
+                        <app-geodata [geodata]="selectedEvent"></app-geodata> 
+                         <md-input-container class="EventDate"> 
+                                <input mdInput type="date" #eventdateRef="ngModel" required  [(ngModel)]="selectedEvent.EventDate" name="Event Date" placeholder="Enter Date">
+                        </md-input-container>
+                        <md-input-container class="StartTime"> 
+                                <input mdInput type="time" #eventstarttimeRef="ngModel" required  [(ngModel)]="selectedEvent.StartTime" name="StartTime" placeholder="Start Time">
+                        </md-input-container>
+                        <md-input-container class="EndTime"> 
+                                <input mdInput type="time" #eventendtimeRef="ngModel" required  [(ngModel)]="selectedEvent.EndTime" name="EndTime" placeholder="End time">
+                        </md-input-container>
+                     <div class="eventbutton">
+                        <button md-raised-button (click)="onDeSelect()">Back</button>
+                        <button md-raised-button (click)="onDeSelect()">Save</button>
+                     </div>
+                 </div>
+        </form>
+</div>
+
+<div *ngIf="!selectedEvent">
+        <div class="floatright MRight100">
+          <md-input-container class="searchEvents">
+              <input  type="search" mdInput #eventSearch  md-autofocus type="search" (input)="term$.next($event.target.value)" placeholder="Enter Id or Event" />
+          </md-input-container>
+          <button md-raised-button color="accent" (click)="add(eventSearch.value)"><md-icon>add</md-icon> </button> 
+        </div>    
+        <table class="tablewidth mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+                <thead align="left">
+                <tr>
+                <div *ngIf="!appservice.admin">
+                        <th><b>Id</b></th>
+                        <th>Pid<br>Did</th>
+                        <th class="EventName red">Event Name</th>
+                        <th class="Phone">Phone<br>Date</th>
+                        <th class="mdl-data-table__cell--non-numeric">Start<br>End</th>
+                        <th class="mdl-data-table__cell--non-numeric">SiteName<br>MapAddress</th>
+                        <th class="mdl-data-table__cell--non-numeric">Website</th>
+                        <th class="full-width mdl-data-table__cell--non-numeric"></th>
+                        <th class="mdl-data-table__cell--non-numeric">Delete</th> 
+                        <th class="mdl-data-table__cell--non-numeric">Detail</th>
+                </div>
+                <div *ngIf="appservice.admin">
+                         <th><b>Id</b></th>
+                        <th>First<br>Last</th>
+                        <th>User<br>Country</th>
+                        <th>Feed<br>Image</th>
+                        <th>Route<br>Source</th>
+                        <th>Lat<br>Lng</th>
+                        <th>Type<br>Qual</th>
+                        <th>Place</th>
+                        <th>Invitation</th>
+                        <th>SearchTerms<br>Descrip</th>
+                        <th class="full-width mdl-data-table__cell--non-numeric"></th>
+                        <th class="mdl-data-table__cell--non-numeric">Delete</th> 
+                        <th class="mdl-data-table__cell--non-numeric">Detail</th>
+                </div>
+                </tr></thead><tbody>
+                 <tr *ngFor="let event of events" (click)="onSelect(event)"
+                 [class.selected]="event === selectedEvent" class="list-group-item">
+                        <div *ngIf="!appservice.admin">
+                                <td class="Id"><b>{{event.Id}}</b></td>
+                                <td class="Id"><b>{{event.Pid}}</b><br>{{event.Did}}</td>
+                                <td class="EventName">{{event.EventName}}</td>
+                                <td class="Phone">{{event.Phone}}<br>{{event.EventDate | date}}</td>
+                                <td class="StartTime">{{event.StartTime}}<br>{{event.EndTime}} </td>
+                                <td class="SiteName">{{event.SiteName}}<br>{{event.MapAddress  | slice:0:30}}</td>
+                                <td class="Invitation">{{event.Website  | slice:0:20}}</td>
+                                <td  class="full-width mdl-data-table__cell--non-numeric"></td>
+                                <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(events); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
+                                <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="gotoDetail(events); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
+                        </div> 
+                        <div *ngIf="appservice.admin">
+                                <td class="Id">{{event.Id}}</td>
+                                <td class="DFC">{{event.DFC | date}}<br>{{event.DLC | date}}</td>
+                                <td class="User">{{event.User}}<br>{{event.Country}} </td>
+                                <td class="Did">{{event.Fid}}<br>{{event.ImgE}}</td>
+                                <td class="Route"> {{event.Route}}<br>{{event.GeoSource}}</td>
+                                <td class="Lat"> {{event.Lat}}<br>{{event.Lng}}</td>
+                                <td class="GeoType"> {{event.GeoType}}<br>{{event.GeoQual}}</td>
+                                <td class="GeoType">{{event.GeoPlaceId}}</td>
+                                <td class="GeoType"> {{event.Invitation}}</td>
+                                <td class="SearchTerms"> {{event.SearchTerms  | slice:0:20}}<br>{{event.Descrip | slice:0:20}}</td>
+                                <td  class="full-width mdl-data-table__cell--non-numeric"></td>
+                                <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(user); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
+                                <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="gotoDetail(user); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
+                        </div> 
+                </tr>
+            </tbody></table>
+        </div>
+
+
+
