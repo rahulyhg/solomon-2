@@ -36,7 +36,9 @@
 <md-slide-toggle class="toggle" [(ngModel)]="appservice.admin" blueflash >Admin Data</md-slide-toggle>
 <md-tab-group>
   <md-tab label="User">
-      <p><b><a routerLink="users"  routerLinkActive="active" md-raised-button color="primary">Users</a></b>
+      <p>
+      <a routerLink="usergrid"  routerLinkActive="active" md-raised-button color="primary">UserGrid</a>
+      <b><a routerLink="users"  routerLinkActive="active" md-raised-button color="primary">Users</a></b>
       <a routerLink="events"  routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" md-raised-button color="primary">Events</a>
       <a routerLink="runs"  routerLinkActive="active" md-raised-button color="primary">Runs</a>
       <a routerLink="rides"  routerLinkActive="active" md-raised-button color="accent">Rides</a>

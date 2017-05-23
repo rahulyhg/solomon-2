@@ -12,30 +12,31 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/operator/toPromise'
+import 'rxjs/add/operator/toPromise';
 
 import {ServicesModule} from './services/services.module';
 import { WidgetsModule } from './widgets/widgets.module';
 
-import { PlaceService }  from './places/places.service';
+import { PlaceService } from './places/places.service';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { UserGridComponent } from './usergrid/usergrid.component';
+/*import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { TableColumn,ColumnMode} from '@swimlane/ngx-datatable';*/
 @NgModule({
   declarations: [
     AppComponent
-
   ],
   imports: [
     BrowserModule,
-    CommonModule, 
+    CommonModule,
     FormsModule,
     HttpModule,
-    WidgetsModule, 
+    WidgetsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule.forRoot(), 
+    MaterialModule,
     ServicesModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDkNUplKQEHpgeBuc4KYEAwg1wR1Ec_yEs'

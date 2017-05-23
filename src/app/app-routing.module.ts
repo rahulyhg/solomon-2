@@ -48,6 +48,7 @@ const appRoutes: Routes = [
     {path: 'people', loadChildren:'./people/people.module#PeopleModule'}, 
     {path: 'comments', loadChildren:'./comments/comments.module#CommentsModule'},
     {path: 'runs', loadChildren:'./runs/runs.module#RunsModule'},
+    {path: 'usergrid', loadChildren:'./usergrid/usergrid.module#UserGridModule'}
     
   
 ];

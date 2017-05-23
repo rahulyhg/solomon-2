@@ -2,7 +2,7 @@
        <row-meta [rowmetadata]="selectedRide"></row-meta>
 From {{selectedRide.RideFromLat}} {{selectedRide.RideFromLng}}<br>
 To {{selectedRide.RideToLat}} {{selectedRide.RideToLng}}<br>
-<sebm-google-map  [latitude]="selectedRide.RideFromLat" [longitude]="selectedRide.RideFromLng" [fitBounds]="[NW|SE]">
+<sebm-google-map  [latitude]="selectedRide.RideFromLat" [longitude]="selectedRide.RideFromLng" >
   <sebm-google-map-marker [latitude]="selectedRide.RideFromLat" [longitude]="selectedRide.RideFromLng"></sebm-google-map-marker>
  <sebm-google-map-marker [latitude]="selectedRide.RideToLat" [longitude]="selectedRide.RideToLng"></sebm-google-map-marker>
 </sebm-google-map>

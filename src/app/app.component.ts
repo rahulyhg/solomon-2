@@ -54,7 +54,7 @@ onUser(){
 }
 ngOnInit(): void {
   this.getAllTables();
-  //this.router.navigate(['users']);
+  this.router.navigate(['usergrid']);
   
   }
 }  

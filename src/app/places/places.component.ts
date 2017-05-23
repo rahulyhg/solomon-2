@@ -10,7 +10,8 @@ import { Observable } from 'rxjs/Observable'
 
 import {WidgetsModule }           from '../widgets/widgets.module';
 //import { AgmCoreModule } from 'angular2-google-maps/core';
-
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { TableColumn,ColumnMode} from '@swimlane/ngx-datatable';
 @Component({
   moduleId: module.id,
   selector: 'app-places',
@@ -18,6 +19,7 @@ import {WidgetsModule }           from '../widgets/widgets.module';
   styleUrls: ['./places.component.css']
 })
 export class PlacesComponent implements OnInit {
+columns1 = ["Id", "DFC", "DLC"];
   title: string = 'AngMaps';
   Lat: number = 51.678418;
   Lng: number = 7.809007;

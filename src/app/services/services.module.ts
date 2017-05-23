@@ -39,12 +39,13 @@ import { EventService } from '../events/events.service';
 import { RideService } from '../rides/rides.service';
 import { PlaceService } from '../places/places.service';
 import { UserService } from '../users/users.service';
+import { UserGridService } from '../usergrid/usergrid.service';
 @NgModule({})
 export class ServicesModule{
     static forRoot(){
         return {
             ngModule: ServicesModule, 
-            providers: [DriveService, EventService, RideService, PlaceService, RunService, OutputService, CommentService, PersonService, ScheduleService, UserService
+            providers: [DriveService, EventService, RideService, PlaceService, RunService, OutputService, CommentService, PersonService, ScheduleService, UserService, UserGridService
                        ]
        /*     [LogService, BugService, CommentService,DayService, DriveService, EventService, FeedService, 
                         InvoiceService, Iso3166Service, Iso639Service, 

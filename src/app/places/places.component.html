@@ -90,52 +90,60 @@
 </div>
 
  <div *ngIf="!selectedPlace">
-     <div class="floatright rightM100">
+     		<div class="floatright rightM100">
              <md-input-container class="searchPlaces">
-              <input mdInput #placeSearch md-autofocus type="search" (input)="term$.next($event.target.value)" placeholder="Enter Id or Place" />
-          </md-input-container>
-          <button md-raised-button color="accent" (click)="add(placeSearch.value)"><md-icon>add</md-icon> </button> 
+              	<input mdInput #placeSearch md-autofocus type="search" (input)="term$.next($event.target.value)" placeholder="Enter Id or Place" />
+          		</md-input-container>
+          		<button md-raised-button color="accent" (click)="add(placeSearch.value)"><md-icon>add</md-icon> </button> 
           </div>
-  <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp full-width">
+
+<ngx-datatable
+        class="material"
+        [rows]="places"
+        [columns]="columns1"
+        [headerHeight]="50"
+        [footerHeight]="0"
+        [rowHeight]="100">
+      </ngx-datatable>
+
+ </div>
+     
+
+
+<!--
+  <table>
         <thead align="left">
           <tr>
-            <div *ngIf="!appservice.admin">
-                  <th class="Id">Id</th>
-                  <th class="mdl-data-table__cell--non-numeric">Pid<br>Did</th>
-                  <th class="mdl-data-table__cell--non-numeric">Country<br>Name</th>
-                  <th class="mdl-data-table__cell--non-numeric">Source<br>Place</th>
+                  <th>Id</th>
+                  <th>Pid<br>Did</th>
+                  <th>Country<br>Name</th>
+                  <th>Source<br>Place</th>
                   <th>Lat<br>Lng</th>
                   <th>Type<br>Qual</th>
-                  <th class="mdl-data-table__cell--non-numeric">Map<br>Address</th>
-                  <th class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></th>
-                  <th class="mdl-data-table__cell--non-numeric">Delete</th> 
-                  <th class="mdl-data-table__cell--non-numeric">Detail</th>
-              </div>
-              <div *ngIf="appservice.admin">
-                <th class="mdl-data-table__cell--non-numeric">Id</th>
-                <th class="mdl-data-table__cell--non-numeric">First<br>Last</th>
-                <th class="mdl-data-table__cell--non-numeric">User</th>
-                <th class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></th>
-                <th class="mdl-data-table__cell--non-numeric">Delete</th> 
-                <th class="mdl-data-table__cell--non-numeric">Detail</th>
-             </div>
+                  <th>Map<br>Address</th>
+                  <th>Deleto</th> 
+                  <th>Detail</th>
           </tr>
         </thead>
   <tbody>
-  <tr *ngFor="let place of places" (click)="onSelect(place)"
-      [class.selected]="place === selectedPlace" class="list-group-item">
-          <div *ngIf="!appservice.admin">
+  <tr *ngFor="let place of places" (click)="onSelect(place)">
                 <td><b>{{place.Id}}</b></td> 
                 <td><b>{{place.Pid}}</b><br>{{place.Did}}</td> 
                 <td>{{place.Country}}<br>{{place.Name}}</td> 
                 <td>{{place.GeoSource}}<br>{{place.GeoPlaceId}}</td>
-                <td>{{place.GeoType}}<br>{{place.GeoType}}</td>
+                <td>{{place.Lat}}<br>{{place.Lng}}</td>
                 <td>{{place.GeoType}}<br>{{place.GeoQual}}</td>
                 <td>{{place.MapAddress}}</td>
-                <td  class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></td>
-                <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(place); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
-                <td class="mdl-data-table__cell--non-numeric"><button class="md-button" redtoggle (click)="gotoDetail(place); $event.stopPropagation()"><md-icon>list</md-icon></button></td>              
-        </div>
+                <td><button class="md-button" (click)="delete(place); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
+                <td><button class="md-button" redtoggle (click)="gotoDetail(place); $event.stopPropagation()"><md-icon>list</md-icon></button></td>              
+
+      </tr>
+  </tbody>
+  </table>
+</div>
+
+
+</div>
         <div *ngIf="appservice.admin">
                 <td><b>{{place.Id}}</b></td> 
                 <td>{{place.DFC}}<br>{{place.DLC}}</td> 
@@ -144,7 +152,12 @@
                 <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(user); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
                 <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="gotoDetail(place); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
           </div>
-      </tr>
-  </tbody>
-  </table>
-</div>
+    </div>
+              <div *ngIf="appservice.admin">
+                <th class="mdl-data-table__cell--non-numeric">Id</th>
+                <th class="mdl-data-table__cell--non-numeric">First<br>Last</th>
+                <th class="mdl-data-table__cell--non-numeric">User</th>
+                <th class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></th>
+                <th class="mdl-data-table__cell--non-numeric">Delete</th> 
+                <th class="mdl-data-table__cell--non-numeric">Detail</th>
+             </div> -->

@@ -18,13 +18,13 @@ export class RidesComponent implements OnInit {
   selectedRide: Ride;
   term$ = new Subject<string>();
   NW;
+  SE;
   constructor(
     private rideservice: RideService,
     private router: Router,
-    private appservice : AppService) { 
-        this.rideservice.searchRides(this.term$).subscribe(results =>this.rides = results);
-   
-    } 
+    private appservice: AppService) {
+        this.rideservice.searchRides(this.term$).subscribe(results => this.rides = results);
+    }
   getAllRides(): void {
     this.rideservice
         .getAllRides()
@@ -56,7 +56,8 @@ export class RidesComponent implements OnInit {
 
   onSelect(ride: Ride): void {
     this.selectedRide = ride;
-    //this.NW = {lat:40.677778, lng:-112.047222|lat:46.677778, lng:-106.5006904};
+    this.NW = {lat:40.677778, lng:-112.047222}
+    this.SE = {lat:46.677778, lng:-106.5006904};
   }
   onDeSelect(): void {
     this.selectedRide = null;
