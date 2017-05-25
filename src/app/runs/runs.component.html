@@ -67,37 +67,24 @@
           </md-input-container>
           <button md-raised-button color="accent" id="runbutton" class="userbutton" (click)="add(runSearch.value)"><md-icon>add</md-icon></button> 
      </div> 
+          <div *ngIf="!appservice.admin">
            <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp full-width">
         <thead align="left">
           <tr>
-            <div *ngIf="!appservice.admin">
- <th>Id</th>
- <th>Drive<br>User</th>
- <th>Drive From<br>Drive To</th>
- <th>Date<br>Time</th>
- <th>Ride<br>User</th>
- <th>Ride From<br>Ride To</th>
- <th>Date<br>Time</th>
- <th class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></th>
- <th class="mdl-data-table__cell--non-numeric">Delete</th> 
- <th class="mdl-data-table__cell--non-numeric">Details</th>
-            </div>
-            <div *ngIf="appservice.admin">
- <th>Id</th>
- <th>First<br>Last</th>
- <th>Drive Score<br>Drive Comments</th>
- <th>Ride Score<br>Ride Comments</th>
- <th>PO<br>Charge</th>
- <th class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></th>
- <th class="mdl-data-table__cell--non-numeric">Delete</th> 
- <th class="mdl-data-table__cell--non-numeric">Detail</th> 
-            </div>
+			 <th>Id</th>
+			 <th>Drive<br>User</th>
+			 <th>Drive From<br>Drive To</th>
+			 <th>Date<br>Time</th>
+			 <th>Ride<br>User</th>
+			 <th>Ride From<br>Ride To</th>
+			 <th>Date<br>Time</th>
+			 <th class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></th>
+			 <th class="mdl-data-table__cell--non-numeric">Delete</th> 
+			 <th class="mdl-data-table__cell--non-numeric">Details</th>       
           </tr>
         </thead>
-               <tbody>
-   <tr *ngFor="let run of runs" (click)="onSelect(run)"
-     [class.selected]="run === selectedRun"  class="list-group-item">
-          <div *ngIf="!appservice.admin">
+      <tbody>
+   		<tr *ngFor="let run of runs" (click)="onSelect(run)">
              <td><b>{{run.Id}}</b></td>
              <td><b>{{run.DriveId}}</b><br>{{run.DrivePid}}</td>
              <td>{{run.DriveFromName}}<br>{{run.DriveToName}}</td>
@@ -108,8 +95,27 @@
              <td  class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></td>
              <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(user); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
              <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="gotoDetail(user); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
-           </div>
-       <div *ngIf="appservice.admin">
+ 		</tr>
+        </tbody>
+   </table>
+</div>
+<div *ngIf="appservice.admin">
+<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp full-width">
+        <thead align="left">
+          <tr>
+			 <th>Id</th>
+			 <th>First<br>Last</th>
+			 <th>Drive Score<br>Drive Comments</th>
+			 <th>Ride Score<br>Ride Comments</th>
+			 <th>PO<br>Charge</th>
+			 <th class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></th>
+			 <th class="mdl-data-table__cell--non-numeric">Delete</th> 
+			 <th class="mdl-data-table__cell--non-numeric">Detail</th> 
+            </tr>
+        </thead>
+      <tbody>
+   		<tr *ngFor="let run of runs" (click)="onSelect(run)">
+     
              <td><b>{{run.Id}}</b><br>{{run.User}}</td>
              <td>{{run.DFC}}<br>{{run.DLC}}</td>
              <td>{{run.DriveScore}}<br>{{run.DriveComments}}</td>
@@ -118,8 +124,8 @@
              <td  class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></td>
              <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(user); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
              <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="gotoDetail(user); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
-       </div>
  </tr>
           </tbody>
         </table>
 </div>
+            

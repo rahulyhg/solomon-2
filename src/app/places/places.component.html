@@ -88,9 +88,8 @@
       <button md-raised-button (click)="onDeSelect()">Save</button>
   </form>
 </div>
-
  <div *ngIf="!selectedPlace">
-     		<div class="floatright rightM100">
+	<div class="floatright rightM100">
              <md-input-container class="searchPlaces">
               	<input mdInput #placeSearch md-autofocus type="search" (input)="term$.next($event.target.value)" placeholder="Enter Id or Place" />
           		</md-input-container>

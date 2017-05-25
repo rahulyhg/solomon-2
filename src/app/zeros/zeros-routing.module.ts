@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ZerosComponent } from "./zeros.component";
-
+import { ZerosComponent } from './zeros.component';
 
 const zerosroutes: Routes = [
-     { path:'', component: ZerosComponent}
+     { path: '', component: ZerosComponent}
    ];
-
 
 @NgModule({
   imports: [ RouterModule.forChild(zerosroutes) ],

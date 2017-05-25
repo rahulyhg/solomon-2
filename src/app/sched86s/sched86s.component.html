@@ -1,5 +1,4 @@
-
-  <div class="container">	
+ <div class="container">	
     <div *ngIf="selectedSched86" class="selectedSched86">
        <div class="row">
         <div class="card text-xs-center">
@@ -47,8 +46,7 @@
           <div class="table-responsive">
  <table class="table table-striped">
      <tbody>
-  <tr *ngFor="let sched86 of sched86s" (click)="onSelect(sched86)"
-  [class.selected]="sched86 === selectedSched86" class="list-group-item">
+  <tr *ngFor="let sched86 of sched86s" (click)="onSelect(sched86)">
          <td>{{sched86.Id}}</td>
          <td>{{sched86.DFC}}</td> 
          <td>{{sched86.DLC}}</td>

@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-import { Zero }                from './zero';
-import { ZeroService }         from './zeros.service';
-import { AppService }           from '../app.service';
+import { Zero } from './zero';
+import { ZeroService } from './zeros.service';
+import { AppService } from '../app.service';
 
-import { Subject }              from 'rxjs/Subject';
-import { Observable }           from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-zeros',
@@ -22,16 +22,15 @@ export class ZerosComponent implements OnInit {
     private zeroservice: ZeroService,
     private router: Router,
     private appservice: AppService) {
-      this.zeroservice.searchZeros(this.term$).subscribe(results =>this.zeros = results);
+      this.zeroservice.searchZeros(this.term$).subscribe(results => this.zeros = results);
      }
 
-  
   getAllZeros(): void {
     this.zeroservice
         .getAllZeros()
         .then(zeros => this.zeros = zeros);
   }
-searchZeros(term$){
+searchZeros(term$) {
  this.term$.subscribe(term => this.searchZeros(term$));
 }
   add(name: string): void {

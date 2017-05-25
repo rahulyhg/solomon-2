@@ -96,7 +96,7 @@
  <button class="btn btn-success" (click)="onDeSelect()">View List</button>
   </div></div></div></div></div>
 
-<div *ngIf!="selectedZero">
+<div *ngIf="!selectedZero">
   <div class="row">
   <div class="card text-xs-center">
         <div class="card-block">
@@ -106,8 +106,7 @@
 <div class="table-responsive">
   <table class="table">
   <tbody>
-  <tr *ngFor="let zero of zeros" (click)="onSelect(zero)"
-      [class.selected]="zero === selectedZero" class="list-group-item">
+  <tr *ngFor="let zero of zeros" (click)="onSelect(zero)">
         <td class="Id"><b>{{zero.Id}}</b></td> 
         <td class="DFC">{{zero.DFC}}<br>{{zero.DLC}}</td> 
         <td class="DFC">{{zero.User}}<br>{{zero.PO}}</td> 

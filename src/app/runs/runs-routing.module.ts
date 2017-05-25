@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { RunComponent } from "./run.component";
-import { RunsComponent } from "./runs.component";
+import { RunComponent } from './run.component';
+import { RunsComponent } from './runs.component';
 
 const runsroutes: Routes = [
-    { path:'', component: RunsComponent},
-    { path:'run/:Id', component: RunComponent}
+    { path: '', component: RunsComponent},
+    { path: 'run/:Id', component: RunComponent}
    ];
 
 

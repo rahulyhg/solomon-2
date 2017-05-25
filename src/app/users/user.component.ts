@@ -5,25 +5,25 @@ import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 
 import { User } from './user';
-import { UserService }         from './users.service';
+import { UserService } from './users.service';
 
-import { Comment }  from '../comments/comment';
-import { CommentService }         from '../comments/comments.service';
+import { Comment } from '../comments/comment';
+import { CommentService } from '../comments/comments.service';
 
-import { Drive }  from '../drives/drive';
-import { DriveService }         from '../drives/drives.service';
+import { Drive } from '../drives/drive';
+import { DriveService } from '../drives/drives.service';
 
-import { Ride }  from '../rides/ride';
-import { RideService }         from '../rides/rides.service';
+import { Ride } from '../rides/ride';
+import { RideService } from '../rides/rides.service';
 
-import { Run }  from '../runs/run';
-import { RunService }         from '../runs/runs.service';
+import { Run } from '../runs/run';
+import { RunService } from '../runs/runs.service';
 
-import { Place }  from '../places/place';
-import { PlaceService }         from '../places/places.service';
+import { Place } from '../places/place';
+import { PlaceService } from '../places/places.service';
 
-import { Output }  from '../outputs/output';
-import { OutputService }         from '../outputs/outputs.service';
+import { Output } from '../outputs/output';
+import { OutputService } from '../outputs/outputs.service';
 
 import { Location }               from '@angular/common';
 import { AppService }          from '../app.service';

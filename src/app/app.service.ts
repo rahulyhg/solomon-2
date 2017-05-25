@@ -3,14 +3,14 @@ import { Headers, Http , URLSearchParams} from '@angular/http';
 
 @Injectable()
 export class AppService {
-admin:boolean;
+admin: boolean;
 private headers = new Headers({'Content-Type': 'application/json'});
 private tablesUrl = 'https://solomonschariot.com/jsonfeed.php?domain=system&search=tables';  // URL to web api
 
 
 constructor(private http: Http) { }
-  
-  onAdmin(admin){
+
+  onAdmin(admin) {
     this.admin = !this.admin;
     return this.admin;
   }

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { Ride } from './ride';
-import { RideService }         from './rides.service';
-import { AppService }          from '../app.service';
+import { RideService } from './rides.service';
+import { AppService } from '../app.service';
 
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
@@ -56,8 +56,8 @@ export class RidesComponent implements OnInit {
 
   onSelect(ride: Ride): void {
     this.selectedRide = ride;
-    this.NW = {lat:40.677778, lng:-112.047222}
-    this.SE = {lat:46.677778, lng:-106.5006904};
+    this.NW = {lat: 40.677778, lng: -112.047222};
+    this.SE = {lat: 46.677778, lng: -106.5006904};
   }
   onDeSelect(): void {
     this.selectedRide = null;

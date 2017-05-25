@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { Sched86sComponent } from "./sched86s.component";
+import { Sched86sComponent } from './sched86s.component';
 
 
 const sched86sroutes: Routes = [
-     { path:'', component: Sched86sComponent}
+     { path: '', component: Sched86sComponent}
    ];
 
 

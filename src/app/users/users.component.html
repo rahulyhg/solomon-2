@@ -99,53 +99,33 @@
           </div> 
            </md-card-content>
         </md-card>      
-     <md-card>
-  <md-card-content>
-          <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp full-width">
- <thead align="left">
-   <tr>
-     <div *ngIf="!appservice.admin">
-       <th class="Id">Id</th>
-       <th class="UserName mdl-data-table__cell--non-numeric">User Name</th>
-       <th class="Email mdl-data-table__cell--non-numeric">Email</th>
-       <th>IP</th>
-       <th>Fup</th>
-       <th>Max</th>
-       <th>Min</th>
-       <th>Rate</th>
-       <th>Fee</th>
-       <th>Map</th>
-       <th>Mail</th>
-       <th>Match</th>
-       <th>LBar</th>
-       <th class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></th>
-       <th class="mdl-data-table__cell--non-numeric">Delete</th> 
-       <th class="mdl-data-table__cell--non-numeric">Details</th>
-     </div>
-     <div *ngIf="appservice.admin">
-       <th>Id</th>
-       <th>Dates</th>
-       <th>User</th>
-       <th>Lang</th>
-       <th>Acct</th>
-       <th>Country</th>
-       <th>Did</th>
-       <th>Admin</th>
-       <th>LangEd</th>
-       <th>Sales</th>
-       <th>EmailConfirm</th>
-       <th>Agent</th>
-       <th>Source</th>
-       <th class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></th>
-       <th class="mdl-data-table__cell--non-numeric">Delete</th> 
-       <th class="mdl-data-table__cell--non-numeric">Detail</th> 
-     </div>
+<md-card>
+<md-card-content>
+<div *ngIf="!appservice.admin">
+  <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp full-width">
+ 	<thead align="left">
+   		<tr>
+	       <th class="Id">Id</th>
+	       <th class="UserName mdl-data-table__cell--non-numeric">User Name</th>
+	       <th class="Email mdl-data-table__cell--non-numeric">Email</th>
+	       <th>IP</th>
+	       <th>Fup</th>
+	       <th>Max</th>
+	       <th>Min</th>
+	       <th>Rate</th>
+	       <th>Fee</th>
+	       <th>Map</th>
+	       <th>Mail</th>
+	       <th>Match</th>
+	       <th>LBar</th>
+	       <th class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></th>
+	       <th class="mdl-data-table__cell--non-numeric">Delete</th> 
+	       <th class="mdl-data-table__cell--non-numeric">Details</th>
    </tr>
  </thead>
  <tbody>
      <tr *ngFor="let user of users" (click)="onSelect(user)"
            [class.selected]="user === selectedUser">
-             <div *ngIf="!appservice.admin">
     <td class="Id">{{user.Id}}</td>
     <td>{{user.UserName}}</td>
     <td class="mdl-data-table__cell--non-numeric">{{user.Email | slice:0:10}}</td>
@@ -162,35 +142,59 @@
     <td  class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></td>
     <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(user); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
     <td class="mdl-data-table__cell--non-numeric"><button redtoggle class="md-button" (click)="gotoDetail(user); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
-  </div> 
-  <div *ngIf="appservice.admin">
-  <td><b>{{user.Id}}</b></td>
-  <td class="mdl-data-table__cell--non-numeric">{{user.DFC | date}}<br>{{user.DLC | date}}</td>
-  <td class="mdl-data-table__cell--non-numeric">{{user.User}}</td>
-  <td class="mdl-data-table__cell--non-numeric">{{user.Lang}}</td>
-  <td class="mdl-data-table__cell--non-numeric">{{user.Acct}}</td>
-  <td class="mdl-data-table__cell--non-numeric">{{user.Country}}</td>
-  <td>{{user.Did}}</td>
-  <td>{{user.Admin}}</td>
-  <td>{{user.LangEd}}</td>
-  <td>{{user.Sales}}</td>
-  <td>{{user.EmailConfirm}}</td>
-  <td class="mdl-data-table__cell--non-numeric">{{user.Agent | slice:0:22}}</td>
-  <td class="mdl-data-table__cell--non-numeric">{{user.Source | slice:7:22}}</td>
-  <td  class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></td>
-  <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(user); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
-  <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="gotoDetail(user); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
-               </div>
      </tr>
  </tbody>
-            </table>
-       </md-card-content>
+  </table>
+ </md-card-content>
 </md-card>
-</div><!--EndNGIf-->
+</div>
 
-
-
-
-
-
+<div *ngIf="appservice.admin">
+  <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp full-width">
+ 	<thead align="left">
+   		<tr>
+	       <th>Id</th>
+	       <th>Dates</th>
+	       <th>User</th>
+	       <th>Lang</th>
+	       <th>Acct</th>
+	       <th>Country</th>
+	       <th>Did</th>
+	       <th>Admin</th>
+	       <th>LangEd</th>
+	       <th>Sales</th>
+	       <th>EmailConfirm</th>
+	       <th>Agent</th>
+	       <th>Source</th>
+	       <th class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></th>
+	       <th class="mdl-data-table__cell--non-numeric">Delete</th> 
+	       <th class="mdl-data-table__cell--non-numeric">Detail</th> 
+        </tr>
+ </thead>
+ <tbody>
+ <tr *ngFor="let user of users" (click)="onSelect(user)"
+           [class.selected]="user === selectedUser">
+		  <td><b>{{user.Id}}</b></td>
+		  <td class="mdl-data-table__cell--non-numeric">{{user.DFC | date}}<br>{{user.DLC | date}}</td>
+		  <td class="mdl-data-table__cell--non-numeric">{{user.User}}</td>
+		  <td class="mdl-data-table__cell--non-numeric">{{user.Lang}}</td>
+		  <td class="mdl-data-table__cell--non-numeric">{{user.Acct}}</td>
+		  <td class="mdl-data-table__cell--non-numeric">{{user.Country}}</td>
+		  <td>{{user.Did}}</td>
+		  <td>{{user.Admin}}</td>
+		  <td>{{user.LangEd}}</td>
+		  <td>{{user.Sales}}</td>
+		  <td>{{user.EmailConfirm}}</td>
+		  <td class="mdl-data-table__cell--non-numeric">{{user.Agent | slice:0:22}}</td>
+		  <td class="mdl-data-table__cell--non-numeric">{{user.Source | slice:7:22}}</td>
+		  <td  class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></td>
+		  <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(user); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
+		  <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="gotoDetail(user); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
+    </tr>
+ </tbody>
+ </table>
+ </md-card-content>
+</md-card>
+</div>
+<!--EndNGIf-->
     

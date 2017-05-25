@@ -3,22 +3,22 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { UserComponent } from './user.component';
-import { UsersComponent } from "./users.component";
-import { UsersRoutingModule }  from "./users-routing.module";
+import { UsersComponent } from './users.component';
+import { UsersRoutingModule } from './users-routing.module';
 
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
-import { WidgetsModule }           from '../widgets/widgets.module';
+import { WidgetsModule } from '../widgets/widgets.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     UsersRoutingModule,
-    MaterialModule, 
+    MaterialModule,
     WidgetsModule
   ],
   declarations: [UsersComponent, UserComponent],
-  providers:[]
+  providers: []
 })
 export class UsersModule { }

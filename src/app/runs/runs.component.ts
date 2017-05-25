@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { Run } from './run';
-import { RunService }         from './runs.service';
-import { AppService }         from '../app.service';
+import { RunService } from './runs.service';
+import { AppService } from '../app.service';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 
@@ -20,14 +20,13 @@ export class RunsComponent implements OnInit {
   constructor(
     private runservice: RunService,
     private router: Router,
-    private appservice:AppService) {
-      this.runservice.searchRuns(this.term$).subscribe(results =>this.runs = results);
+    private appservice: AppService) {
+      this.runservice.searchRuns(this.term$).subscribe(results => this.runs = results);
      }
 
-  searchRuns(term$){
-   this.term$.subscribe(term =>this.searchRuns(term$));
+  searchRuns(term$) {
+   this.term$.subscribe(term => this.searchRuns(term$));
     }
-  
   getAllRuns(): void {
     this.runservice
         .getAllRuns()
