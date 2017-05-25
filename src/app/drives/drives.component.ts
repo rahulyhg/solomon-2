@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { Drive } from './drive';
-import { DriveService }         from './drives.service';
-import {AppService }            from '../app.service';
+import { DriveService } from './drives.service';
+import {AppService } from '../app.service';
 
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
@@ -25,12 +25,12 @@ export class DrivesComponent implements OnInit {
   constructor(
     private driveservice: DriveService,
     private router: Router,
-    private appservice:AppService) {
-      this.driveservice.searchDrives(this.term$).subscribe(results =>this.drives = results);
+    private appservice: AppService) {
+      this.driveservice.searchDrives(this.term$).subscribe(results => this.drives = results);
      }
 
-  searchDrives(term$){
-       this.term$.subscribe(term =>this.driveservice.searchDrives(term$)); //check driveservice
+  searchDrives(term$) {
+       this.term$.subscribe(term => this.driveservice.searchDrives(term$)); // check driveservice
   }
   getAllDrives(): void {
     this.driveservice
@@ -63,8 +63,8 @@ export class DrivesComponent implements OnInit {
 
   onSelect(drive: Drive): void {
     this.selectedDrive = drive;
-    this.NW = {lat:40.677778, lng:-112.047222};
-    this.SE = {lat:46.677778, lng:-106.5006904};
+    this.NW = {lat: 40.677778, lng: -112.047222};
+    this.SE = {lat: 46.677778, lng: -106.5006904};
 
   }
    onDeSelect(): void {

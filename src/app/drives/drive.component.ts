@@ -1,9 +1,9 @@
-import { Component, OnInit }      from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-import { Drive }        from './drive';
+import { Drive } from './drive';
 import { DriveService } from './drives.service';
-import { AppService }           from '../app.service';
+import { AppService } from '../app.service';
 
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
@@ -19,7 +19,7 @@ export class DriveComponent implements OnInit {
   selectedDrive: Drive;
   constructor(
     private driveservice: DriveService,
-    private router:Router,
+    private router: Router,
     private route: ActivatedRoute
   ) { }
    ngOnInit(): void {

@@ -8,18 +8,18 @@ import { DrivesRoutingModule } from './drives-routing.module';
 
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
-import {WidgetsModule }           from '../widgets/widgets.module';
+import {WidgetsModule } from '../widgets/widgets.module';
 
 @NgModule({
   imports: [
        CommonModule,
         FormsModule,
-        DrivesRoutingModule, 
+        DrivesRoutingModule,
         MaterialModule,
         WidgetsModule
   ],
        declarations: [DrivesComponent, DriveComponent],
-       providers:[]
+       providers: []
 
 })
 export class DrivesModule { }

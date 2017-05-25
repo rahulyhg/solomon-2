@@ -5,9 +5,9 @@ import { EventComponent } from './event.component';
 
 const eventroutes: Routes = [
 
-    { path:'', 
+    { path: '',
     children: [
-      {path: '', component: EventsComponent}, 
+      {path: '', component: EventsComponent},
       { path: '/:id', component: EventComponent }
     ]
   }

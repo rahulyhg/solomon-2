@@ -1,10 +1,10 @@
 
-import { Component, OnInit }      from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-import { Event }        from './event';
+import { Event } from './event';
 import { EventService } from './events.service';
-import { AppService }           from '../app.service';
+import { AppService } from '../app.service';
 
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
@@ -24,15 +24,13 @@ export class EventComponent implements OnInit {
 
   constructor(
     private eventservice: EventService,
-    private router:Router,
+    private router: Router,
     private route: ActivatedRoute
-  
   ) {
   }
 
   ngOnInit(): void {
     // this.Id$.subscribe(Id =>this.searchEvent(Id$));
-   
   // this.eventservice.searchEvent(this.Id$).subscribe(results => console.log(results[0]));
   }
 
@@ -41,14 +39,4 @@ export class EventComponent implements OnInit {
       .then(() => this.goBack());*/
   }
 
-goBack(){
-
 }
-}
-
-
-/*
-Copyright 2016 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/

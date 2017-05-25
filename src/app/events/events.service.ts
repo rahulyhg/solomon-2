@@ -1,4 +1,4 @@
-import { Injectable }    from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Headers, Http, URLSearchParams} from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Event } from './event';
@@ -21,23 +21,23 @@ export class EventService {
   searchEvents(term$: Observable<string>, debounceMs = 400) {
     return term$.debounceTime(400)
       .distinctUntilChanged()
-      .switchMap(term => this.rawSearch(term))
+      .switchMap(term => this.rawSearch(term));
   }
-  rawSearch(term:string){
+  rawSearch(term: string) {
     return this.http.get(`${this.eventsUrl}&search=${term}`)
       .map(response => response.json() as Event[]);
   }
   searchEvent(Id$: Observable<number>, debounceMs = 400) {
     return Id$.debounceTime(400)
       .distinctUntilChanged()
-      .switchMap(Id => this.rawSearchById(Id))
+      .switchMap(Id => this.rawSearchById(Id));
   }
-  rawSearchById(Id:number){
+  rawSearchById(Id: number) {
   console.log('this is here');
     return  this.http.get(`${this.eventsUrl}&Id=${Id}`)
       .map(response => response.json() as Event[]);
   }
-  
+
   getEvent(Id: number): Promise<Event[]> {
     return this.http.get(`${this.eventsUrl}&Id=${Id}`)
       .toPromise()
@@ -45,7 +45,6 @@ export class EventService {
       .catch(this.handleError);
   }
 
-  
   delete(Id: number): Promise<void> {
     const url = `${this.eventsUrl}/${Id}`;
     return this.http.delete(url, {headers: this.headers})
@@ -76,11 +75,3 @@ export class EventService {
     return Promise.reject(error.message || error);
   }
 }
-
-
-
-/*
-Copyright 2016 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/

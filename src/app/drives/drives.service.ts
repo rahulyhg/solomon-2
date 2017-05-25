@@ -27,9 +27,9 @@ getDrivePid(Pid: number): Promise<Drive[]> {
 searchDrives(term$: Observable<string>, debounceMs = 400) {
     return term$.debounceTime(400)
       .distinctUntilChanged()
-      .switchMap(term => this.rawSearch(term))
+      .switchMap(term => this.rawSearch(term));
   }
-  rawSearch(term:string){
+  rawSearch(term: string) {
     return  this.http.get(`${this.drivesUrl}&search=${term}`)
       .map(response => response.json() as Drive[]);
   }
@@ -42,7 +42,6 @@ searchDrives(term$: Observable<string>, debounceMs = 400) {
       .then(response => response.json() as Drive)
       .catch(this.handleError);
   }
-  
 
   delete(Id: number): Promise<void> {
     const url = `${this.drivesUrl}/${Id}`;
@@ -74,11 +73,3 @@ searchDrives(term$: Observable<string>, debounceMs = 400) {
     return Promise.reject(error.message || error);
   }
 }
-
-
-
-/*
-Copyright 2016 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/
