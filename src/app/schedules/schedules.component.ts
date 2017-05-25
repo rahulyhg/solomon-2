@@ -1,35 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-import { Schedule }                from './schedule';
-import { ScheduleService }         from './schedules.service';
-import { AppService }              from '../app.service';
+import { Schedule } from './schedule';
+import { ScheduleService } from './schedules.service';
+import { AppService } from '../app.service';
 
-import { Subject }  from 'rxjs/Subject';
+import { Subject } from 'rxjs/Subject';
 import {Observable } from 'rxjs/Observable';
 
 
 @Component({
   selector: 'app-schedules',
   templateUrl: './schedules.component.html',
-  styleUrls: ['../../bootstrap.min.css']
 })
 export class SchedulesComponent implements OnInit {
   schedules: Schedule[];
   selectedSchedule: Schedule;
   term$ = new Subject<string>();
-  
+
   constructor(
     private scheduleservice: ScheduleService,
     private router: Router,
-    private appservice: AppService) { 
-       this.scheduleservice.searchSchedules(this.term$).subscribe(results =>this.schedules = results);
+    private appservice: AppService) {
+       this.scheduleservice.searchSchedules(this.term$).subscribe(results => this.schedules = results);
     }
 
-searchSchedules(term$){
+searchSchedules(term$) {
   this.term$.subscribe(term => this.searchSchedules(term$));
 }
-  
+
 getAllSchedules(): void {
     this.scheduleservice
         .getAllSchedules()

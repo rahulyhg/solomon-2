@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-import { Run }                from './run';
+import { Run } from './run';
 import { RunService }         from './runs.service';
 import { AppService }         from '../app.service';
 import { Subject } from 'rxjs/Subject';

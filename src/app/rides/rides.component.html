@@ -99,19 +99,19 @@ To {{selectedRide.RideToLat}} {{selectedRide.RideToLng}}<br>
               <th class="mdl-data-table__cell--non-numeric">Details</th>
              </div>
             <div *ngIf="appservice.admin">
-                <th>Id</th>
-                <th>First<br>Last</th>
-                <th>Done<br>Sched</th>
-                <th>PO<br>User</th>
-                <th>From Id</th>
-                <th>Lat<br>Lng</th>
-                <th>To Id</th>
-                <th>Lat<br>Lng</th>
-                <th>Start<br>End</th>
-                <th><span class="spacer"></span></th>
-                <th class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></th>
-                <th class="mdl-data-table__cell--non-numeric">Delete</th> 
-                <th class="mdl-data-table__cell--non-numeric">Details</th>
+ <th>Id</th>
+ <th>First<br>Last</th>
+ <th>Done<br>Sched</th>
+ <th>PO<br>User</th>
+ <th>From Id</th>
+ <th>Lat<br>Lng</th>
+ <th>To Id</th>
+ <th>Lat<br>Lng</th>
+ <th>Start<br>End</th>
+ <th><span class="spacer"></span></th>
+ <th class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></th>
+ <th class="mdl-data-table__cell--non-numeric">Delete</th> 
+ <th class="mdl-data-table__cell--non-numeric">Details</th>
             </div>
           </tr>
             </thead>
@@ -119,30 +119,30 @@ To {{selectedRide.RideToLat}} {{selectedRide.RideToLng}}<br>
         <tr *ngFor="let ride of rides" (click)="onSelect(ride)"
             [class.selected]="ride === selectedRide" class="list-group-item">
             <div *ngIf="!appservice.admin">
-                    <td class="Id"><b>{{ride.Id}}</b></td>
-                    <td class="Id"><b>{{ride.Pid}}</b><br>{{ride.Did}}</td>
-                    <td class="Name">{{ride.RideFromName}}<br>{{ride.RideToName}}</td>
-                    <td class="Rate">{{ride.RideDistance}}<br>{{ride.RideDuration}}</td> 
-                    <td class="Id">{{ride.RideDate}}</td>
-                    <td class="Time">{{ride.RideStartTime}}<br>{{ride.RideEndTime}}</td>
-                    <td class="Lat">{{ride.Weight}}</td>
-                    <td  class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></td>
-                    <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(user); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
-                    <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="gotoDetail(user); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
+     <td class="Id"><b>{{ride.Id}}</b></td>
+     <td class="Id"><b>{{ride.Pid}}</b><br>{{ride.Did}}</td>
+     <td class="Name">{{ride.RideFromName}}<br>{{ride.RideToName}}</td>
+     <td class="Rate">{{ride.RideDistance}}<br>{{ride.RideDuration}}</td> 
+     <td class="Id">{{ride.RideDate}}</td>
+     <td class="Time">{{ride.RideStartTime}}<br>{{ride.RideEndTime}}</td>
+     <td class="Lat">{{ride.Weight}}</td>
+     <td  class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></td>
+     <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(user); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
+     <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="gotoDetail(user); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
               </div>
               <div *ngIf="appservice.admin">
-                   <td class="Id"><b>{{ride.Id}}</b></td>
-                    <td class="DateText">{{ride.DFC}}<br>{{ride.DLC}}</td>
-                    <td class="Id">*{{ride.Processed}}*<br>{{ride.SchedId}}</td>
-                    <td class="Id">{{ride.PO}}<br>{{ride.User}}</td> 
-                    <td class="Id">{{ride.RideFromId}}</td> 
-                    <td class="Lat">{{ride.RideFromLat}}<br>{{ride.RideFromLng}}</td> 
-                    <td class="Id">{{ride.RideToId}}</td> 
-                    <td class="Lat">{{ride.RideToLat}}<br>{{ride.RideToLng}}</td>
-                    <td class="Time">{{ride.RideStart}}<br>{{ride.RideEnd}}</td> 
-                    <td  class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></td>
-                    <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(user); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
-                    <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="gotoDetail(user); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
+    <td class="Id"><b>{{ride.Id}}</b></td>
+     <td class="DateText">{{ride.DFC}}<br>{{ride.DLC}}</td>
+     <td class="Id">*{{ride.Processed}}*<br>{{ride.SchedId}}</td>
+     <td class="Id">{{ride.PO}}<br>{{ride.User}}</td> 
+     <td class="Id">{{ride.RideFromId}}</td> 
+     <td class="Lat">{{ride.RideFromLat}}<br>{{ride.RideFromLng}}</td> 
+     <td class="Id">{{ride.RideToId}}</td> 
+     <td class="Lat">{{ride.RideToLat}}<br>{{ride.RideToLng}}</td>
+     <td class="Time">{{ride.RideStart}}<br>{{ride.RideEnd}}</td> 
+     <td  class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></td>
+     <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(user); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
+     <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="gotoDetail(user); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
               </div>
         </tr>
       </tbody>

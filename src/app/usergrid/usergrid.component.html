@@ -1,7 +1,7 @@
  
  <div class="searchbox">
         <section class="example-section">
-              <md-checkbox class="example-margin" [(ngModel)]="metadata">Meta Data</md-checkbox>
+              <md-checkbox class="example-margin" (change)="appservice.onAdmin($event)">Meta Data</md-checkbox>
           </section>
           <md-input-container class="searchusers">
               <input mdInput #userSearch md-autofocus type="search" (input)="term$.next($event.target.value)" name="searchusers" id="searchusers" placeholder="Enter Id or Email" />
@@ -10,7 +10,7 @@
    
     </div>
 
-<div class="md-card">
+<div class="md-card" *ngIf="!appservice.admin;else meta_data">
 <md-card>
   <md-card-title>User Grid Data Display</md-card-title>
   <md-card-content>
@@ -37,6 +37,33 @@
    </md-card-content>
 </md-card>
 </div>
+<ng-template #meta_data>
+<md-card>
+  <md-card-title>User Grid Meta Data Display</md-card-title>
+  <md-card-content>
+      <md-grid-list cols="8" rowHeight="2:1" item-width="60%">
+        <md-grid-tile>Id</md-grid-tile>
+        <md-grid-tile>DFC</md-grid-tile>
+        <md-grid-tile>DLC</md-grid-tile>
+        <md-grid-tile>User</md-grid-tile>
+        <md-grid-tile>Rate</md-grid-tile>
+        <md-grid-tile>Fee</md-grid-tile>
+        <md-grid-tile>Map</md-grid-tile>
+        <md-grid-tile>Mail</md-grid-tile>
+      </md-grid-list>
+      <md-grid-list *ngFor="let user of users" cols="8" rowHeight="3:1" (click)="onSelect(user)">
+        <md-grid-tile>{{user.Id}}</md-grid-tile>
+        <md-grid-tile>{{user.Followups}}</md-grid-tile>
+        <md-grid-tile>{{user.DriveMax}}</md-grid-tile>
+        <md-grid-tile>{{user.DriveMin}}</md-grid-tile>
+        <md-grid-tile>{{user.DriveRate}}</md-grid-tile>
+        <md-grid-tile>{{user.DriveFee}}</md-grid-tile>
+        <md-grid-tile>{{user.MapPrefs}}</md-grid-tile>
+        <md-grid-tile>{{user.MatchPrefs}}</md-grid-tile>
+      </md-grid-list>
+   </md-card-content>
+</md-card>
+</ng-template>
    <!--<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp full-width">
         <thead align="left">
           <tr>
@@ -80,43 +107,43 @@
         </thead>
         <tbody>
             <tr *ngFor="let user of users" (click)="onSelect(user)"
-                  [class.selected]="user === selectedUser">
-                    <div *ngIf="!appservice.admin">
-                          <td class="Id">{{user.Id}}</td>
-                          <td>{{user.UserName}}</td>
-                          <td class="mdl-data-table__cell--non-numeric">{{user.Email | slice:0:10}}</td>
-                          <td>{{user.IP}}</td>
-                          <td>{{user.Followups}}</td>
-                          <td>{{user.DriveMax}}</td>
-                          <td>{{user.DriveMin}}</td>
-                          <td>{{user.DriveRate}}</td>
-                          <td>{{user.DriveFee}}</td>
-                          <td>{{user.MapPrefs}}</td>
-                          <td>{{user.MailPrefs}}</td>
-                          <td>{{user.MatchPrefs}}</td>
-                          <td>{{user.LangBar}}</td>
-                          <td  class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></td>
-                          <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(user); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
-                          <td class="mdl-data-table__cell--non-numeric"><button redtoggle class="md-button" (click)="gotoDetail(user); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
-                        </div> 
-                        <div *ngIf="appservice.admin">
-                        <td><b>{{user.Id}}</b></td>
-                        <td class="mdl-data-table__cell--non-numeric">{{user.DFC | date}}<br>{{user.DLC | date}}</td>
-                        <td class="mdl-data-table__cell--non-numeric">{{user.User}}</td>
-                        <td class="mdl-data-table__cell--non-numeric">{{user.Lang}}</td>
-                        <td class="mdl-data-table__cell--non-numeric">{{user.Acct}}</td>
-                        <td class="mdl-data-table__cell--non-numeric">{{user.Country}}</td>
-                        <td>{{user.Did}}</td>
-                        <td>{{user.Admin}}</td>
-                        <td>{{user.LangEd}}</td>
-                        <td>{{user.Sales}}</td>
-                        <td>{{user.EmailConfirm}}</td>
-                        <td class="mdl-data-table__cell--non-numeric">{{user.Agent | slice:0:22}}</td>
-                        <td class="mdl-data-table__cell--non-numeric">{{user.Source | slice:7:22}}</td>
-                        <td  class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></td>
-                        <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(user); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
-                        <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="gotoDetail(user); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
-                      </div>
+   [class.selected]="user === selectedUser">
+     <div *ngIf="!appservice.admin">
+           <td class="Id">{{user.Id}}</td>
+           <td>{{user.UserName}}</td>
+           <td class="mdl-data-table__cell--non-numeric">{{user.Email | slice:0:10}}</td>
+           <td>{{user.IP}}</td>
+           <td>{{user.Followups}}</td>
+           <td>{{user.DriveMax}}</td>
+           <td>{{user.DriveMin}}</td>
+           <td>{{user.DriveRate}}</td>
+           <td>{{user.DriveFee}}</td>
+           <td>{{user.MapPrefs}}</td>
+           <td>{{user.MailPrefs}}</td>
+           <td>{{user.MatchPrefs}}</td>
+           <td>{{user.LangBar}}</td>
+           <td  class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></td>
+           <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(user); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
+           <td class="mdl-data-table__cell--non-numeric"><button redtoggle class="md-button" (click)="gotoDetail(user); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
+         </div> 
+         <div *ngIf="appservice.admin">
+         <td><b>{{user.Id}}</b></td>
+         <td class="mdl-data-table__cell--non-numeric">{{user.DFC | date}}<br>{{user.DLC | date}}</td>
+         <td class="mdl-data-table__cell--non-numeric">{{user.User}}</td>
+         <td class="mdl-data-table__cell--non-numeric">{{user.Lang}}</td>
+         <td class="mdl-data-table__cell--non-numeric">{{user.Acct}}</td>
+         <td class="mdl-data-table__cell--non-numeric">{{user.Country}}</td>
+         <td>{{user.Did}}</td>
+         <td>{{user.Admin}}</td>
+         <td>{{user.LangEd}}</td>
+         <td>{{user.Sales}}</td>
+         <td>{{user.EmailConfirm}}</td>
+         <td class="mdl-data-table__cell--non-numeric">{{user.Agent | slice:0:22}}</td>
+         <td class="mdl-data-table__cell--non-numeric">{{user.Source | slice:7:22}}</td>
+         <td  class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></td>
+         <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(user); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
+         <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="gotoDetail(user); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
+       </div>
             </tr>
         </tbody>
     </table>

@@ -112,7 +112,6 @@
  <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp full-width">
         <thead align="left">
           <tr>
-            <div *ngIf="!appservice.admin">
               <th><b>Id</b><br>Did</th>
               <th>Name<br>M_Phone</th>
               <th>ImgV<br>ImgP</th>
@@ -129,7 +128,7 @@
               <th class="full-width mdl-data-table__cell--non-numeric"></th>
               <th class="mdl-data-table__cell--non-numeric">Delete</th> 
               <th class="mdl-data-table__cell--non-numeric">Detail</th>
-            </div>
+          
             <div *ngIf="appservice.admin">
               <th><b>Id</b><br>Did</th>
               <th>First<br>Last</th>
@@ -151,36 +150,36 @@
           <tr *ngFor="let person of people" (click)="onSelect(person)"
             [class.selected]="person === selectedPerson" class="list-group-item">
           <div *ngIf="!appservice.admin">
-                <td><b>{{person.Id}}</b><br>{{person.Did}}</td>
-                <td>{{person.Name}}<br>{{person.M_Phone}}</td>
-                <td>{{person.ImgV}}<br>{{person.ImgP}}</td>
-                <td>{{person.Texting}}<br>{{person.CellDom}}-{{person.CellValid}}</td>
-                <td>{{person.Logins}}<br>{{person.Acts}}</td>
-                <td>{{person.Places}}<br>{{person.Named}}</td>
-                <td>{{person.Rides}}<br>{{person.Drives}}</td>
-                <td>{{person.Runs}}<br>{{person.Scheds}}</td>
-                <td>{{person.Hits}}<br>{{person.EReset}}</td>
-                <td>{{person.TCode}}<br>{{person.TCode2}}</td>
-                <td>{{person.EStop}}<br>{{person.ETell}}</td>
-                <td>{{person.EDRate}}<br>{{person.ERRate}}</td>
-                <td  class="full-width mdl-data-table__cell--non-numeric"></td>
-                <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(person); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
-                <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="gotoDetail(person); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
+ <td><b>{{person.Id}}</b><br>{{person.Did}}</td>
+ <td>{{person.Name}}<br>{{person.M_Phone}}</td>
+ <td>{{person.ImgV}}<br>{{person.ImgP}}</td>
+ <td>{{person.Texting}}<br>{{person.CellDom}}-{{person.CellValid}}</td>
+ <td>{{person.Logins}}<br>{{person.Acts}}</td>
+ <td>{{person.Places}}<br>{{person.Named}}</td>
+ <td>{{person.Rides}}<br>{{person.Drives}}</td>
+ <td>{{person.Runs}}<br>{{person.Scheds}}</td>
+ <td>{{person.Hits}}<br>{{person.EReset}}</td>
+ <td>{{person.TCode}}<br>{{person.TCode2}}</td>
+ <td>{{person.EStop}}<br>{{person.ETell}}</td>
+ <td>{{person.EDRate}}<br>{{person.ERRate}}</td>
+ <td  class="full-width mdl-data-table__cell--non-numeric"></td>
+ <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(person); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
+ <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="gotoDetail(person); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
               </div>
             <div *ngIf="appservice.admin">
-                <td><b>{{person.Id}}</b><br>{{person.Did}}</td>
-                <td>{{person.DFC}}<br>{{person.DLC}}</td>
-                <td>{{person.Did}}<br>{{person.User}}</td>
-                <td>{{person.Lat}}<br>{{person.Lng}}</td>
-                <td>{{person.GeoType}}<br>{{person.GeoQual}}</td>
-                <td>{{person.CSurf}}<br>{{person.FaceBook}}</td>
-                <td>{{person.GooglePlus}}<br>{{person.Twitter}}</td>
-                <td>{{person.GeoPlaceId}}<br>{{person.H_Phone}}</td>
-                <td>{{person.MapAddress}}<br>{{person.Descrip}}</td>
-                <td>{{person.Website}}</td>
+ <td><b>{{person.Id}}</b><br>{{person.Did}}</td>
+ <td>{{person.DFC}}<br>{{person.DLC}}</td>
+ <td>{{person.Did}}<br>{{person.User}}</td>
+ <td>{{person.Lat}}<br>{{person.Lng}}</td>
+ <td>{{person.GeoType}}<br>{{person.GeoQual}}</td>
+ <td>{{person.CSurf}}<br>{{person.FaceBook}}</td>
+ <td>{{person.GooglePlus}}<br>{{person.Twitter}}</td>
+ <td>{{person.GeoPlaceId}}<br>{{person.H_Phone}}</td>
+ <td>{{person.MapAddress}}<br>{{person.Descrip}}</td>
+ <td>{{person.Website}}</td>
          <td  class="full-width mdl-data-table__cell--non-numeric"></td>
-                <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(person); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
-                <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="gotoDetail(person); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
+ <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(person); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
+ <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="gotoDetail(person); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
           </div>
   </tr>
 </tbody>

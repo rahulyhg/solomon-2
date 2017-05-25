@@ -1,4 +1,4 @@
-import { Injectable }    from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Headers, Http , URLSearchParams} from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Comment } from './comment';
@@ -20,9 +20,9 @@ export class CommentService {
 searchComments(term$: Observable<string>, debounceMs = 400) {
     return term$.debounceTime(400)
       .distinctUntilChanged()
-      .switchMap(term => this.rawSearch(term))
+      .switchMap(term => this.rawSearch(term));
   }
-  rawSearch(term:string){
+  rawSearch(term: string) {
     return  this.http.get(`${this.commentsUrl}&search=${term}`)
       .map(response => response.json() as Comment[]);
   }

@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { CommentsComponent } from './comments.component';
-import { CommentsRoutingModule } from "./comments-routing.module";
+import { CommentsRoutingModule } from './comments-routing.module';
 import { CommentDetailComponent } from './comment.component';
 
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
-import {WidgetsModule }           from '../widgets/widgets.module';
+import {WidgetsModule } from '../widgets/widgets.module';
 
 
 @NgModule({
@@ -20,7 +20,7 @@ import {WidgetsModule }           from '../widgets/widgets.module';
     WidgetsModule
   ],
      declarations: [CommentsComponent, CommentDetailComponent],
-     providers:[]
+     providers: []
 
 })
 export  class CommentsModule { }

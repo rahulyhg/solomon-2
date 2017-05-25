@@ -97,67 +97,72 @@
           		<button md-raised-button color="accent" (click)="add(placeSearch.value)"><md-icon>add</md-icon> </button> 
           </div>
 
-<ngx-datatable
-        class="material"
-        [rows]="places"
-        [columns]="columns1"
-        [headerHeight]="50"
-        [footerHeight]="0"
-        [rowHeight]="100">
-      </ngx-datatable>
 
- </div>
-     
-
-
-<!--
-  <table>
+<md-table-container>
+  <table md-table md-row-select multiple ng-model="selected" md-progress="promise">
+    <thead md-head md-order="query.order" md-on-reorder="getDesserts">
+      <tr md-row>
+        <th md-column><span>Id</span></th>
+        <th md-column md-numeric><span>Pid</span></th>
+        <th md-column md-numeric>Did (g)</th>
+        <th md-column md-numeric>Name</th>
+        <th md-column md-numeric>Country</th>
+      </tr>
+    </thead>
+    <tbody md-body>
+      <tr md-row md-select="pace" md-select-id="name" md-auto-select ng-repeat="place in places">
+        <td md-cell>{{place.Id}}</td>
+        <td md-cell>{{place.Pid}}</td>
+        <td md-cell>{{place.Did | number: 1}}</td>
+        <td md-cell>{{place.Name}}</td>
+         <td md-cell>{{place.Country}}</td>
+      </tr>
+    </tbody>
+  </table>
+</md-table-container>
+ <!--  <table>
         <thead align="left">
           <tr>
-                  <th>Id</th>
-                  <th>Pid<br>Did</th>
-                  <th>Country<br>Name</th>
-                  <th>Source<br>Place</th>
-                  <th>Lat<br>Lng</th>
-                  <th>Type<br>Qual</th>
-                  <th>Map<br>Address</th>
-                  <th>Deleto</th> 
-                  <th>Detail</th>
+   <th>Id</th>
+   <th>Pid<br>Did</th>
+   <th>Country<br>Name</th>
+   <th>Source<br>Place</th>
+   <th>Lat<br>Lng</th>
+   <th>Type<br>Qual</th>
+   <th>Map<br>Address</th>
+   <th>Deleto</th> 
+   <th>Detail</th>
           </tr>
         </thead>
   <tbody>
   <tr *ngFor="let place of places" (click)="onSelect(place)">
-                <td><b>{{place.Id}}</b></td> 
-                <td><b>{{place.Pid}}</b><br>{{place.Did}}</td> 
-                <td>{{place.Country}}<br>{{place.Name}}</td> 
-                <td>{{place.GeoSource}}<br>{{place.GeoPlaceId}}</td>
-                <td>{{place.Lat}}<br>{{place.Lng}}</td>
-                <td>{{place.GeoType}}<br>{{place.GeoQual}}</td>
-                <td>{{place.MapAddress}}</td>
-                <td><button class="md-button" (click)="delete(place); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
-                <td><button class="md-button" redtoggle (click)="gotoDetail(place); $event.stopPropagation()"><md-icon>list</md-icon></button></td>              
+ <td><b>{{place.Id}}</b></td> 
+ <td><b>{{place.Pid}}</b><br>{{place.Did}}</td> 
+ <td>{{place.Country}}<br>{{place.Name}}</td> 
+ <td>{{place.GeoSource}}<br>{{place.GeoPlaceId}}</td>
+ <td>{{place.Lat}}<br>{{place.Lng}}</td>
+ <td>{{place.GeoType}}<br>{{place.GeoQual}}</td>
+ <td>{{place.MapAddress}}</td>
+ <td><button class="md-button" (click)="delete(place); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
+ <td><button class="md-button" redtoggle (click)="gotoDetail(place); $event.stopPropagation()"><md-icon>list</md-icon></button></td>              
 
       </tr>
   </tbody>
   </table>
 </div>
-
-
-</div>
         <div *ngIf="appservice.admin">
-                <td><b>{{place.Id}}</b></td> 
-                <td>{{place.DFC}}<br>{{place.DLC}}</td> 
-                <td>{{place.User}}</td> 
-                <td class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></td>
-                <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(user); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
-                <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="gotoDetail(place); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
+ <td><b>{{place.Id}}</b></td> 
+ <td>{{place.DFC}}<br>{{place.DLC}}</td> 
+ <td>{{place.User}}</td> 
+ <td class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></td>
+ <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(user); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
+ <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="gotoDetail(place); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
           </div>
-    </div>
               <div *ngIf="appservice.admin">
-                <th class="mdl-data-table__cell--non-numeric">Id</th>
-                <th class="mdl-data-table__cell--non-numeric">First<br>Last</th>
-                <th class="mdl-data-table__cell--non-numeric">User</th>
-                <th class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></th>
-                <th class="mdl-data-table__cell--non-numeric">Delete</th> 
-                <th class="mdl-data-table__cell--non-numeric">Detail</th>
+ <th class="mdl-data-table__cell--non-numeric">Id</th>
+ <th class="mdl-data-table__cell--non-numeric">First<br>Last</th>
+ <th class="mdl-data-table__cell--non-numeric">User</th>
+ <th class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></th>
+ <th class="mdl-data-table__cell--non-numeric">Delete</th> 
+ <th class="mdl-data-table__cell--non-numeric">Detail</th>
              </div> -->

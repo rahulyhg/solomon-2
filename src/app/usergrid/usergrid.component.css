@@ -12,6 +12,7 @@ md-grid-tile {
   height: 50px;
   font-size: 14;
   text-align: right;
+  vertical-align: text-top;
   background: blueviolet;
 }
 body{
@@ -26,8 +27,9 @@ body{
   display: flex;
   align-content: center;
   align-items: center;
-  height: 60px;
+  height: 50px;
   float:left;
+
 }
 
 .example-margin {

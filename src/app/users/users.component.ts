@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-import { User }                from './user';
-import { UserService }         from './users.service';
-import { AppService }          from '../app.service';
+import { User } from './user';
+import { UserService } from './users.service';
+import { AppService } from '../app.service';
 
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 
-import {WidgetsModule }           from '../widgets/widgets.module';
+import {WidgetsModule } from '../widgets/widgets.module';
 
 @Component({
   moduleId: module.id,
@@ -24,11 +24,11 @@ export class UsersComponent implements OnInit {
   constructor(
     private userservice: UserService,
     private router: Router,
-    private activeroute: ActivatedRoute, 
+    private activeroute: ActivatedRoute,
     private appservice: AppService) {
-      this.userservice.searchUsers(this.term$).subscribe(results =>this.users = results);
+      this.userservice.searchUsers(this.term$).subscribe(results => this.users = results);
      }
-     
+
   getAllUsers(): void {
     this.userservice
         .getAllUsers()

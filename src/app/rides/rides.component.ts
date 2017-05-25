@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-import { Ride }                from './ride';
+import { Ride } from './ride';
 import { RideService }         from './rides.service';
 import { AppService }          from '../app.service';
 

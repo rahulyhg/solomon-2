@@ -4,7 +4,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 
-import { Place }                from './place';
+import { Place } from './place';
 import { PlaceService }         from './places.service';
 
 import { Location }               from '@angular/common';

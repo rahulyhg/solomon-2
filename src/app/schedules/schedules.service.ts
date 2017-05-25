@@ -1,4 +1,4 @@
-import { Injectable }    from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Headers, Http, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Schedule } from './schedule';
@@ -18,14 +18,14 @@ getAllSchedules(): Promise<Schedule[]> {
                .catch(this.handleError);
   }
 
-searchSchedules(term$ : Observable<string>, debounceMS = 400){
-  return term$.debounceTime(400).distinctUntilChanged().switchMap(term => this.rawSearch(term))
+searchSchedules(term$: Observable<string>, debounceMS = 400) {
+  return term$.debounceTime(400).distinctUntilChanged().switchMap(term => this.rawSearch(term));
 }
 
-rawSearch(term:string){
- return this.http.get(`${this.schedulesUrl}&search=${term}`).map(response =>response.json() as Schedule[]);
+rawSearch(term: string) {
+ return this.http.get(`${this.schedulesUrl}&search=${term}`).map(response => response.json() as Schedule[]);
 }
-  
+
 getSchedule(Id: number): Promise<Schedule> {
     const url = `${this.schedulesUrl}/${Id}`;
     return this.http.get(url)

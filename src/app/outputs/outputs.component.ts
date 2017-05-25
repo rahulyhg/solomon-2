@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-import { Output }                from './output';
+import { Output } from './output';
 import { OutputService }         from './outputs.service';
 import { AppService }            from '../app.service';
 

@@ -46,13 +46,13 @@ export class ServicesModule{
         return {
             ngModule: ServicesModule, 
             providers: [DriveService, EventService, RideService, PlaceService, RunService, OutputService, CommentService, PersonService, ScheduleService, UserService, UserGridService
-                       ]
+        ]
        /*     [LogService, BugService, CommentService,DayService, DriveService, EventService, FeedService, 
-                        InvoiceService, Iso3166Service, Iso639Service, 
-                        LangerrService, LangService, Lang1Service, Lang2Service, Lang3Service, Lang4Service, 
-                        LetterService, LettextService, LetvarService, LineitemService, OutputService, PersonService, 
-                        PhotoService, PlaceService, PopupService, PostService, RideService, RunService, ScheduleService, UserService, ZeroService ]*/
-                    }
+         InvoiceService, Iso3166Service, Iso639Service, 
+         LangerrService, LangService, Lang1Service, Lang2Service, Lang3Service, Lang4Service, 
+         LetterService, LettextService, LetvarService, LineitemService, OutputService, PersonService, 
+         PhotoService, PlaceService, PopupService, PostService, RideService, RunService, ScheduleService, UserService, ZeroService ]*/
+     }
     }
 }
 
@@ -63,5 +63,5 @@ export {DriveService, EventService, RideService, PlaceService, RunService, Outpu
     LetterService, LettextService, LetvarService, LineitemService, OutputService, PersonService, 
     PhotoService, PlaceService, PopupService, PostService, RideService, RunService, Sched86Service, 
     ScheduleService, UserService, ZeroService Sched86Service, 
-                        ScheduleService, , ZeroService*/
+         ScheduleService, , ZeroService*/
 }

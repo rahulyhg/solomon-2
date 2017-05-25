@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-import { User }                from './usergrid';
+import { User } from './usergrid';
 import { UserGridService }         from './usergrid.service';
 import { AppService }          from '../app.service';
 
@@ -21,7 +21,6 @@ export class UserGridComponent implements OnInit {
   users: User[];
   selectedUser: User;
   term$ = new Subject<string>();
-  metadata = false;
 
   constructor(
     private usergridservice: UserGridService,

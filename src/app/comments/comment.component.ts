@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-@Component({   
+@Component({
   moduleId: module.id,
   selector: 'app-comment',
   templateUrl: './comment.component.html',

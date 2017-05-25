@@ -1,17 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-import { Place }                from './place';
-import { PlaceService }         from './places.service';
-import { AppService }            from '../app.service'
+import { Place } from './place';
+import { PlaceService } from './places.service';
+import { AppService } from '../app.service';
 
 import { Subject } from 'rxjs/Subject';
-import { Observable } from 'rxjs/Observable'
+import { Observable } from 'rxjs/Observable';
 
-import {WidgetsModule }           from '../widgets/widgets.module';
-//import { AgmCoreModule } from 'angular2-google-maps/core';
+import {WidgetsModule } from '../widgets/widgets.module';
+
+// import { AgmCoreModule } from 'angular2-google-maps/core';
+
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
-import { TableColumn,ColumnMode} from '@swimlane/ngx-datatable';
+import { TableColumn, ColumnMode} from '@swimlane/ngx-datatable';
+
 @Component({
   moduleId: module.id,
   selector: 'app-places',
@@ -19,10 +22,10 @@ import { TableColumn,ColumnMode} from '@swimlane/ngx-datatable';
   styleUrls: ['./places.component.css']
 })
 export class PlacesComponent implements OnInit {
-columns1 = ["Id", "DFC", "DLC"];
-  title: string = 'AngMaps';
-  Lat: number = 51.678418;
-  Lng: number = 7.809007;
+  columns1 = ['Id', 'DFC', 'DLC'];
+  title = 'AngMaps';
+  Lat = 51.678418;
+  Lng = 7.809007;
 
   places: Place[];
   selectedPlace: Place;
@@ -31,14 +34,14 @@ columns1 = ["Id", "DFC", "DLC"];
   constructor(
     private placeservice: PlaceService,
     private router: Router,
-    private activeroute: ActivatedRoute, 
-    private appservice: AppService) { 
-      this.placeservice.searchPlaces(this.term$).subscribe(results =>this.places = results);
+    private activeroute: ActivatedRoute,
+    private appservice: AppService) {
+      this.placeservice.searchPlaces(this.term$).subscribe(results => this.places = results);
     }
-searchPlaces(term$){
+searchPlaces(term$) {
     this.term$.subscribe(term => this.searchPlaces(term$));
 }
-getAllPlaces(): void { 
+getAllPlaces(): void {
     this.placeservice
         .getAllPlaces()
         .then(places => this.places = places);

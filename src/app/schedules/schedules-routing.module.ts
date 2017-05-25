@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SchedulesComponent } from "./schedules.component";
+import { SchedulesComponent } from './schedules.component';
 
 
 const schedulesroutes: Routes = [
-     { path:'', component: SchedulesComponent}
+     { path: '', component: SchedulesComponent}
    ];
 
 

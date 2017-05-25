@@ -18,6 +18,6 @@ import { ZeroComponent } from './zero.component';
     NgModule
   ],
   declarations: [ZerosComponent, ZeroComponent],
-  providers:[ZeroService]
+  providers:[]
 })
 export class ZerosModule { }

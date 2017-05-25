@@ -4,7 +4,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 
-import { User }                from './user';
+import { User } from './user';
 import { UserService }         from './users.service';
 
 import { Comment }  from '../comments/comment';
