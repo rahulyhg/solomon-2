@@ -1,60 +1,21 @@
 <div *ngIf="selectedPlace" class="selectedplace">
- <row-meta [rowmetadata]="selectedPlace"></row-meta> 
+	 <row-meta [rowmetadata]="selectedPlace"></row-meta> 
 
 <sebm-google-map [latitude]="selectedPlace.Lat" [longitude]="selectedPlace.Lng">
   <sebm-google-map-marker [latitude]="selectedPlace.Lat" [longitude]="selectedPlace.Lng"></sebm-google-map-marker>
  <sebm-google-map-marker [latitude]="selectedPlace.Lat +3" [longitude]="selectedPlace.Lng"></sebm-google-map-marker>
 
 </sebm-google-map>
-
- <!--
-<sebm-google-map 
-      [styles]="styles"
-      [latitude]="Lat"
-      [longitude]="Lng"
-      [zoom]="zoom"
-      [disableDefaultUI]="false"
-      [zoomControl]="false"
-      (mapClick)="mapClicked($event)"
-      [draggable]="draggable">
-    
-     <sebm-google-map-marker 
-          *ngFor="let m of markers; let i = index"
-          (markerClick)="clickedMarker(m.label, i)"
-          [latitude]="m.lat"
-          [longitude]="m.lng"
-          [label]="m.label"
-          [markerDraggable]="m.draggable"
-          (dragEnd)="markerDragEnd(m, $event)"
-          [iconUrl]="m.icon"
-      
-          
-        <sebm-google-map-info-window>
-          <strong>InfoWindow content</strong>
-        </sebm-google-map-info-window>
-        
-      </sebm-google-map-marker>
-       
-      <sebm-google-map-circle [latitude]="lat + 0.3" [longitude]="lng" 
-          [radius]="5000"
-          [fillColor]="'red'"
-          [circleDraggable]="true"
-          [editable]="true"
-          >
-      </sebm-google-map-circle>
-  
-    </sebm-google-map>
-    -->
   <form #PlaceFormRef="ngForm" (ngSubmit)="onSubmit(PlaceFormRef.value)" name="PlaceForm">
         <md-input-container class="Name"> 
-          <input mdInput #nameRef="ngModel" required  [(ngModel)]="selectedPlace.Name" name="Name" placeholder="Enter  Name">
+          <input type="text" mdInput #nameRef="ngModel" required  [(ngModel)]="selectedPlace.Name" name="Name" placeholder="Enter  Name">
             <div *ngIf="nameRef.$error?.required">
               <div ng-message="required">Name is required!</div>
             </div>
         </md-input-container>
 
       <md-input-container class="MapAddress"> 
-            <input mdInput #mapaddressRef="ngModel" required [(ngModel)]="selectedPlace.MapAddress" name="MapAddress" placeholder="Enter Address">
+            <input  type="text" mdInput #mapaddressRef="ngModel" required [(ngModel)]="selectedPlace.MapAddress" name="MapAddress" placeholder="Enter Address">
             <div *ngIf="mapaddressRef.$error?.required">
               <div ng-message="required">Address is required!</div>
             </div>
@@ -62,21 +23,21 @@
              
 
            <md-input-container class="Country"> 
-           <input mdInput #countryRef="ngModel" required [(ngModel)]="selectedPlace.Country" name="Country" placeholder="Enter Country">
+           <input  type="text" mdInput #countryRef="ngModel" required [(ngModel)]="selectedPlace.Country" name="Country" placeholder="Enter Country">
             <div *ngIf="countryRef.$error?.required">
               <div ng-message="required">Country is required!</div>
             </div>
         </md-input-container>
 
        <md-input-container class="Did"> 
-           <input mdInput #didRef="ngModel" required [(ngModel)]="selectedPlace.Did" name="Did" placeholder="Enter Did">
+           <input  type="number" mdInput #didRef="ngModel" required [(ngModel)]="selectedPlace.Did" name="Did" placeholder="Enter Did">
             <div *ngIf="didRef.$error?.required">
               <div ng-message="required">Domain Id is required!</div>
             </div>
         </md-input-container>
 
         <md-input-container class="Pid"> 
-            <input mdInput #pidRef="ngModel" required [(ngModel)]="selectedPlace.Pid" name="Pid" placeholder="Enter Pid">
+            <input  type="number" mdInput #pidRef="ngModel" required [(ngModel)]="selectedPlace.Pid" name="Pid" placeholder="Enter Pid">
             <div *ngIf="pidRef.$error?.required">
               <div ng-message="required">Pid is required!</div>
             </div>
@@ -94,31 +55,29 @@
               	<input mdInput #placeSearch md-autofocus type="search" (input)="term$.next($event.target.value)" placeholder="Enter Id or Place" />
           		</md-input-container>
           		<button md-raised-button color="accent" (click)="add(placeSearch.value)"><md-icon>add</md-icon> </button> 
-          </div>
-
-
-<md-table-container>
-  <table md-table md-row-select multiple ng-model="selected" md-progress="promise">
-    <thead md-head md-order="query.order" md-on-reorder="getDesserts">
-      <tr md-row>
-        <th md-column><span>Id</span></th>
-        <th md-column md-numeric><span>Pid</span></th>
-        <th md-column md-numeric>Did (g)</th>
-        <th md-column md-numeric>Name</th>
-        <th md-column md-numeric>Country</th>
-      </tr>
+     </div>
+ 	<div *ngIf="!appservice.admin">
+		<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp full-width">
+ 		 <thead align="left">
+ 		 <tr>
+	        <th><span>Id</span></th>
+	        <th><span>Pid</span></th>
+	        <th>Did (g)</th>
+	        <th>Name</th>
+	        <th>Country</th>
+      	</tr>
     </thead>
     <tbody md-body>
-      <tr md-row md-select="pace" md-select-id="name" md-auto-select ng-repeat="place in places">
-        <td md-cell>{{place.Id}}</td>
-        <td md-cell>{{place.Pid}}</td>
-        <td md-cell>{{place.Did | number: 1}}</td>
-        <td md-cell>{{place.Name}}</td>
-         <td md-cell>{{place.Country}}</td>
-      </tr>
+	      <tr *ngFor="let place of places" (click)="onSelect(place)">
+	        <td>{{place.Id}}</td>
+	        <td>{{place.Pid}}</td>
+	        <td>{{place.Did}}</td>
+	        <td>{{place.Name}}</td>
+	         <td>{{place.Country}}</td>
+	      </tr>
     </tbody>
   </table>
-</md-table-container>
+  </div>
  <!--  <table>
         <thead align="left">
           <tr>
