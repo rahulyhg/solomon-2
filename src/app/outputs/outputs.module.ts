@@ -8,7 +8,7 @@ import { OutputsRoutingModule } from './outputs-routing.module';
 
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
-import {WidgetsModule }           from '../widgets/widgets.module';
+import {WidgetsModule } from '../widgets/widgets.module';
 
 @NgModule({
   imports: [
@@ -19,6 +19,6 @@ import {WidgetsModule }           from '../widgets/widgets.module';
     WidgetsModule
   ],
   declarations: [OutputsComponent, OutputComponent],
-  providers:[]
+  providers: []
 })
 export class OutputsModule { }

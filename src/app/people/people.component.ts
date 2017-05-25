@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { Person } from './person';
-import { PersonService }         from './people.service';
-import { AppService }            from '../app.service';
+import { PersonService } from './people.service';
+import { AppService } from '../app.service';
 
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
@@ -21,12 +21,12 @@ export class PeopleComponent implements OnInit {
   constructor(
     private personservice: PersonService,
     private router: Router,
-    private appservice: AppService) { 
-        this.personservice.searchPeople(this.term$).subscribe(results =>this.people = results);
+    private appservice: AppService) {
+        this.personservice.searchPeople(this.term$).subscribe(results => this.people = results);
     }
 
-  searchPeople(term$){
-   this.term$.subscribe(term =>this.searchPeople(term$));
+  searchPeople(term$) {
+   this.term$.subscribe(term => this.searchPeople(term$));
     }
   getAllPeople(): void {
     this.personservice

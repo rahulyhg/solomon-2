@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { Output } from './output';
-import { OutputService }         from './outputs.service';
-import { AppService }            from '../app.service';
+import { OutputService } from './outputs.service';
+import { AppService } from '../app.service';
 
 import { Subject } from 'rxjs/Subject';
-import { Observable } from 'rxjs/Observable'
+import { Observable } from 'rxjs/Observable';
 
 
 @Component({
@@ -20,15 +20,15 @@ export class OutputsComponent implements OnInit {
   selectedOutput: Output;
   term$ = new Subject<string>();
   constructor(
-    private appservice: AppService, 
+    private appservice: AppService,
     private outputservice: OutputService,
-    private router: Router) { 
+    private router: Router) {
       this.outputservice.searchOutputs(this.term$).subscribe(results => this.outputs = results);
     }
-searchOutputs(term$){
+searchOutputs(term$) {
   this.term$.subscribe((term => this.searchOutputs(term$)));
 }
-  
+
   getAllOutputs(): void {
     this.outputservice
         .getAllOutputs()

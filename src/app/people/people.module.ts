@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from  '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
-import { PersonComponent } from './person.component'
-import { PeopleComponent } from "./people.component";
-import { PeopleRoutingModule } from "./people-routing.module";
+import { PersonComponent } from './person.component';
+import { PeopleComponent } from './people.component';
+import { PeopleRoutingModule } from './people-routing.module';
 
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
-import {WidgetsModule }           from '../widgets/widgets.module';
+import {WidgetsModule } from '../widgets/widgets.module';
 
 @NgModule({
   imports: [
@@ -19,6 +19,6 @@ import {WidgetsModule }           from '../widgets/widgets.module';
     WidgetsModule
   ],
   declarations: [PeopleComponent, PersonComponent ],
-  providers:[]
+  providers: []
 })
 export class PeopleModule { }

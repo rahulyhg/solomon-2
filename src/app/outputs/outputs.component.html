@@ -71,66 +71,65 @@
               <input type="search" mdInput #outputSearch  md-autofocus type="search" (input)="term$.next($event.target.value)" placeholder="Enter Id or Output" />
           </md-input-container>
           <button md-raised-button color="accent" (click)="add(outputsearch.value)"><md-icon>add</md-icon> </button> 
-        </div>    
+        </div>   
+ <div *ngIf="!appservice.admin"> 
+      <table class="tablewidth mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+ 		<thead align="left">
+ 		<tr>	
+	         <th><b>Id</b><br>To</th>
+	         <th>Domain<br>Lang</th>
+	         <th>Tries<br>Sent</th>
+	         <th>OutputType<br>Email</th>
+	         <th>From<br>To</th>
+	         <th>Delay<br>PidDFC</th>
+	         <th>RunId<br>MatchPid</th>
+	         <th>Trip Date</th>
+	         <th>CellDom<br>M_Phone</th>
+	         <th>CellValid<br>RD</th>
+	         <th>RDId<br>RDDFC</th>
+	         <th class="full-width mdl-data-table__cell--non-numeric"><div class="spacer"></div></th>
+	         <th class="mdl-data-table__cell--non-numeric">Delete</th> 
+	         <th class="mdl-data-table__cell--non-numeric">Detail</th>
+ 		</tr>
+ 	</thead>
+ 	<tbody>
+        <tr *ngFor="let output of outputs" (click)="onSelect(output)">
+	         <td><b>{{output.Id}}</b><br>{{output.Pid}}</td>
+	         <td>{{output.Did}}<br>{{output.Lang}}</td>
+	         <td>{{output.Trys}}<br>{{output.Sent}}</td> 
+	         <td>{{output.OutputType}}<br>{{output.Email  | slice:0:10}}</td>
+	         <td>{{output.FromName}}<br>{{output.ToName}}</td>
+	         <td>{{output.Delay}}<br>{{output.PidDFC}}</td>
+	         <td>{{output.RunId}}<br>{{output.MatchPid}}</td>
+	         <td>{{output.TripDate}}</td>
+	         <td>{{output.CellDom}}<br>{{output.M_Phone}}</td>
+	         <td>{{output.CellValid}}<br>{{output.RD}}</td>
+	         <td>{{output.RDId}}<br>{{output.RDDFC }}</td>
+	         <td  class="full-width mdl-data-table__cell--non-numeric"><div class="spacer"></div></td>
+	         <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(output); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
+	         <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="gotoDetail(output); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
+	        </tr>
+        </tbody></table>
+</div>
+<div *ngIf="appservice.admin"> 
         <table class="tablewidth mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
- <thead align="left">
- <tr>
- <div *ngIf="!appservice.admin">
-         <th><b>Id</b><br>To</th>
-         <th>Domain<br>Lang</th>
-         <th>Tries<br>Sent</th>
-         <th>OutputType<br>Email</th>
-         <th>From<br>To</th>
-         <th>Delay<br>PidDFC</th>
-         <th>RunId<br>MatchPid</th>
-         <th>Trip Date</th>
-         <th>CellDom<br>M_Phone</th>
-         <th>CellValid<br>RD</th>
-         <th>RDId<br>RDDFC</th>
-         <th class="full-width mdl-data-table__cell--non-numeric"><div class="spacer"></div></th>
-         <th class="mdl-data-table__cell--non-numeric">Delete</th> 
-         <th class="mdl-data-table__cell--non-numeric">Detail</th>
- </div>
- <div *ngIf="appservice.admin">
+ 		<thead align="left">
+ 		<tr>
          <th><b>Id</b><br>To</th>
          <th>First<br>Last</th>
          <th>User<br>Admin</th>
          <th class="full-width mdl-data-table__cell--non-numeric"></th>
          <th class="mdl-data-table__cell--non-numeric">Delete</th> 
          <th class="mdl-data-table__cell--non-numeric">Detail</th>
- </div>
- </tr></thead><tbody>
-
-
-        <tr *ngFor="let output of outputs" (click)="onSelect(output)"
-        [class.selected]="output === selectedOutput" class="list-group-item">
- <div *ngIf="!appservice.admin">
-         <td><b>{{output.Id}}</b><br>{{output.Pid}}</td>
-         <td>{{output.Did}}<br>{{output.Lang}}</td>
-         <td>{{output.Trys}}<br>{{output.Sent}}</td> 
-         <td>{{output.OutputType}}<br>{{output.Email  | slice:0:10}}</td>
-         <td>{{output.FromName}}<br>{{output.ToName}}</td>
-         <td>{{output.Delay}}<br>{{output.PidDFC}}</td>
-         <td>{{output.RunId}}<br>{{output.MatchPid}}</td>
-         <td>{{output.TripDate}}</td>
-         <td>{{output.CellDom}}<br>{{output.M_Phone}}</td>
-         <td>{{output.CellValid}}<br>{{output.RD}}</td>
-         <td>{{output.RDId}}<br>{{output.RDDFC }}</td>
-         <td  class="full-width mdl-data-table__cell--non-numeric"><div class="spacer"></div></td>
-         <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(output); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
-         <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="gotoDetail(output); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
-  
- </div>
- <div *ngIf="appservice.admin">
+		</tr>
+		</thead><tbody>
          <td><b>{{output.Id}}</b><br>{{output.Pid}}</td>
          <td>{{output.DFC | date}}<br>{{output.DLC | date}}</td>
          <td>{{output.User}}<br>{{output.Admin}}</td>
          <td  class="full-width mdl-data-table__cell--non-numeric"></td>
          <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(output); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
          <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="gotoDetail(output); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
-   
- </div>
- 
-        </tr>
+         </tr>
         </tbody></table>
 </div>
+

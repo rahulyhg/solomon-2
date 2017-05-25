@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PeopleComponent } from "./people.component";
+import { PeopleComponent } from './people.component';
 
 
 const peopleroutes: Routes = [
-     { path:'', component: PeopleComponent}
+     { path: '', component: PeopleComponent}
    ];
 
 
