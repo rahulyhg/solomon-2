@@ -170,6 +170,10 @@
 			<th class="full-width mdl-data-table__cell--non-numeric"></th>
 			<th class="mdl-data-table__cell--non-numeric">Delete</th> 
 			<th class="mdl-data-table__cell--non-numeric">Detail</th> 
+			</tr>
+    </thead>
+    <tbody>
+			
 		<tr *ngFor="let person of people" (click)="onSelect(person)"> 
 			<td><b>{{person.Id}}</b><br>{{person.Did}}</td>
 			 <td>{{person.DFC}}<br>{{person.DLC}}</td>

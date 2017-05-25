@@ -48,7 +48,7 @@
         <input mdInput type="email" name="M_Phone"  #m_phoneRef="ngModel"  [(ngModel)]="selectedOutput.M_Phone" placeholder="M_Phone" />
 </md-input-container>
 <md-input-container>               
-        <input mdInput type="emanumberil" name="RunId"  #runidRef="ngModel"  [(ngModel)]="selectedOutput.RunId" placeholder="RunId" />
+        <input mdInput type="number" name="RunId"  #runidRef="ngModel"  [(ngModel)]="selectedOutput.RunId" placeholder="RunId" />
 </md-input-container>
 <md-input-container>        
         <input mdInput type="number" name="CellValid"  #cellvalidRef="ngModel"  [(ngModel)]="selectedOutput.CellValid" placeholder="CellValid" />
@@ -123,13 +123,13 @@
          <th class="mdl-data-table__cell--non-numeric">Detail</th>
 		</tr>
 		</thead><tbody>
-         <td><b>{{output.Id}}</b><br>{{output.Pid}}</td>
-         <td>{{output.DFC | date}}<br>{{output.DLC | date}}</td>
-         <td>{{output.User}}<br>{{output.Admin}}</td>
-         <td  class="full-width mdl-data-table__cell--non-numeric"></td>
-         <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(output); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
-         <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="gotoDetail(output); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
-         </tr>
+		   <tr *ngFor="let output of outputs" (click)="onSelect(output)">
+		         <td><b>{{output.Id}}</b><br>{{output.Pid}}</td>
+		         <td>{{output.DFC | date}}<br>{{output.DLC | date}}</td>
+		         <td>{{output.User}}<br>{{output.Admin}}</td>
+		         <td  class="full-width mdl-data-table__cell--non-numeric"></td>
+		         <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(output); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
+		         <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="gotoDetail(output); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
+		       </tr>
         </tbody></table>
 </div>
-

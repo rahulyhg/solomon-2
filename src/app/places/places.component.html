@@ -57,23 +57,23 @@
           		<button md-raised-button color="accent" (click)="add(placeSearch.value)"><md-icon>add</md-icon> </button> 
      </div>
  	<div *ngIf="!appservice.admin">
-		<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp full-width">
- 		 <thead align="left">
- 		 <tr>
-	        <th><span>Id</span></th>
-	        <th><span>Pid</span></th>
-	        <th>Did (g)</th>
-	        <th>Name</th>
-	        <th>Country</th>
-      	</tr>
+	<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp full-width">
+ 	<thead align="left">
+	 		 <tr>
+		        <th><span>Id</span></th>
+		        <th><span>Pid</span></th>
+		        <th>Did (g)</th>
+		        <th>Name</th>
+		        <th>Country</th>
+	      	</tr>
     </thead>
-    <tbody md-body>
+    <tbody>
 	      <tr *ngFor="let place of places" (click)="onSelect(place)">
-	        <td>{{place.Id}}</td>
-	        <td>{{place.Pid}}</td>
-	        <td>{{place.Did}}</td>
-	        <td>{{place.Name}}</td>
-	         <td>{{place.Country}}</td>
+		        <td>{{place.Id}}</td>
+		        <td>{{place.Pid}}</td>
+		        <td>{{place.Did}}</td>
+		        <td>{{place.Name}}</td>
+		         <td>{{place.Country}}</td>
 	      </tr>
     </tbody>
   </table>
