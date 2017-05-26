@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class SolomonPage {
+export class Solomon2Page {
   navigateTo() {
     return browser.get('/');
   }

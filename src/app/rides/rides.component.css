@@ -32,3 +32,14 @@
   height: 300px;
 	width: 400px;
 }
+.narrow{
+	width:5%;
+}
+.wide{
+	width:30%;
+}
+table{
+    border: 1px solid black;
+    table-layout: fixed;
+    width: 900px;
+}

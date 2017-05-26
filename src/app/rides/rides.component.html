@@ -84,19 +84,19 @@ To {{selectedRide.RideToLat}} {{selectedRide.RideToLng}}<br>
           <button md-raised-button color="accent" (click)="add(eventSearch.value)"><md-icon>add</md-icon></button> 
       </div>
 <div *ngIf="!appservice.admin">
-    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp full-width">
+    <table class="table">
         <thead align="left">
         <tr>
-              <th>Id</th>
-              <th>User<br>Domain</th>
-              <th class="mdl-data-table__cell--non-numeric">RideFromName<br>RideToName</th>
-               <th class="mdl-data-table__cell--non-numeric">Distance<br>Duration</th>
-              <th class="mdl-data-table__cell--non-numeric">RideDate</th>
-              <th class="mdl-data-table__cell--non-numeric">Start Time<br>End Time</th>
+              <th class="narrow">Id</th>
+              <th class="narrow">User<br>Domain</th>
+              <th class="wide">RideFromName<br>RideToName</th>
+               <th class="narrow">Distance<br>Duration</th>
+              <th class="wide">RideDate</th>
+              <th>Start Time<br>End Time</th>
               <th>Weight</th>
-              <th class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></th>
-              <th class="mdl-data-table__cell--non-numeric">Delete</th> 
-              <th class="mdl-data-table__cell--non-numeric">Details</th>
+              <th><span class="spacer"></span></th>
+              <th>Delete</th> 
+              <th>Details</th>
           </tr>
        </thead>
        <tbody>
@@ -108,9 +108,9 @@ To {{selectedRide.RideToLat}} {{selectedRide.RideToLng}}<br>
      <td class="Id">{{ride.RideDate}}</td>
      <td class="Time">{{ride.RideStartTime}}<br>{{ride.RideEndTime}}</td>
      <td class="Lat">{{ride.Weight}}</td>
-     <td  class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></td>
-     <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(user); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
-     <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="gotoDetail(user); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
+     <td><span class="spacer"></span></td>
+     <td><button class="md-button" (click)="delete(user); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
+     <td><button class="md-button" (click)="gotoDetail(user); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
         </tr>
       </tbody>
     </table>

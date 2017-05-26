@@ -12,8 +12,6 @@ import {WidgetsModule } from '../widgets/widgets.module';
 
 // import { AgmCoreModule } from 'angular2-google-maps/core';
 
-import { NgxDatatableModule } from '@swimlane/ngx-datatable';
-import { TableColumn, ColumnMode} from '@swimlane/ngx-datatable';
 
 @Component({
   moduleId: module.id,
