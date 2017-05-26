@@ -1,5 +1,4 @@
-
-  <div *ngIf="selectedRun" class="selectedRun">
+<div *ngIf="selectedRun" class="selectedRun">
         <row-meta [rowmetadata]="selectedRun"></row-meta>
 <form #UserFormRef="ngForm" (ngSubmit)="onSubmit(RunFormRef.value)" name="RunForm" class="runform">
       <md-input-container>   

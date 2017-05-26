@@ -3,21 +3,21 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { UserGridComponent } from './usergrid.component';
-import { UserGridRoutingModule }  from "./usergrid-routing.module";
+import { UserGridRoutingModule } from './usergrid-routing.module';
 
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
-import { WidgetsModule }           from '../widgets/widgets.module';
+import { WidgetsModule } from '../widgets/widgets.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    MaterialModule, 
+    MaterialModule,
     WidgetsModule,
     UserGridRoutingModule
   ],
   declarations: [    UserGridComponent],
-  providers:[]
+  providers: []
 })
 export class UserGridModule { }

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AppService }          from '../app.service';
+import { AppService } from '../app.service';
 
 
 @Component({
@@ -9,7 +9,7 @@ import { AppService }          from '../app.service';
 })
 export class GeodataComponent implements OnInit {
 @Input() geodata;
-  constructor(private appservice:AppService) { }
+  constructor(private appservice: AppService) { }
 
   ngOnInit() {
   }

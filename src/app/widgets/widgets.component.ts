@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AppService }          from '../app.service';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'row-meta',
@@ -9,7 +9,7 @@ import { AppService }          from '../app.service';
 export class WidgetsComponent implements OnInit {
 @Input() rowmetadata;
 
-  constructor(private appservice:AppService) { }
+  constructor(private appservice: AppService) { }
 
   ngOnInit() {
   }

@@ -13,7 +13,7 @@ import { RedflashDirective } from './redflash.directive';
     CommonModule
   ],
   declarations: [WidgetsComponent, GeodataComponent, DriveprefsComponent, TrimDirective, RedtoggleDirective, RedflashDirective],
-  exports:[WidgetsComponent,GeodataComponent,TrimDirective, RedtoggleDirective]
+  exports: [WidgetsComponent, GeodataComponent, TrimDirective, RedtoggleDirective]
 
 })
 export class WidgetsModule { }

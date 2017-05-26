@@ -5,13 +5,13 @@ import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 
 import { Place } from './place';
-import { PlaceService }         from './places.service';
+import { PlaceService } from './places.service';
 
-import { Location }               from '@angular/common';
-import { AppService }          from '../app.service';
-import { WidgetsModule }           from '../widgets/widgets.module';
+import { Location } from '@angular/common';
+import { AppService } from '../app.service';
+import { WidgetsModule } from '../widgets/widgets.module';
 
-//import { AgmCoreModule } from 'angular2-google-maps/core';
+// import { AgmCoreModule } from 'angular2-google-maps/core';
 
 @Component({
   selector: 'app-place',
@@ -19,18 +19,18 @@ import { WidgetsModule }           from '../widgets/widgets.module';
   styleUrls: ['./place.component.css']
 })
 export class PlaceComponent implements OnInit {
-title: string = 'Place Title';
-zoom: number = 8;
+title = 'Place Title';
+zoom = 8;
 place: Place;
-places:Place[];
+places: Place[];
 Id: number;
 
   constructor(
     private appservice: AppService,
     private router: Router,
     private activeroute: ActivatedRoute,
-    private location: Location, 
-    private placeservice:PlaceService, 
+    private location: Location,
+    private placeservice: PlaceService
   ) {
      // activeroute.params.map((p:any) => this.Id = parseInt(p.Id));
       console.log(activeroute);
@@ -41,5 +41,4 @@ Id: number;
       .switchMap((params: Params) => this.placeservice.getPlace(+params['id']))
       .subscribe(object => this.place = object[0] as Place );
   }
-  
-  }//]
+  }

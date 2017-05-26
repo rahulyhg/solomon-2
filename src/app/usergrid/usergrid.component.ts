@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { User } from './usergrid';
-import { UserGridService }         from './usergrid.service';
-import { AppService }          from '../app.service';
+import { UserGridService } from './usergrid.service';
+import { AppService } from '../app.service';
 
 
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 
-import {WidgetsModule }           from '../widgets/widgets.module';
+import {WidgetsModule } from '../widgets/widgets.module';
 
 @Component({
   moduleId: module.id,
@@ -25,11 +25,10 @@ export class UserGridComponent implements OnInit {
   constructor(
     private usergridservice: UserGridService,
     private router: Router,
-    private activeroute: ActivatedRoute, 
+    private activeroute: ActivatedRoute,
     private appservice: AppService) {
-      this.usergridservice.searchUsers(this.term$).subscribe(results =>this.users = results);
+      this.usergridservice.searchUsers(this.term$).subscribe(results => this.users = results);
      }
-     
   getAllUsers(): void {
     this.usergridservice
         .getAllUsers()
@@ -65,10 +64,10 @@ export class UserGridComponent implements OnInit {
     this.selectedUser = null;
   }
 
-  gotoDetail(user:User) {
+  gotoDetail(user: User) {
     this.router.navigate(['users', user.Id]);
   }
-  setmailprefs($event):void{
+  setmailprefs($event): void {
     console.log($event);
   }
 }

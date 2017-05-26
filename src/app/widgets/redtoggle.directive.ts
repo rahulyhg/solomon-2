@@ -13,7 +13,6 @@ export class RedtoggleDirective {
   constructor(
     private flashoneservice: FlashoneService
   ) {
-   
    }
 
 }

@@ -67,11 +67,10 @@ getAllPlaces(): void {
   onSelect(place: Place): void {
     this.selectedPlace = place;
   }
-  onDeSelect(): void{
+  onDeSelect(): void {
     this.selectedPlace = null;
   }
-  gotoDetail(place:Place): void {
+  gotoDetail(place: Place): void {
     this.router.navigate(['places', place.Id]);
-    
   }
 }

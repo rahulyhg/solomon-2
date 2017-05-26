@@ -4,7 +4,7 @@ import { Directive, HostBinding } from '@angular/core';
   selector: '[trim]'
 })
 export class TrimDirective {
-  @HostBinding() get innerText(){
-        return "yaba"
+  @HostBinding() get innerText() {
+        return 'yaba';
 }
 }

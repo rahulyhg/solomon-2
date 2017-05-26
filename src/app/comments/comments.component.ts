@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { Comment } from './comment';
-import { CommentService }         from './comments.service';
-import { AppService }         from '../app.service';
+import { CommentService } from './comments.service';
+import { AppService } from '../app.service';
 
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
@@ -21,13 +21,12 @@ export class CommentsComponent implements OnInit {
   constructor(
     private commentservice: CommentService,
     private router: Router,
-    private appservice : AppService) { 
-        this.commentservice.searchComments(this.term$).subscribe(results =>this.comments = results);
+    private appservice: AppService) {
+        this.commentservice.searchComments(this.term$).subscribe(results => this.comments = results);
     }
-  searchComments(term$){
-    this.term$.subscribe(term =>this.searchComments(term$));
+  searchComments(term$) {
+    this.term$.subscribe(term => this.searchComments(term$));
       }
-  
   getAllComments(): void {
     this.commentservice
         .getAllComments()
