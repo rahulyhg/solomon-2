@@ -1,6 +1,6 @@
 <div *ngIf="selectedDomain" class="selectedDomain">
        <h1>{{selectedDomain.Domain}}</h1>
-  <row-meta [rowmetadata]="selectedDomain"></row-meta>     
+  	<row-meta [rowmetadata]="selectedDomain"></row-meta>     
  <form #DomainFormRef="ngForm" (ngSubmit)="onSubmit(DomainFormRef.value)" name="DomainForm" class="domainform">      
    <md-input-container>
         <input [(ngModel)]="selectedDomain.Lang" placeholder="Lang"/>
@@ -151,7 +151,8 @@
           <td class="Did">{{domain.Pid}}</td>
           <td class="Did">{{domain.Active}}</td>
           <td class="Did">{{domain.Domain}}</td>
-      <td><button class="btn-xs btn-danger" (click)="delete(domain); $event.stopPropagation()">x</button></td>
+    <button md-raised-button (click)="onDeSelect()">Back</button>
+    <button md-raised-button (click)="onDeSelect()">Save</button>
  </tr>
 </tbody></table>
 </div>

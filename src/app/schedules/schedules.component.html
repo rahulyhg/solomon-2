@@ -1,0 +1,144 @@
+<div *ngIf="selectedSchedule" class="selectedSchedule">
+      <row-meta [rowmetadata]="selectedDrive"></row-meta>
+  <form #DriveFormRef="ngForm" (ngSubmit)="onSubmit(DriveFormRef.value)" name="DriveForm" class="driveform">      
+       <md-input-container>
+       <input [(ngModel)]="selectedSchedule.Did" placeholder="Did"/>
+</md-input-container>
+     <md-input-container>
+       <input [(ngModel)]="selectedSchedule.Pid" placeholder="Pid" />
+ </md-input-container>
+     <md-input-container>
+         <input [(ngModel)]="selectedSchedule.RT" placeholder="RT" />
+</md-input-container>
+     <md-input-container>
+         <input [(ngModel)]="selectedSchedule.LastRun" placeholder="LastRun" />
+ </md-input-container>
+     <md-input-container>
+         <input [(ngModel)]="selectedSchedule.PO" placeholder="PO" />
+</md-input-container>
+     <md-input-container>
+         <input [(ngModel)]="selectedSchedule.SchedFromId" placeholder="SchedFromId" />
+</md-input-container>
+     <md-input-container>
+         <input [(ngModel)]="selectedSchedule.SchedToId" placeholder="SchedToId" />
+</md-input-container>
+     <md-input-container>
+         <input [(ngModel)]="selectedSchedule.Distance" placeholder="Distance" />
+</md-input-container>
+     <md-input-container>
+         <input [(ngModel)]="selectedSchedule.Duration" placeholder="Duration" />
+</md-input-container>
+     <md-input-container>
+         <input [(ngModel)]="selectedSchedule.Extra" placeholder="Extra" />
+</md-input-container>
+     <md-input-container>
+         <input [(ngModel)]="selectedSchedule.Weight" placeholder="Weight" />
+</md-input-container>
+     <md-input-container>
+         <input [(ngModel)]="selectedSchedule.M" placeholder="M" />
+</md-input-container>
+     <md-input-container>
+         <input [(ngModel)]="selectedSchedule.T" placeholder="T" />
+</md-input-container>
+     <md-input-container>
+         <label>W: </label>
+         <input [(ngModel)]="selectedSchedule.W" placeholder="W" />
+</md-input-container>
+     <md-input-container>
+         <label>Th: </label>
+         <input [(ngModel)]="selectedSchedule.Th" placeholder="Th" />
+</md-input-container>
+     <md-input-container>
+         <input [(ngModel)]="selectedSchedule.F" placeholder="F" />
+</md-input-container>
+     <md-input-container>
+         <input [(ngModel)]="selectedSchedule.Sa" placeholder="Sa" />
+</md-input-container>
+     <md-input-container>
+         <input [(ngModel)]="selectedSchedule.Su" placeholder="Su" />
+ </md-input-container>
+     <md-input-container>
+         <input [(ngModel)]="selectedSchedule.StartTime" placeholder="StartTime" />
+ </md-input-container>
+     <md-input-container>
+         <label>EndTime: </label>
+         <input [(ngModel)]="selectedSchedule.EndTime" placeholder="EndTime" />
+</md-input-container>
+     <md-input-container>
+         <input [(ngModel)]="selectedSchedule.DriveMin" placeholder="DriveMin" />
+ </md-input-container>
+     <md-input-container>
+         <input [(ngModel)]="selectedSchedule.DriveMax" placeholder="DriveMax" />
+</md-input-container>
+     <md-input-container>
+         <input [(ngModel)]="selectedSchedule.DriveRate" placeholder="DriveRate" />
+</md-input-container>
+     <md-input-container>
+         <input [(ngModel)]="selectedSchedule.DriveFee" placeholder="DriveFee" />
+</md-input-container>
+     <md-input-container>
+         <input [(ngModel)]="selectedSchedule.DriveCost" placeholder="DriveCost" />
+</md-input-container>
+ <button class="btn btn-warning" (click)="onDeSelect()">Back</button>
+ <button class="btn btn-success" (click)="onDeSelect()">Save</button>
+</div>
+
+<div *ngIf="!selectedSchedule">
+ <div class="floatright searchwidth MRight100">
+            <md-input-container>
+ 				<input mdInput type="search"  #scheduleSearch  md-autofocus type="search" (input)="term$.next($event.target.value)" placeholder="User Id or Schedule" />
+            </md-input-container>
+            <button md-raised-button color="accent"  (click)="add(eventSearch.value)"><md-icon>add</md-icon> </button> 
+        </div>
+ <div *ngIf="!appservice.admin">
+ 	<table class="table">
+ 	<thead align="left">
+ 	 	<tr>
+			 <th>Id</th>
+			 <th>Pid<br>Did</th>
+			 <th class="">DriveFromName<br>DriveToName</th>
+			 <th class="">DriveDate</th>
+			 <th class="">DriveStart<br>DriveEnd</th>
+			 <th>Min<br>Max</th>
+			 <th>Dist<br>Duration</th>
+			 <th class="full-width "><span class="spacer"></span></th>
+			 <th class="">Delete</th> 
+			 <th class="">Details</th>
+			 </tr>
+        </thead>
+        <tbody>
+  <tr *ngFor="let schedule of schedules" (click)="onSelect(schedule)">
+         <td>{{schedule.Id}}</td>
+         <td>{{schedule.DFC}}</td> 
+         <td>{{schedule.DLC}}</td>
+         <td>{{schedule.User}}</td>
+         <td>{{schedule.Did}}</td>
+         <td>{{schedule.Pid}}</td>
+         <td>{{schedule.RT}}</td>
+         <td>{{schedule.LastRun}}</td>
+         <td>{{schedule.PO}}</td>
+         <td>{{schedule.SchedFromId}}</td>
+         <td>{{schedule.SchedToId}}</td>
+         <td>{{schedule.Distance}}</td>
+         <td>{{schedule.Duration}}</td>
+         <td>{{schedule.Extra}}</td>
+         <td>{{schedule.Weight}}</td>
+         <td>{{schedule.M}}</td>
+         <td>{{schedule.T}}</td>
+         <td>{{schedule.W}}</td>
+         <td>{{schedule.Th}}</td>
+         <td>{{schedule.F}}</td>
+         <td>{{schedule.Sa}}</td>
+         <td>{{schedule.Su}}</td>
+         <td>{{schedule.StartTime}}</td>
+         <td>{{schedule.EndTime}}</td>
+         <td>{{schedule.DriveMin}}</td>
+         <td>{{schedule.DriveMax}}</td>
+         <td>{{schedule.DriveRate}}</td>
+         <td>{{schedule.DriveFee}}</td>
+         <td>{{schedule.DriveCost}}</td>
+         <td><button class="btn-sm btn-danger" (click)="delete(event); $event.stopPropagation()">x</button></td>
+               </tr>
+            </tbody></table>
+            </div> 
+</div>

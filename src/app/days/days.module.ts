@@ -6,19 +6,16 @@ import { DayComponent } from './day.component';
 import { DaysComponent } from './days.component';
 import { DaysRoutingModule } from './days-routing.module';
 
-import { MdCardModule } from '@angular/material';
+import { MaterialModule } from '@angular/material';
 import 'hammerjs';
 import {WidgetsModule } from '../widgets/widgets.module';
 
-
-
 @NgModule({
-
   imports: [
     CommonModule,
     FormsModule,
     DaysRoutingModule,
-    MdCardModule,
+    MaterialModule,
     WidgetsModule
   ],
   declarations: [DaysComponent, DayComponent],

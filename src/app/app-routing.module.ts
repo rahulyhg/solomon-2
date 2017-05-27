@@ -11,7 +11,6 @@ const appRoutes: Routes = [
     {path: 'langerrs', loadChildren:'./langerrs/langerrs.module#LangerrsModule'},
     {path: 'iso639s', loadChildren:'./iso639s/iso639s.module#Iso639sModule'},
     {path: 'iso3166s', loadChildren:'./iso3166s/iso3166s.module#Iso3166sModule'},
-    {path: 'days', loadChildren:'./days/days.module#DaysModule'},
     {path: 'invoices', loadChildren:'./invoices/invoices.module#InvoicesModule'},
     {path: 'letters', loadChildren:'./letters/letters.module#LettersModule'},
     {path: 'lineitems', loadChildren:'./lineitems/lineitems.module#LineitemsModule'},
@@ -21,13 +20,12 @@ const appRoutes: Routes = [
     {path: 'popups', loadChildren:'./popups/popups.module#PopupsModule'},
     {path: 'posts', loadChildren:'./posts/posts.module#PostsModule'},
     {path: 'feeds', loadChildren:'./feeds/feeds.module#FeedsModule'}
- *     {path: 'sched86s', loadChildren: './sched86s/sched86s.module#Sched86sModule'},
-    {path: 'schedules', loadChildren: './schedules/schedules.module#SchedulesModule'},
  *  {path: 'zeros', loadChildren: './zeros/zeros.module#ZerosModule'}
- *   {path: 'domains', loadChildren: './domains/domains.module#DomainsModule'},
- *    
+
 */
     {path: 'comments', loadChildren: './comments/comments.module#CommentsModule'},
+    {path: 'days', loadChildren: './days/days.module#DaysModule'},
+    {path: 'domains', loadChildren: './domains/domains.module#DomainsModule'},
     {path: 'drives', loadChildren: './drives/drives.module#DrivesModule'},
     {path: 'events', loadChildren: './events/events.module#EventsModule'},
     {path: 'lettexts', loadChildren: './lettexts/lettexts.module#LettextsModule'},
@@ -37,9 +35,10 @@ const appRoutes: Routes = [
     {path: 'places', loadChildren: './places/places.module#PlacesModule'},
     {path: 'rides', loadChildren: './rides/rides.module#RidesModule'},
     {path: 'runs', loadChildren: './runs/runs.module#RunsModule'},
+    {path: 'sched86s', loadChildren: './sched86s/sched86s.module#Sched86sModule'},
+    {path: 'schedules', loadChildren: './schedules/schedules.module#SchedulesModule'},
     {path: 'usergrid', loadChildren: './usergrid/usergrid.module#UserGridModule'},
     {path: 'users', loadChildren: './users/users.module#UsersModule'}
-   
 ];
 
 @NgModule({

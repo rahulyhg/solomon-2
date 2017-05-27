@@ -1,31 +1,136 @@
 <div *ngIf="selectedDay" class="selectedDay">
     <row-meta [rowmetadata]="selectedDay"></row-meta>
  <form #DriveFormRef="ngForm" (ngSubmit)="onSubmit(DayFormRef.value)" name="DayForm" class="dayform">      
-   
-                   <md-input-container>
-                      <input [(ngModel)]="selectedDay.Id" placeholder="Name"/>
-               </md-input-container>
-                   </md-input-container>
-                   <md-input-container>
-                      <input [(ngModel)]="selectedDay.XDrives" placeholder="Date" />
-                 </md-input-container>
-                      </md-input-container>
-                   <md-input-container>
-                        <input [(ngModel)]="selectedDay.XEvents" placeholder="Description" />
-               </md-input-container>
-                   </md-input-container>
-                   <md-input-container>
-                        <input [(ngModel)]="selectedDay.XLogs" placeholder="Start Time" />
-               </md-input-container>
-                  </md-input-container>
-                   <md-input-container>
-                          <input [(ngModel)]="selectedDay.XOutputs" placeholder="End Time" />
-               </md-input-container>
-               </md-input-container>
-                   <md-input-container>
-                        <input [(ngModel)]="selectedDay.XRides" placeholder="Map Address" />
-               </md-input-container>
-                   <button md-raised-button (click)="onDeSelect()">Back</button>
+				<md-input-container>
+				    <input [(ngModel)]="selectedDay.Id" placeholder="Name"/>
+				</md-input-container>
+				<md-input-container>
+				    <input [(ngModel)]="selectedDay.XDrives" placeholder="Deleted Drives" />
+				</md-input-container>
+				<md-input-container>
+				      <input [(ngModel)]="selectedDay.XEvents" placeholder="XEvents" />
+				</md-input-container>
+				<md-input-container>
+				       <input [(ngModel)]="selectedDay.XLogs" placeholder="XLogs" />
+				</md-input-container>
+				<md-input-container>
+				         <input [(ngModel)]="selectedDay.XOutputs" placeholder="XOutputs" />
+				</md-input-container>
+				<md-input-container>
+                        <input [(ngModel)]="selectedDay.XRides" placeholder="XRides" />
+               	</md-input-container>
+	               <md-input-container>
+	                        <input [(ngModel)]="selectedDay.XRuns0" placeholder="XRuns0" />
+	               </md-input-container>
+	               <md-input-container>
+	                        <input [(ngModel)]="selectedDay.XRuns1" placeholder="XRuns1" />
+	               </md-input-container>
+	               <md-input-container>
+	                        <input [(ngModel)]="selectedDay.XRuns2" placeholder="XRuns2" />
+	               </md-input-container>
+	               <md-input-container>
+	                        <input [(ngModel)]="selectedDay.XScheds" placeholder="XScheds" />
+	               </md-input-container>
+	               <md-input-container>
+	                        <input [(ngModel)]="selectedDay.XSched86s" placeholder="XSched86s" />
+	               </md-input-container>
+	               <md-input-container>
+	                        <input [(ngModel)]="selectedDay.DScheds" placeholder="DScheds" />
+	               </md-input-container>
+	               <md-input-container>
+	                        <input [(ngModel)]="selectedDay.RScheds" placeholder="RScheds" />
+	               </md-input-container>
+	               <md-input-container>
+	                        <input [(ngModel)]="selectedDay.Output3" placeholder="Output3" />
+	               </md-input-container>
+	               <md-input-container>
+	                        <input [(ngModel)]="selectedDay.Monthly" placeholder="Monthly" />
+	               </md-input-container>
+	               <md-input-container>
+	                        <input [(ngModel)]="selectedDay.EPlace" placeholder="EPlace" />
+	               </md-input-container>
+	               <md-input-container>
+	                        <input [(ngModel)]="selectedDay.HelpUs" placeholder="HelpUs" />
+	               </md-input-container>
+	               <md-input-container>
+	                        <input [(ngModel)]="selectedDay.EStopCnt" placeholder="EStopCnt" />
+	               </md-input-container>
+	               <md-input-container>
+	                        <input [(ngModel)]="selectedDay.Video" placeholder="Video" />
+	               </md-input-container>
+	               <md-input-container>
+	                        <input [(ngModel)]="selectedDay.FeadCnt" placeholder="FeadCnt" />
+	               </md-input-container>
+	               <md-input-container>
+	                        <input [(ngModel)]="selectedDay.NoAct" placeholder="NoAct" />
+	               </md-input-container>
+	               <md-input-container>
+	                        <input [(ngModel)]="selectedDay.NoAct7" placeholder="NoAct7" />
+	               </md-input-container>
+	               <md-input-container>
+	                        <input [(ngModel)]="selectedDay.NoAct30" placeholder="NoAct30" />
+	               </md-input-container>
+	               <md-input-container>
+	                        <input [(ngModel)]="selectedDay.NoAct60" placeholder="NoAct60" />
+	               </md-input-container>
+	               <md-input-container>
+	                        <input [(ngModel)]="selectedDay.NoAct90" placeholder="NoAct90" />
+	               </md-input-container>
+	               <md-input-container>
+	                        <input [(ngModel)]="selectedDay.DriveCnt" placeholder="DriveCnt" />
+	               </md-input-container>
+	               <md-input-container>
+	                        <input [(ngModel)]="selectedDay.EventCnt" placeholder="EventCnt" />
+	               </md-input-container>
+	               <md-input-container>
+	                        <input [(ngModel)]="selectedDay.FeedCnt" placeholder="FeedCnt" />
+	               </md-input-container>
+	               <md-input-container>
+	                        <input [(ngModel)]="selectedDay.InactCnt" placeholder="InactCnt" />
+	               </md-input-container>
+	               <md-input-container>
+	                        <input [(ngModel)]="selectedDay.OutputCnt" placeholder="OutputCnt" />
+	               </md-input-container>
+	               <md-input-container>
+	                        <input [(ngModel)]="selectedDay.PeopleCnt" placeholder="PeopleCnt" />
+	               </md-input-container>
+	               <md-input-container>
+	                        <input [(ngModel)]="selectedDay.PlaceCnt" placeholder="PlaceCnt" />
+	               </md-input-container>
+	               <md-input-container>
+	                        <input [(ngModel)]="selectedDay.UserCnt" placeholder="UserCnt" />
+	               </md-input-container>
+	               <md-input-container>
+	                        <input [(ngModel)]="selectedDay.RideCnt" placeholder="RideCnt" />
+	               </md-input-container>
+	               <md-input-container>
+	                        <input [(ngModel)]="selectedDay.RunCnt" placeholder="RunCnt" />
+	               </md-input-container>
+	               <md-input-container>
+	                        <input [(ngModel)]="selectedDay.SchedCnt" placeholder="SchedCnt" />
+	               </md-input-container>
+	               <md-input-container>
+	                        <input [(ngModel)]="selectedDay.Sched86Cnt" placeholder="Sched86Cnt" />
+	               </md-input-container>
+	               <md-input-container>
+	                        <input [(ngModel)]="selectedDay.DayTime" placeholder="DayTime" />
+	               </md-input-container>
+	               <md-input-container>
+	                        <input [(ngModel)]="selectedDay.Face" placeholder="Face" />
+	               </md-input-container>
+	               <md-input-container>
+	                        <input [(ngModel)]="selectedDay.About" placeholder="About" />
+	               </md-input-container>
+	               <md-input-container>
+	                        <input [(ngModel)]="selectedDay.Holy" placeholder="Holy" />
+	               </md-input-container>
+	               <md-input-container>
+	                        <input [(ngModel)]="selectedDay.Promo" placeholder="Promo" />
+	               </md-input-container>
+	               <md-input-container>
+	                        <input [(ngModel)]="selectedDay.TCode2" placeholder="TCode2" />
+	               </md-input-container>
+    <button md-raised-button (click)="onDeSelect()">Back</button>
     <button md-raised-button (click)="onDeSelect()">Save</button>
    </form> 
 </div>
@@ -36,12 +141,24 @@
             </md-input-container>
             <button md-raised-button color="accent"  (click)="add(eventSearch.value)"><md-icon>add</md-icon> </button> 
         </div>
-            <div *ngIf="!appservice.admin">
-            
-       		 <table class="table">
-                    <tbody>
-                 <tr *ngFor="let day of days" (click)="onSelect(day)">
-                    
+  	<div *ngIf="!appservice.admin">  
+      <table class="table">
+ 		 <thead align="left">
+ 	 		<tr>
+				 <th>Id</th>
+				 <th>Pid<br>Did</th>
+				 <th class="">DriveFromName<br>DriveToName</th>
+				 <th class="">DriveDate</th>
+				 <th class="">DriveStart<br>DriveEnd</th>
+				 <th>Min<br>Max</th>
+				 <th>Dist<br>Duration</th>
+				 <th class="full-width "><span class="spacer"></span></th>
+				 <th class="">Delete</th> 
+				 <th class="">Details</th>
+				 </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let day of days" (click)="onSelect(day)">
                         <td class="Id"><b>{{day.Id}}</b></td>
 	      				<td class="XDrives">{{day.XDrives}} </td>
                         <td class="XEvents">{{day.XEvents}}</td>
@@ -50,7 +167,7 @@
                         <td class="XRides">{{day.XRides}} </td>
                         <td class="XRuns0"> {{day.XRuns0}}</td>
                         <td class="XRuns1"> {{day.XRuns1}}</td>
-						 <td class="XRuns2"> {{day.XRuns2}}</td>
+						<td class="XRuns2"> {{day.XRuns2}}</td>
 						<td class="XScheds"> {{day.XScheds}}</td>
 						<td class="XSched86s"> {{day.XSched86s}}</td>
 						<td class="DScheds"> {{day.DScheds}}</td>
@@ -64,39 +181,59 @@
 						<td class="FeadCnt"> {{day.FeadCnt}}</td>
 						<td class="NoAct"> {{day.NoAct}}</td>
 						<td class="button"><button class="btn-sm btn-danger" (click)="delete(day); $event.stopPropagation()">x</button></td>
-                        </div>
-                        <div *ngIf="appservice.admin">
-                        <td class="Id"><b>{{day.Id}}</b></td>
-                        <td class="DFC">{{day.DFC}} </td>
-                        <td class="DLC">{{day.DLC | date}}</td>
-                        <td class="User">{{day.User}}</td>
-						<td class="NoAct7">{{day.NoAct7}}</td>
-						<td class="NoAct30">{{day.NoAct30}}</td>
-						<td class="NoAct60">{{day.NoAct60}}</td>
-						<td class="NoAct90">{{day.NoAct90}}</td>
-						<td class="DriveCnt">{{day.DriveCnt}}</td>
-						<td class="EventCnt">{{day.EventCnt}}</td>
-						<td class="FeedCnt">{{day.FeedCnt}}</td>
-						<td class="InactCnt">{{day.InactCnt}}</td>
-						<td class="OutputCnt">{{day.OutputCnt}}</td>
-						<td class="PeopleCnt">{{day.PeopleCnt}}</td>
-						<td class="PlaceCnt">{{day.PlaceCnt}}</td>
-						<td class="UserCnt">{{day.UserCnt}}</td>
-						<td class="RideCnt">{{day.RideCnt}}</td>
-						<td class="RunCnt">{{day.RunCnt}}</td>  
-						<td class="SchedCnt">{{day.SchedCnt}}</td> 
-						<td class="Sched86Cnt">{{day.Sched86Cnt}}</td> 
-						<td class="DayTime">{{day.DayTime}}</td> 
-						<td class="Face">{{day.Face}}</td> 
-						<td class="About">{{day.About}}</td> 
-						<td class="Holy">{{day.Holy}}</td> 
-						<td class="Promo">{{day.Promo}}</td> 
-						<td class="TCode2">{{day.TCode2}}</td> 	
-						<td class="button"><button class="btn-sm btn-danger" (click)="delete(day); $event.stopPropagation()">x</button></td>												
-						</div>
                 </tr>
             </tbody></table>
-        </div>
-</div></div></div></div>
+	</div>
+	</div>
 
+
+   <div *ngIf="appservice.admin">
+    <table class="table">
+ 		 <thead align="left">
+ 	 		<tr>
+				 <th>Id</th>
+				 <th>Pid<br>Did</th>
+				 <th class="">DriveFromName<br>DriveToName</th>
+				 <th class="">DriveDate</th>
+				 <th class="">DriveStart<br>DriveEnd</th>
+				 <th>Min<br>Max</th>
+				 <th>Dist<br>Duration</th>
+				 <th class="full-width "><span class="spacer"></span></th>
+				 <th class="">Delete</th> 
+				 <th class="">Details</th>
+				 </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let day of days" (click)="onSelect(day)">
+            <td class="Id"><b>{{day.Id}}</b></td>
+            <td class="DFC">{{day.DFC}} </td>
+            <td class="DLC">{{day.DLC | date}}</td>
+            <td class="User">{{day.User}}</td>
+			<td class="NoAct7">{{day.NoAct7}}</td>
+			<td class="NoAct30">{{day.NoAct30}}</td>
+			<td class="NoAct60">{{day.NoAct60}}</td>
+			<td class="NoAct90">{{day.NoAct90}}</td>
+			<td class="DriveCnt">{{day.DriveCnt}}</td>
+			<td class="EventCnt">{{day.EventCnt}}</td>
+			<td class="FeedCnt">{{day.FeedCnt}}</td>
+			<td class="InactCnt">{{day.InactCnt}}</td>
+			<td class="OutputCnt">{{day.OutputCnt}}</td>
+			<td class="PeopleCnt">{{day.PeopleCnt}}</td>
+			<td class="PlaceCnt">{{day.PlaceCnt}}</td>
+			<td class="UserCnt">{{day.UserCnt}}</td>
+			<td class="RideCnt">{{day.RideCnt}}</td>
+			<td class="RunCnt">{{day.RunCnt}}</td>  
+			<td class="SchedCnt">{{day.SchedCnt}}</td> 
+			<td class="Sched86Cnt">{{day.Sched86Cnt}}</td> 
+			<td class="DayTime">{{day.DayTime}}</td> 
+			<td class="Face">{{day.Face}}</td> 
+			<td class="About">{{day.About}}</td> 
+			<td class="Holy">{{day.Holy}}</td> 
+			<td class="Promo">{{day.Promo}}</td> 
+			<td class="TCode2">{{day.TCode2}}</td> 	
+			<td class="button"><button class="btn-sm btn-danger" (click)="delete(day); $event.stopPropagation()">x</button></td>												
+			</tr>
+		</tbody>
+	</table>
+</div>
 

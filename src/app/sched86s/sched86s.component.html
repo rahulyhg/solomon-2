@@ -1,0 +1,58 @@
+    <div *ngIf="selectedSched86" class="selectedSched86">
+      <row-meta [rowmetadata]="selectedDrive"></row-meta>
+  <form #DriveFormRef="ngForm" (ngSubmit)="onSubmit(DriveFormRef.value)" name="DriveForm" class="driveform">      
+  			 {{selectedSched86.EventName}}
+     <md-input-container>
+       <input [(ngModel)]="selectedSched86.RideSchedId" placeholder="RideSchedId"/>
+  </md-input-container>
+     <md-input-container>
+       <input [(ngModel)]="selectedSched86.DriveSchedId" placeholder="DriveSchedId" />
+    </md-input-container>
+     <md-input-container>
+         <input [(ngModel)]="selectedSched86.DayOfWeek" placeholder="DayOfWeek" />
+   </md-input-container>
+    <button md-raised-button (click)="onDeSelect()">Back</button>
+    <button md-raised-button (click)="onDeSelect()">Save</button>
+   </form> 
+</div>
+
+<div *ngIf="!selectedSched86">
+        <div class="floatright searchwidth MRight100">
+            <md-input-container>
+ 				<input mdInput type="search"  #driveSearch  md-autofocus type="search" (input)="term$.next($event.target.value)" placeholder="User Id or DriveFromName" />
+            </md-input-container>
+            <button md-raised-button color="accent"  (click)="add(eventSearch.value)"><md-icon>add</md-icon> </button> 
+        </div>
+ <div *ngIf="!appservice.admin">
+ <table class="table">
+   <thead align="left">
+ 	 	<tr>
+			 <th>Id</th>
+			 <th>First</th>
+			 <th>Last</th>
+			 <th>User</th>
+			  <th>RideSched</th>
+			 <th>DriveSched</th>
+			 <th>Day</th>
+			 <th class="full-width "><span class="spacer"></span></th>
+			 <th class="">Delete</th> 
+			 <th class="">Details</th>
+			 </tr>
+        </thead>
+        <tbody>
+  <tr *ngFor="let sched86 of sched86s" (click)="onSelect(sched86)">
+         <td>{{sched86.Id}}</td>
+         <td>{{sched86.DFC}}</td> 
+         <td>{{sched86.DLC}}</td>
+         <td>{{sched86.User}}</td>
+         <td>{{sched86.RideSchedId}}</td>
+         <td>{{sched86.DriveSchedId}}</td>
+         <td>{{sched86.DayOfWeek}}</td>
+         <td><button class="btn-sm btn-danger" (click)="delete(event); $event.stopPropagation()">x</button></td>
+ </tr>
+            </tbody></table>
+        </div>
+</div>
+
+
+ 
