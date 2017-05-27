@@ -1,149 +1,115 @@
 	<div *ngIf="selectedLettext" class="selectedLettext">
-                 <md-input-container>
-                 <label>Letter: </label>
-                <input [(ngModel)]="selectedLettext.Letter" placeholder="Letter"/>
+      <row-meta [rowmetadata]="selectedLettext"></row-meta>
+  		<form #DriveFormRef="ngForm" (ngSubmit)="onSubmit(LettextFormRef.value)" name="LettextForm" class="lettextform">      
+               <md-input-container>
+                	<input  type="text" mdInput #DidRef="ngModel" name="Letter" [(ngModel)]="selectedLettext.Letter" placeholder="Letter"/>
                </md-input-container>
-                <md-input-container>
-                    <label>Did: </label>
-                    <input [(ngModel)]="selectedLettext.Did" placeholder="Did"/>
+               <md-input-container>                  
+                    <input   type="number" mdInput #DidRef="ngModel" name="Did" [(ngModel)]="selectedLettext.Did" placeholder="Did"/>
                </md-input-container>
-                    <md-input-container>
-                    <label>Lang: </label>
-                    <input [(ngModel)]="selectedLettext.Lang" placeholder="Lang"/>
+               <md-input-container>
+                    <input   type="text" mdInput #DidRef="ngModel" name="Lang" [(ngModel)]="selectedLettext.Lang" placeholder="Lang"/>
                </md-input-container>
-                    <md-input-container>
-                    <label>LetLangDid: </label>
-                    <input [(ngModel)]="selectedLettext.LetLangDid" placeholder="LetLangDid"/>
+               <md-input-container>
+                    <input type="text" mdInput #DidRef="ngModel" name="LetLangDid" [(ngModel)]="selectedLettext.LetLangDid" placeholder="LetLangDid"/>
                </md-input-container>
-                    <md-input-container>
-                    <label>Off: </label>
-                    <input [(ngModel)]="selectedLettext.Off" placeholder="Off"/>
+               <md-input-container>
+                    <input  type="text" mdInput #DidRef="ngModel" name="Off"  [(ngModel)]="selectedLettext.Off" placeholder="Off"/>
                </md-input-container>
-                    <md-input-container>
-                    <label>Code: </label>
-                    <input [(ngModel)]="selectedLettext.Code" placeholder="Code"/>
+               <md-input-container>
+                    <input  type="text" mdInput #DidRef="ngModel" name="Code" [(ngModel)]="selectedLettext.Code" placeholder="Code"/>
                </md-input-container>
                     <md-input-container>
-                    <label>Sub1: </label>
-                    <input [(ngModel)]="selectedLettext.Sub1" placeholder="Sub1"/>
+                    <input  type="text" mdInput #DidRef="ngModel" name="Sub1" [(ngModel)]="selectedLettext.Sub1" placeholder="Sub1"/>
                </md-input-container>
                     <md-input-container>
-                    <label>Sub2: </label>
-                    <input [(ngModel)]="selectedLettext.Sub2" placeholder="Sub2"/>
+                    <input  type="text" mdInput #DidRef="ngModel" name="Sub2" [(ngModel)]="selectedLettext.Sub2" placeholder="Sub2"/>
                </md-input-container> 
                     <md-input-container>
-                    <label>Sub3: </label>
-                    <input [(ngModel)]="selectedLettext.Sub3" placeholder="Sub3"/>
+                    <input  type="number" mdInput #DidRef="ngModel" name="Sub3" [(ngModel)]="selectedLettext.Sub3" placeholder="Sub3"/>
                </md-input-container>
                     <md-input-container>
-                    <label>H1: </label>
-                    <input [(ngModel)]="selectedLettext.H1" placeholder="H1"/>
+                    <input  type="text" mdInput #DidRef="ngModel" name="H1"  [(ngModel)]="selectedLettext.H1" placeholder="H1"/>
                </md-input-container>
                     <md-input-container>
-                    <label>H2: </label>
-                    <input [(ngModel)]="selectedLettext.H2" placeholder="H2"/>
+                    <input type="text" mdInput #DidRef="ngModel" name="H2"  [(ngModel)]="selectedLettext.H2" placeholder="H2"/>
                </md-input-container>
                     <md-input-container>
-                    <label>H3: </label>
-                    <input [(ngModel)]="selectedLettext.H3" placeholder="H3"/>
+                    <input  type="text" mdInput #DidRef="ngModel" name="H3" [(ngModel)]="selectedLettext.H3" placeholder="H3"/>
                </md-input-container>
                     <md-input-container>
-                    <label>H4: </label>
-                    <input [(ngModel)]="selectedLettext.H4" placeholder="H4"/>
+                    <input  type="text" mdInput #DidRef="ngModel" name="H4" [(ngModel)]="selectedLettext.H4" placeholder="H4"/>
                </md-input-container>
                     <md-input-container>
-                    <label>H5: </label>
-                    <input [(ngModel)]="selectedLettext.H5" placeholder="H5"/>
+                    <input  type="text" mdInput #DidRef="ngModel" name="H5" [(ngModel)]="selectedLettext.H5" placeholder="H5"/>
                </md-input-container>
                     <md-input-container>
-                    <label>H6: </label>
-                    <input [(ngModel)]="selectedLettext.H6" placeholder="H6"/>
+                    <input  type="text" mdInput #DidRef="ngModel" name="H6" [(ngModel)]="selectedLettext.H6" placeholder="H6"/>
                </md-input-container>
                     <md-input-container>
-                    <label>H7: </label>
-                    <input [(ngModel)]="selectedLettext.H7" placeholder="H7"/>
+                    <input  type="text" mdInput #DidRef="ngModel" name="H7" [(ngModel)]="selectedLettext.H7" placeholder="H7"/>
                </md-input-container>
                     <md-input-container>
-                    <label>H8: </label>
-                    <input [(ngModel)]="selectedLettext.H8" placeholder="H8"/>
+                    <input  type="text" mdInput #DidRef="ngModel" name="H8" [(ngModel)]="selectedLettext.H8" placeholder="H8"/>
                </md-input-container>
                     <md-input-container>
-                    <label>H9: </label>
-                    <input [(ngModel)]="selectedLettext.H9" placeholder="H9"/>
+                    <input  type="text" mdInput #DidRef="ngModel" name="H9" [(ngModel)]="selectedLettext.H9" placeholder="H9"/>
                </md-input-container>
                     <md-input-container>
-                    <label>H10: </label>
-                    <input [(ngModel)]="selectedLettext.H10" placeholder="H10"/>
+                    <input  type="text" mdInput #DidRef="ngModel" name="H10" [(ngModel)]="selectedLettext.H10" placeholder="H10"/>
                </md-input-container>
                     <md-input-container>
-                    <label>H11: </label>
-                    <input [(ngModel)]="selectedLettext.H11" placeholder="H11"/>
+                    <input  type="text" mdInput #DidRef="ngModel" name="H11" [(ngModel)]="selectedLettext.H11" placeholder="H11"/>
                </md-input-container>
                     <md-input-container>
-                    <label>H12: </label>
-                    <input [(ngModel)]="selectedLettext.H12" placeholder="H12"/>
+                    <input  type="text" mdInput #DidRef="ngModel" name="H12" [(ngModel)]="selectedLettext.H12" placeholder="H12"/>
                </md-input-container>
                     <md-input-container>
-                    <label>H13: </label>
-                    <input [(ngModel)]="selectedLettext.H13" placeholder="H13"/>
+                    <input  type="text" mdInput #DidRef="ngModel" name="H13" [(ngModel)]="selectedLettext.H13" placeholder="H13"/>
                </md-input-container>
                     <md-input-container>
-                    <label>H14: </label>
-                    <input [(ngModel)]="selectedLettext.H14" placeholder="H14"/>
+                    <input  type="text" mdInput #DidRef="ngModel" name="H14" [(ngModel)]="selectedLettext.H14" placeholder="H14"/>
                </md-input-container>
                     <md-input-container>
-                    <label>H15: </label>
-                    <input [(ngModel)]="selectedLettext.H15" placeholder="H15"/>
+                    <input  type="text" mdInput #DidRef="ngModel" name="H15"  [(ngModel)]="selectedLettext.H15" placeholder="H15"/>
                </md-input-container>
                     <md-input-container>
-                    <label>T1: </label>
-                    <input [(ngModel)]="selectedLettext.T1" placeholder="T1"/>
+                    <input  type="text" mdInput #DidRef="ngModel" name="T1" [(ngModel)]="selectedLettext.T1" placeholder="T1"/>
                </md-input-container>
                     <md-input-container>
-                    <label>T2: </label>
-                    <input [(ngModel)]="selectedLettext.T2" placeholder="T2"/>
+                    <input  type="text" mdInput #DidRef="ngModel" name="T2" [(ngModel)]="selectedLettext.T2" placeholder="T2"/>
                </md-input-container>
                     <md-input-container>
-                    <label>T3: </label>
-                    <input [(ngModel)]="selectedLettext.T3" placeholder="T3"/>
+                    <input  type="text" mdInput #DidRef="ngModel" name="T3" [(ngModel)]="selectedLettext.T3" placeholder="T3"/>
                </md-input-container>
                     <md-input-container>
-                    <label>T4: </label>
-                    <input [(ngModel)]="selectedLettext.T4" placeholder="T4"/>
+                    <input  type="text" mdInput #DidRef="ngModel" name="T4" [(ngModel)]="selectedLettext.T4" placeholder="T4"/>
                </md-input-container>
                     <md-input-container>
-                    <label>T5: </label>
-                    <input [(ngModel)]="selectedLettext.T5" placeholder="T5"/>
+                    <input type="text" mdInput #DidRef="ngModel" name="T5" [(ngModel)]="selectedLettext.T5" placeholder="T5"/>
                </md-input-container>
                     <md-input-container>
-                    <label>T6: </label>
-                    <input [(ngModel)]="selectedLettext.T6" placeholder="T6"/>
+                    <input type="text" mdInput #DidRef="ngModel" name="T6" [(ngModel)]="selectedLettext.T6" placeholder="T6"/>
                </md-input-container>
                     <md-input-container>
-                    <label>T7: </label>
-                    <input [(ngModel)]="selectedLettext.T7" placeholder="T7"/>
+                    <input type="text" mdInput #DidRef="ngModel" name="T7" [(ngModel)]="selectedLettext.T7" placeholder="T7"/>
                </md-input-container>
                     <md-input-container>
-                    <label>T8: </label>
-                    <input [(ngModel)]="selectedLettext.T8" placeholder="T8"/>
+                    <input  type="text" mdInput #DidRef="ngModel" name="T8" [(ngModel)]="selectedLettext.T8" placeholder="T8"/>
                </md-input-container>
                     <md-input-container>
-                    <label>T9: </label>
-                    <input [(ngModel)]="selectedLettext.T9" placeholder="T9"/>
+                    <input  type="text" mdInput #DidRef="ngModel" name="T9" [(ngModel)]="selectedLettext.T9" placeholder="T9"/>
                </md-input-container>
                     <md-input-container>
-                    <label>T10: </label>
-                    <input [(ngModel)]="selectedLettext.T10" placeholder="T10"/>
+                    <input  type="text" mdInput #DidRef="ngModel" name="T10" [(ngModel)]="selectedLettext.T10" placeholder="T10"/>
                </md-input-container>
                     <md-input-container>
-                    <label>Letter: </label>
                     <input [(ngModel)]="selectedLettext.Letter" placeholder="Letter"/>
                </md-input-container>
-            <button class="btn btn-warning"  (click)="onDeSelect()">View lettext</button>
-            <button class="btn btn-success" (click)="onDeSelect()">View List</button>
-  </div>
-
-<div *ngIf="!selectedLettext">
+            <button md-raised-button (click)="onDeSelect()">Back</button>
+    		<button md-raised-button (click)="onDeSelect()">Save</button>
+   </form> 
+</div>
 		<div class="floatright searchwidth MRight100">
             <md-input-container>
  				<input mdInput type="search"  #lettextSearch  md-autofocus type="search" (input)="term$.next($event.target.value)" placeholder="Search by Letter or DomainId:" />
@@ -156,7 +122,7 @@
  	 	<tr>
 			 <th>Id</th>
 			 <th>Letter</th>
-			 <th>Did<br>DriveToName</th>
+			 <th>Did</th>
 			 <th>Lang</th>
 			 <th>LetLangDid</th>
 			 <th>Off</th>
@@ -182,5 +148,5 @@
         <td><button class="btn-xs btn-danger" (click)="delete(event); $event.stopPropagation()">Detail</button></td>
       </tr>
   </tbody></table>
-</div>
+
 	

@@ -9,7 +9,8 @@ import { AppService } from '../app.service';
 export class WidgetsComponent implements OnInit {
 @Input() rowmetadata;
 
-  constructor(private appservice: AppService) { }
+  constructor(
+    private appservice: AppService) { }
 
   ngOnInit() {
   }

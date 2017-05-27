@@ -16,7 +16,7 @@ import { Observable } from 'rxjs/Observable';
 export class DomainsComponent implements OnInit {
   domains: Domain[];
   selectedDomain: Domain;
- term$ = new Subject<string>();
+  term$ = new Subject<string>();
   constructor(
     private domainservice: DomainService,
     private router: Router,

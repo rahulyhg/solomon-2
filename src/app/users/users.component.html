@@ -106,8 +106,8 @@
  	<thead align="left">
    		<tr>
 	       <th class="Id">Id</th>
-	       <th class="UserName mdl-data-table__cell--non-numeric">User Name</th>
-	       <th class="Email mdl-data-table__cell--non-numeric">Email</th>
+	       <th class="UserName ">User Name</th>
+	       <th class="Email ">Email</th>
 	       <th>IP</th>
 	       <th>Fup</th>
 	       <th>Max</th>
@@ -118,9 +118,9 @@
 	       <th>Mail</th>
 	       <th>Match</th>
 	       <th>LBar</th>
-	       <th class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></th>
-	       <th class="mdl-data-table__cell--non-numeric">Delete</th> 
-	       <th class="mdl-data-table__cell--non-numeric">Details</th>
+	       <th class="full-width "><span class="spacer"></span></th>
+	       <th class="">Delete</th> 
+	       <th class="">Details</th>
    </tr>
  </thead>
  <tbody>
@@ -128,7 +128,7 @@
            [class.selected]="user === selectedUser">
     <td class="Id">{{user.Id}}</td>
     <td>{{user.UserName}}</td>
-    <td class="mdl-data-table__cell--non-numeric">{{user.Email | slice:0:10}}</td>
+    <td class="">{{user.Email | slice:0:10}}</td>
     <td>{{user.IP}}</td>
     <td>{{user.Followups}}</td>
     <td>{{user.DriveMax}}</td>
@@ -139,9 +139,9 @@
     <td>{{user.MailPrefs}}</td>
     <td>{{user.MatchPrefs}}</td>
     <td>{{user.LangBar}}</td>
-    <td  class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></td>
-    <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(user); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
-    <td class="mdl-data-table__cell--non-numeric"><button redtoggle class="md-button" (click)="gotoDetail(user); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
+    <td  class="full-width "><span class="spacer"></span></td>
+    <td class="full-width "><button class="md-button" (click)="delete(user); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
+    <td class=""><button redtoggle class="md-button" (click)="gotoDetail(user); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
      </tr>
  </tbody>
   </table>
@@ -168,30 +168,29 @@
 	       <th>EmailConfirm</th>
 	       <th>Agent</th>
 	       <th>Source</th>
-	       <th class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></th>
-	       <th class="mdl-data-table__cell--non-numeric">Delete</th> 
-	       <th class="mdl-data-table__cell--non-numeric">Detail</th> 
+	       <th class="full-width "><span class="spacer"></span></th>
+	       <th class="">Delete</th> 
+	       <th class="">Detail</th> 
         </tr>
  </thead>
  <tbody>
- <tr *ngFor="let user of users" (click)="onSelect(user)"
-           [class.selected]="user === selectedUser">
+ <tr *ngFor="let user of users" (click)="onSelect(user)">
 		  <td><b>{{user.Id}}</b></td>
-		  <td class="mdl-data-table__cell--non-numeric">{{user.DFC | date}}<br>{{user.DLC | date}}</td>
-		  <td class="mdl-data-table__cell--non-numeric">{{user.User}}</td>
-		  <td class="mdl-data-table__cell--non-numeric">{{user.Lang}}</td>
-		  <td class="mdl-data-table__cell--non-numeric">{{user.Acct}}</td>
-		  <td class="mdl-data-table__cell--non-numeric">{{user.Country}}</td>
+		  <td class="">{{user.DFC | date}}<br>{{user.DLC | date}}</td>
+		  <td class="">{{user.User}}</td>
+		  <td class="">{{user.Lang}}</td>
+		  <td class="">{{user.Acct}}</td>
+		  <td class="">{{user.Country}}</td>
 		  <td>{{user.Did}}</td>
 		  <td>{{user.Admin}}</td>
 		  <td>{{user.LangEd}}</td>
 		  <td>{{user.Sales}}</td>
 		  <td>{{user.EmailConfirm}}</td>
-		  <td class="mdl-data-table__cell--non-numeric">{{user.Agent | slice:0:22}}</td>
-		  <td class="mdl-data-table__cell--non-numeric">{{user.Source | slice:7:22}}</td>
-		  <td  class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></td>
-		  <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(user); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
-		  <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="gotoDetail(user); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
+		  <td class="">{{user.Agent | slice:0:22}}</td>
+		  <td class="">{{user.Source | slice:7:22}}</td>
+		  <td  class="full-width "><span class="spacer"></span></td>
+		  <td class=""><button class="md-button" (click)="delete(user); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
+		  <td class=""><button class="md-button" (click)="gotoDetail(user); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
     </tr>
  </tbody>
  </table>

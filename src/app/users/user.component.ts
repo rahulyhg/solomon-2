@@ -25,9 +25,9 @@ import { PlaceService } from '../places/places.service';
 import { Output } from '../outputs/output';
 import { OutputService } from '../outputs/outputs.service';
 
-import { Location }               from '@angular/common';
-import { AppService }          from '../app.service';
-import {WidgetsModule }           from '../widgets/widgets.module';
+import { Location } from '@angular/common';
+import { AppService } from '../app.service';
+import {WidgetsModule } from '../widgets/widgets.module';
 
 @Component({
   selector: 'usersummary',
@@ -35,24 +35,23 @@ import {WidgetsModule }           from '../widgets/widgets.module';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-selectedUser:User;  
-user:User;
-users:User[];
-drives:Drive[];
-rides:Ride[];
-places:Place[];
-runs:Run[];
-comments:Comment[];
+selectedUser: User;
+user: User;
+users: User[];
+drives: Drive[];
+rides: Ride[];
+places: Place[];
+runs: Run[];
+comments: Comment[];
 outputs: Output[];
   constructor(
- 
-    private userservice:UserService,
-    private driveservice:DriveService,
-    private rideservice:RideService, 
-    private placeservice:PlaceService, 
-    private runservice:RunService,
-    private outputservice:OutputService, 
-    private commentservice:CommentService,
+    private userservice: UserService,
+    private driveservice: DriveService,
+    private rideservice: RideService,
+    private placeservice: PlaceService,
+    private runservice: RunService,
+    private outputservice: OutputService,
+    private commentservice: CommentService,
     private router: Router,
     private appservice: AppService,
     private activeroute: ActivatedRoute,
@@ -90,11 +89,10 @@ outputs: Output[];
         .getAllOutputs()
         .then(outputs => this.outputs = outputs);
   }
-  
    getAllComments(): void {
     this.commentservice.getAllComments().then(comments => this.comments = comments);
   }
-  goToUserList():void{
+  goToUserList(): void {
        this.router.navigate(['users']);
   }
   ngOnInit(): void {

@@ -39,9 +39,6 @@
           >
       </sebm-google-map-circle>
     </sebm-google-map>-->
-
-
-
   <form #PlaceFormRef="ngForm" (ngSubmit)="onSubmit(PlaceFormRef.value)" name="PlaceForm">
         <md-input-container class="Name"> 
           <input mdInput #nameRef="ngModel" required  [(ngModel)]="place.Name" name="Name" placeholder="Enter  Name">
@@ -52,7 +49,7 @@
 
       <md-input-container class="MapAddress"> 
             <input mdInput #mapaddressRef="ngModel" required [(ngModel)]="place.MapAddress" name="MapAddress" placeholder="Enter Address">
-            <div *ngIf="mapaddressRef.$error?.required">
+            <div *ngIf="mapaddressRef.error?.required">
               <div ng-message="required">Address is required!</div>
             </div>
         </md-input-container>

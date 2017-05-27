@@ -64,10 +64,10 @@ export class UsersComponent implements OnInit {
     this.selectedUser = null;
   }
 
-  gotoDetail(user:User) {
+  gotoDetail(user: User) {
     this.router.navigate(['users', user.Id]);
   }
-  setmailprefs($event):void{
+  setmailprefs($event): void {
     console.log($event);
   }
 }

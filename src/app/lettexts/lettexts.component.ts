@@ -17,6 +17,7 @@ export class LettextsComponent implements OnInit {
   lettexts: Lettext[];
   selectedLettext: Lettext;
   term$ = new Subject<string>();
+  
   constructor(
     private lettextservice: LettextService,
     private router: Router,

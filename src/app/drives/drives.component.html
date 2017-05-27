@@ -87,14 +87,14 @@
  	 	<tr>
 			 <th>Id</th>
 			 <th>Pid<br>Did</th>
-			 <th class="mdl-data-table__cell--non-numeric">DriveFromName<br>DriveToName</th>
-			 <th class="mdl-data-table__cell--non-numeric">DriveDate</th>
-			 <th class="mdl-data-table__cell--non-numeric">DriveStart<br>DriveEnd</th>
+			 <th class="">DriveFromName<br>DriveToName</th>
+			 <th class="">DriveDate</th>
+			 <th class="">DriveStart<br>DriveEnd</th>
 			 <th>Min<br>Max</th>
 			 <th>Dist<br>Duration</th>
-			 <th class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></th>
-			 <th class="mdl-data-table__cell--non-numeric">Delete</th> 
-			 <th class="mdl-data-table__cell--non-numeric">Details</th>
+			 <th class="full-width "><span class="spacer"></span></th>
+			 <th class="">Delete</th> 
+			 <th class="">Details</th>
 			 </tr>
         </thead>
         <tbody>
@@ -107,9 +107,9 @@
 		 <td>{{drive.DriveMin}}<br>{{drive.DriveMax}}</td>
 		 <td>{{drive.DriveDistance}}<br>{{drive.DriveDuration}}</td>
 		 <td>{{drive.DriveRate}}<br>{{drive.DriveFee | currency:'USD':true}}</td>
-		 <td  class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></td>
-		 <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(drive); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
-		 <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="gotoDetail(drive); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
+		 <td  class="full-width"><span class="spacer"></span></td>
+		 <td class="full-width"><button class="md-button" (click)="delete(drive); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
+		 <td class=""><button class="md-button" (click)="gotoDetail(drive); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
 		  </tr>
         </tbody>
   </table>
@@ -128,9 +128,9 @@
 			 <th>To</th>
 			 <th>Lat<br>Lng</th>
 			 <th>Start<br>End</th>
-			 <th class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></th>
-			 <th class="mdl-data-table__cell--non-numeric">Delete</th> 
-			 <th class="mdl-data-table__cell--non-numeric">Details</th>
+			 <th class="full-width "><span class="spacer"></span></th>
+			 <th class="">Delete</th> 
+			 <th class="">Details</th>
 			 </tr>
         </thead>
         <tbody>
@@ -144,11 +144,10 @@
 		 <td>{{drive.DriveToId}}</td>
 		 <td>{{drive.DriveToLat}}<br>{{drive.DriveToLng}}</td>
 		 <td>{{drive.DriveStart}}<br>{{drive.DriveEnd}}</td>
-		 <td  class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></td>
-		 <td class="full-width mdl-data-table__cell--non-numeric"><button class="md-button" (click)="delete(drive); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
-		 <td class="mdl-data-table__cell--non-numeric"><button class="md-button" (click)="gotoDetail(drive); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
+		 <td  class="full-width "><span class="spacer"></span></td>
+		 <td class="full-width "><button class="md-button" (click)="delete(drive); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
+		 <td class=""><button class="md-button" (click)="gotoDetail(drive); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
 		   </tr>
         </tbody>
   </table>
-  </div>
   </div>

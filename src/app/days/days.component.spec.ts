@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { Sched86sComponent } from './sched86s.component';
+import { DaysComponent } from './days.component';
 
-describe('Sched86sComponent', () => {
-  let component: Sched86sComponent;
-  let fixture: ComponentFixture<Sched86sComponent>;
+describe('DailyComponent', () => {
+  let component: DaysComponent;
+  let fixture: ComponentFixture<DaysComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ Sched86sComponent ]
+      declarations: [ DaysComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(Sched86sComponent);
+    fixture = TestBed.createComponent(DaysComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

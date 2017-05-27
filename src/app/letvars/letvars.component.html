@@ -1,15 +1,17 @@
 <div *ngIf="selectedLetvar" class="selectedLetvar">
   <row-meta [rowmetadata]="selectedLetvar"></row-meta>
+  <form #LetvarFormRef="ngForm" (ngSubmit)="onSubmit(LetvarFormRef.value)" name="LetvarForm" class="letvarform">      
        <md-input-container>
             <input  type="text" mdInput #VarRef="ngModel" [(ngModel)]="selectedLetvar.Var" placeholder="Var"/>
        	</md-input-container>
       	<md-input-container>
-        <input  type="text" mdInput #DefRef="ngModel" [(ngModel)]="selectedLetvar.Def" placeholder="Def"/>
+        	<input  type="text" mdInput #DefRef="ngModel" [(ngModel)]="selectedLetvar.Def" placeholder="Def"/>
      	</md-input-container>
-	 	<button class="btn btn-warning"  (click)="onDeSelect()">View letvar</button>
-	 	<button class="btn btn-success" (click)="onDeSelect()">View List</button>
-  </div>
-
+     	
+   		<button md-raised-button (click)="onDeSelect()">Back</button>
+    	<button md-raised-button (click)="onDeSelect()">Save</button>
+   </form> 
+</div>
 <div *ngIf="!selectedLetvar">
     <div *ngIf="!appservice.admin">
        <div class="floatright searchwidth MRight100">
@@ -35,8 +37,8 @@
     <tbody>
   <tr *ngFor="let letvar of letvars" (click)="onSelect(letvar)">
         <td><b>{{letvar.Id}}</b></td>
-        <td><b>{{letvar.First}}</b></td>
-        <td><b>{{letvar.Last}}</b></td>
+        <td><b>{{letvar.DFC}}</b></td>
+        <td><b>{{letvar.DLC}}</b></td>
         <td>{{letvar.User}}</td>
         <td><b>{{letvar.Var}}</b></td>
         <td>{{letvar.Def}}</td>

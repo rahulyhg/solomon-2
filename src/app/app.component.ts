@@ -10,7 +10,7 @@ import { AppService } from './app.service';
 })
 export class AppComponent implements OnInit {
   displayDate = new Date().toLocaleDateString();
-  title = 'Clicking amber buttons demos progressive loading of Angular2 with material design (load speed change).';
+  title = 'Base html tables awaiting md-datatable';
   pages= [''];
   showbuttons = false;
   place = {Lat: '51.673858', Lng: '7.815982'};

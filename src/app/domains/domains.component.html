@@ -1,7 +1,8 @@
- 	<div *ngIf="selectedDomain" class="selectedDomain">
-           <h1>{{selectedDomain.Domain}}</h1>
-       <row-meta [rowmetadata]="selectedDomain"></row-meta>     
-      <md-input-container>
+<div *ngIf="selectedDomain" class="selectedDomain">
+       <h1>{{selectedDomain.Domain}}</h1>
+  <row-meta [rowmetadata]="selectedDomain"></row-meta>     
+ <form #DomainFormRef="ngForm" (ngSubmit)="onSubmit(DomainFormRef.value)" name="DomainForm" class="domainform">      
+   <md-input-container>
         <input [(ngModel)]="selectedDomain.Lang" placeholder="Lang"/>
     </md-input-container>
       <md-input-container>
@@ -108,44 +109,56 @@
        <md-input-container>
         <input [(ngModel)]="selectedDomain.Styles" placeholder="Styles"/>
       </md-input-container>
- <button class="btn btn-warning"  (click)="onDeSelect()">View Domain</button>
- <button class="btn btn-success" (click)="onDeSelect()">View List</button>
+    <button md-raised-button (click)="onDeSelect()">Back</button>
+    <button md-raised-button (click)="onDeSelect()">Save</button>
+   </form>
 </div>
-
 <div *ngIf="!selectedDomain">
-  <div class="row">
-  <div class="card text-xs-center">
-        <div class="card-block">
-            <label>Search by Id:</label><input #DomainSearch (input)="term$.next($event.target.value)" placeholder="Enter Id or Domain" />
-             <button class="btn btn-danger" (click)="add(domainSearch.value)"> Add </button>
-      </div>
-   <div class="table-responsive">
-                <table class="table">
-                    <tbody>
-  <tr *ngFor="let domain of domains" (click)="onSelect(domain)"
-      [class.selected]="domain === selectedDomain" class="list-group-item">
-        <div *ngIf="!appservice.admin">
+	<div class="floatright searchwidth MRight100">
+	       <md-input-container>
+				<input mdInput type="search"  #driveSearch  md-autofocus type="search" (input)="term$.next($event.target.value)" placeholder="User Id or DriveFromName" />
+	       </md-input-container>
+	       <button md-raised-button color="accent"  (click)="add(eventSearch.value)"><md-icon>add</md-icon> </button> 
+	 </div>
+	 <div *ngIf="!appservice.admin">
+	  <table class="table">
+	  <thead align="left">
+ 	 	<tr>
+			 <th>Id</th>
+			 <th>Lang</th>
+			 <th>First<br>Last</th>
+			 <th class="">DriveFromName<br>DriveToName</th>
+			 <th class="">DriveDate</th>
+			 <th class="">DriveStart<br>DriveEnd</th>
+			 <th>Min<br>Max</th>
+			 <th>Dist<br>Duration</th>
+			 <th class="full-width "><span class="spacer"></span></th>
+			 <th class="">Delete</th> 
+			 <th class="">Details</th>
+			 <th class="">Details</th>
+			 </tr>
+        </thead>
+	  <tbody>
+	  <tr *ngFor="let domain of domains" (click)="onSelect(domain)">
           <td class="Id"><b>{{domain.Id}}</b></td>
-             <td class="Id"><b>{{domain.Lang}}</b></td>
+          <td class="Id"><b>{{domain.Lang}}</b></td>
           <td class="DFC">{{domain.DFC | date}}<br>{{domain.DLC | date}}</td>
           <td class="User">{{domain.Country}}</td>
           <td class="Did">{{domain.Pid}}</td>
           <td class="Did">{{domain.Sid}}</td>
           <td class="Did">{{domain.Active}}</td>
           <td class="Did">{{domain.Domain}}</td>
-          </div>
-         <div *ngIf="appservice.admin">
           <td class="Did">{{domain.Pid}}</td>
           <td class="Did">{{domain.Active}}</td>
           <td class="Did">{{domain.Domain}}</td>
-      <td><button class="btn-xs btn-danger"
-                    (click)="delete(domain); $event.stopPropagation()">x</button></td>
-                        </div>
+      <td><button class="btn-xs btn-danger" (click)="delete(domain); $event.stopPropagation()">x</button></td>
+ </tr>
+</tbody></table>
+</div>
+</div>
 
-                </tr>
-            </tbody></table>
-        </div>
-</div></div></div></div>
+
+
 
 <!--{{domain.DFC}} 
 {{domain.DLC}} 
@@ -185,10 +198,3 @@
 {{domain.Website}} 
 {{domain.Footer}} 
 {{domain.Styles}}  --> 
-
-
-
-
-
-
-
