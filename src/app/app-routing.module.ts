@@ -14,7 +14,6 @@ const appRoutes: Routes = [
     {path: 'iso3166s', loadChildren:'./iso3166s/iso3166s.module#Iso3166sModule'},
     {path: 'days', loadChildren:'./days/days.module#DaysModule'},
     {path: 'comments', loadChildren:'./comments/comments.module#CommentsModule'},
-    {path: 'domains', loadChildren:'./domains/domains.module#DomainsModule'},
     {path: 'drives', loadChildren:'./drives/drives.module#DrivesModule'},
     {path: 'invoices', loadChildren:'./invoices/invoices.module#InvoicesModule'},
     {path: 'letters', loadChildren:'./letters/letters.module#LettersModule'},
@@ -32,8 +31,10 @@ const appRoutes: Routes = [
     {path: 'zeros', loadChildren:'./zeros/zeros.module#ZerosModule'}
     {path: 'schedules', loadChildren:'./schedules/schedules.module#SchedulesModule'}*/
 
- {path: 'events', loadChildren: './events/events.module#EventsModule'},
+
+    {path: 'domains', loadChildren: './domains/domains.module#DomainsModule'},
     {path: 'drives', loadChildren: './drives/drives.module#DrivesModule'},
+    {path: 'events', loadChildren: './events/events.module#EventsModule'},
     {path: 'rides', loadChildren: './rides/rides.module#RidesModule'},
     {path: 'lettexts', loadChildren: './lettexts/lettexts.module#LettextsModule'},
     {path: 'letvars', loadChildren: './letvars/letvars.module#LetvarsModule'},

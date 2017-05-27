@@ -24,42 +24,49 @@ import { PhotoService } from '../photos/photos.service';
 import { PopupService } from '../popups/popups.service';
 import { PostService } from '../posts/posts.service';
 
-import { Sched86Service } from '../sched86s/sched86s.service';
 
-import { ZeroService } from '../zeros/zeros.service';
+
+
 */
-import { ScheduleService } from '../schedules/schedules.service';
-import { PersonService } from '../people/people.service';
 import { CommentService } from '../comments/comments.service';
+import { DomainService } from '../domains/domains.service';
+import { DriveService } from '../drives/drives.service';
+import { EventService } from '../events/events.service';
 import { LettextService } from '../lettexts/lettexts.service';
 import { LetvarService } from '../letvars/letvars.service';
 import { OutputService } from '../outputs/outputs.service';
-import { RunService } from '../runs/runs.service';
-import { DriveService } from '../drives/drives.service';
-import { EventService } from '../events/events.service';
-import { RideService } from '../rides/rides.service';
+import { PersonService } from '../people/people.service';
 import { PlaceService } from '../places/places.service';
-import { UserService } from '../users/users.service';
+import { RideService } from '../rides/rides.service';
+import { RunService } from '../runs/runs.service';
+import { Sched86Service } from '../sched86s/sched86s.service';
+import { ScheduleService } from '../schedules/schedules.service';
 import { UserGridService } from '../usergrid/usergrid.service';
+import { UserService } from '../users/users.service';
+import { ZeroService } from '../zeros/zeros.service';
+
 @NgModule({})
 export class ServicesModule {
     static forRoot() {
         return {
             ngModule: ServicesModule,
             providers: [
+              CommentService,
+              DomainService,
               DriveService,
               EventService,
               LettextService,
               LetvarService,
-              RideService,
-              PlaceService,
-              RunService,
               OutputService,
-              CommentService,
               PersonService,
+              PlaceService,
+              RideService,
+              RunService,
+              Sched86Service,
               ScheduleService,
               UserService,
-              UserGridService
+              UserGridService,
+              ZeroService
         ]
        /*     [LogService, BugService, CommentService,DayService, DriveService, EventService, FeedService,
          InvoiceService, Iso3166Service, Iso639Service,
@@ -71,19 +78,26 @@ export class ServicesModule {
 }
 
 export {
-DriveService,
-EventService,
-RideService,
-PlaceService,
-RunService,
-OutputService,
-CommentService,
-PersonService,
-UserService
+  CommentService,
+  DomainService,
+  DriveService,
+  EventService,
+  LettextService,
+  LetvarService,
+  OutputService,
+  PersonService,
+  PlaceService,
+  RideService,
+  RunService,
+  Sched86Service,
+  ScheduleService,
+  UserService,
+  UserGridService,
+  ZeroService
 /*    LogService, BugService, CommentService,DayService, DriveService, EventService, FeedService,
     InvoiceService, Iso3166Service, Iso639Service,
     LangerrService, LangService, Lang1Service, Lang2Service, Lang3Service, Lang4Service,
-    LetterService, LettextService, LetvarService, LineitemService, OutputService, PersonService,
+    LetterService,  LineitemService, 
     PhotoService, PlaceService, PopupService, PostService, RideService, RunService, Sched86Service,
     ScheduleService, UserService, ZeroService Sched86Service,
          ScheduleService, , ZeroService*/

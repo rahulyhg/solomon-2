@@ -1,0 +1,194 @@
+ 	<div *ngIf="selectedDomain" class="selectedDomain">
+           <h1>{{selectedDomain.Domain}}</h1>
+       <row-meta [rowmetadata]="selectedDomain"></row-meta>     
+      <md-input-container>
+        <input [(ngModel)]="selectedDomain.Lang" placeholder="Lang"/>
+    </md-input-container>
+      <md-input-container>
+        <input [(ngModel)]="selectedDomain.Country" placeholder="Country"/>
+     </md-input-container>
+      <md-input-container>
+        <input [(ngModel)]="selectedDomain.Pid" placeholder="Pid"/>
+    </md-input-container>
+      <md-input-container>     
+        <input [(ngModel)]="selectedDomain.Sid" placeholder="Sid"/>
+      </md-input-container>
+      <md-input-container>   
+        <input [(ngModel)]="selectedDomain.ImgD" placeholder="ImgD"/>
+     </md-input-container>
+      <md-input-container>
+        <input [(ngModel)]="selectedDomain.Confirmed" placeholder="Confirmed"/>
+     </md-input-container>
+      <md-input-container>
+        <label>Active: </label>
+        <input [(ngModel)]="selectedDomain.Active" placeholder="Active"/>
+       </md-input-container>
+      <md-input-container>
+        <label>Domain: </label>
+        <input [(ngModel)]="selectedDomain.Domain" placeholder="Domain"/>
+    </md-input-container>
+      <md-input-container>   
+        <input [(ngModel)]="selectedDomain.MatchPrefs" placeholder="MatchPrefs"/>
+      </md-input-container> 
+      <md-input-container>  
+        <input [(ngModel)]="selectedDomain.Title" placeholder="Title"/>
+     </md-input-container>
+      <md-input-container>
+        <input [(ngModel)]="selectedDomain.Keywords" placeholder="Keywords"/>
+     </md-input-container>
+      <md-input-container>
+        <input [(ngModel)]="selectedDomain.Descrip" placeholder="Descrip"/>
+    </md-input-container>
+      <md-input-container>     
+        <input [(ngModel)]="selectedDomain.Radius" placeholder="Radius"/>
+     </md-input-container>
+      <md-input-container>    
+        <input [(ngModel)]="selectedDomain.ListDaysOut" placeholder="ListDaysOut"/>
+      </md-input-container>
+      <md-input-container>     
+        <input [(ngModel)]="selectedDomain.Owner" placeholder="Owner"/>
+     </md-input-container>
+      <md-input-container>
+        <input [(ngModel)]="selectedDomain.Email" placeholder="Email"/>
+     </md-input-container>
+      <md-input-container>
+        <input [(ngModel)]="selectedDomain.Pass" placeholder="Pass"/>
+     </md-input-container>
+      <md-input-container> 
+        <input [(ngModel)]="selectedDomain.SiteName" placeholder="SiteName"/>
+      </md-input-container>
+      <md-input-container>   
+        <input [(ngModel)]="selectedDomain.FaceBookId" placeholder="FaceBookId"/>
+      </md-input-container>
+       <md-input-container>
+        <input [(ngModel)]="selectedDomain.GooglePlusId" placeholder="GooglePlusId"/>
+      </md-input-container>
+       <md-input-container>  
+        <input [(ngModel)]="selectedDomain.TwitterId" placeholder="TwitterId"/>
+      </md-input-container>
+       <md-input-container>
+        <input [(ngModel)]="selectedDomain.FaceBookSecret" placeholder="FaceBookSecret"/>
+      </md-input-container>
+       <md-input-container>
+        <input [(ngModel)]="selectedDomain.GooglePlusSecret" placeholder="GooglePlusSecret"/>
+      </md-input-container>
+       <md-input-container>
+        <input [(ngModel)]="selectedDomain.TwitterSecret" placeholder="TwitterSecret"/>
+      </md-input-container>
+       <md-input-container>
+        <input [(ngModel)]="selectedDomain.Phone" placeholder="Phone"/>
+      </md-input-container>
+       <md-input-container>
+        <input [(ngModel)]="selectedDomain.MapAddress" placeholder="MapAddress"/>
+      </md-input-container>
+       <md-input-container>
+        <input [(ngModel)]="selectedDomain.Lat" placeholder="Lat"/>
+      </md-input-container>
+       <md-input-container>
+        <input [(ngModel)]="selectedDomain.Lng" placeholder="Lng"/>
+      </md-input-container>
+       <md-input-container>
+        <input [(ngModel)]="selectedDomain.GeoType" placeholder="GeoType"/>
+      </md-input-container>
+       <md-input-container>
+        <input [(ngModel)]="selectedDomain.GeoQual" placeholder="GeoQual"/>
+      </md-input-container>
+       <md-input-container>
+        <input [(ngModel)]="selectedDomain.GeoSource" placeholder="GeoSource"/>
+      </md-input-container>
+       <md-input-container>
+        <input [(ngModel)]="selectedDomain.GeoPlaceId" placeholder="GeoPlaceId"/>
+      </md-input-container>
+       <md-input-container>
+        <input [(ngModel)]="selectedDomain.Website" placeholder="Website"/>
+      </md-input-container>
+       <md-input-container>
+        <input [(ngModel)]="selectedDomain.Footer" placeholder="Footer"/>
+      </md-input-container>
+       <md-input-container>
+        <input [(ngModel)]="selectedDomain.Styles" placeholder="Styles"/>
+      </md-input-container>
+ <button class="btn btn-warning"  (click)="onDeSelect()">View Domain</button>
+ <button class="btn btn-success" (click)="onDeSelect()">View List</button>
+</div>
+
+<div *ngIf="!selectedDomain">
+  <div class="row">
+  <div class="card text-xs-center">
+        <div class="card-block">
+            <label>Search by Id:</label><input #DomainSearch (input)="term$.next($event.target.value)" placeholder="Enter Id or Domain" />
+             <button class="btn btn-danger" (click)="add(domainSearch.value)"> Add </button>
+      </div>
+   <div class="table-responsive">
+                <table class="table">
+                    <tbody>
+  <tr *ngFor="let domain of domains" (click)="onSelect(domain)"
+      [class.selected]="domain === selectedDomain" class="list-group-item">
+        <div *ngIf="!appservice.admin">
+          <td class="Id"><b>{{domain.Id}}</b></td>
+             <td class="Id"><b>{{domain.Lang}}</b></td>
+          <td class="DFC">{{domain.DFC | date}}<br>{{domain.DLC | date}}</td>
+          <td class="User">{{domain.Country}}</td>
+          <td class="Did">{{domain.Pid}}</td>
+          <td class="Did">{{domain.Sid}}</td>
+          <td class="Did">{{domain.Active}}</td>
+          <td class="Did">{{domain.Domain}}</td>
+          </div>
+         <div *ngIf="appservice.admin">
+          <td class="Did">{{domain.Pid}}</td>
+          <td class="Did">{{domain.Active}}</td>
+          <td class="Did">{{domain.Domain}}</td>
+      <td><button class="btn-xs btn-danger"
+                    (click)="delete(domain); $event.stopPropagation()">x</button></td>
+                        </div>
+
+                </tr>
+            </tbody></table>
+        </div>
+</div></div></div></div>
+
+<!--{{domain.DFC}} 
+{{domain.DLC}} 
+{{domain.User}} 
+{{domain.Lang}} 
+{{domain.Country}} 
+{{domain.Pid}}
+{{domain.Sid}} 
+{{domain.ImgD}} 
+{{domain.Confirmed}} 
+{{domain.Active}}
+{{domain.Domain}} 
+{{domain.MatchPrefs}}
+{{domain.Title}} 
+{{domain.Keywords}} 
+{{domain.Descrip}} 
+{{domain.Radius}} 
+{{domain.ListDaysOut}} 
+{{domain.Owner}} 
+{{domain.Email}} 
+{{domain.Pass}} 
+{{domain.SiteName}} 
+{{domain.FaceBookId}} 
+{{domain.GooglePlusId}} 
+{{domain.TwitterId}} 
+{{domain.FaceBookSecret}} 
+{{domain.GooglePlusSecret}} 
+{{domain.TwitterSecret}} 
+{{domain.Phone}} 
+{{domain.MapAddress}} 
+{{domain.Lat}} 
+{{domain.Lng}} 
+{{domain.GeoType}} 
+{{domain.GeoQual}} 
+{{domain.GeoSource}} 
+{{domain.GeoPlaceId}} 
+{{domain.Website}} 
+{{domain.Footer}} 
+{{domain.Styles}}  --> 
+
+
+
+
+
+
+
