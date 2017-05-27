@@ -1,0 +1,50 @@
+<div *ngIf="selectedLetvar" class="selectedLetvar">
+  <row-meta [rowmetadata]="selectedLetvar"></row-meta>
+       <md-input-container>
+            <input  type="text" mdInput #VarRef="ngModel" [(ngModel)]="selectedLetvar.Var" placeholder="Var"/>
+       	</md-input-container>
+      	<md-input-container>
+        <input  type="text" mdInput #DefRef="ngModel" [(ngModel)]="selectedLetvar.Def" placeholder="Def"/>
+     	</md-input-container>
+	 	<button class="btn btn-warning"  (click)="onDeSelect()">View letvar</button>
+	 	<button class="btn btn-success" (click)="onDeSelect()">View List</button>
+  </div>
+
+<div *ngIf="!selectedLetvar">
+    <div *ngIf="!appservice.admin">
+       <div class="floatright searchwidth MRight100">
+            <md-input-container>
+ 				<input mdInput type="search"  #letvarsSearch  md-autofocus type="search" (input)="term$.next($event.target.value)" placeholder="Id or Var" />
+            </md-input-container>
+            <button md-raised-button color="accent"  (click)="add(eventSearch.value)"><md-icon>add</md-icon> </button> 
+        </div>
+<table class="table">
+ <thead align="left">
+ 	 	<tr>
+			 <th>Id</th>
+			 <th>First</th>
+			 <th>Last</th>
+			 <th>User</th>
+			 <th>Var</th>
+			 <th>Def</th>
+			 <th class="full-width mdl-data-table__cell--non-numeric"><span class="spacer"></span></th>
+			 <th class="mdl-data-table__cell--non-numeric">Delete</th> 
+			 <th class="mdl-data-table__cell--non-numeric">Details</th>
+			 </tr>
+        </thead>
+    <tbody>
+  <tr *ngFor="let letvar of letvars" (click)="onSelect(letvar)">
+        <td><b>{{letvar.Id}}</b></td>
+        <td><b>{{letvar.First}}</b></td>
+        <td><b>{{letvar.Last}}</b></td>
+        <td>{{letvar.User}}</td>
+        <td><b>{{letvar.Var}}</b></td>
+        <td>{{letvar.Def}}</td>
+      <td><button class="btn-xs btn-danger"
+                    (click)="delete(letvar); $event.stopPropagation()">x</button></td>
+      <td><button class="btn-xs btn-danger"
+                    (click)="delete(letvar); $event.stopPropagation()">x</button></td>
+   
+   </tr>
+  </tbody></table>
+</div></div>

@@ -17,7 +17,6 @@ import 'rxjs/add/operator/toPromise';
 import {ServicesModule} from './services/services.module';
 import { WidgetsModule } from './widgets/widgets.module';
 
-import { PlaceService } from './places/places.service';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -41,7 +40,7 @@ import { UserGridComponent } from './usergrid/usergrid.component';
       apiKey: 'AIzaSyDkNUplKQEHpgeBuc4KYEAwg1wR1Ec_yEs'
     })
   ],
-  providers: [AppService, PlaceService],
+  providers: [AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

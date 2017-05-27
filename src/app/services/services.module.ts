@@ -16,8 +16,7 @@ import { Lang2Service } from '../langs2/langs2.service';
 import { Lang3Service } from '../langs3/langs3.service';
 import { Lang4Service } from '../langs4/langs4.service';
 import { LetterService } from '../letters/letters.service';
-import { LettextService } from '../lettexts/lettexts.service';
-import { LetvarService } from '../letvars/letvars.service';
+
 import { LineitemService } from '../lineitems/lineitems.service';
 
 
@@ -32,6 +31,8 @@ import { ZeroService } from '../zeros/zeros.service';
 import { ScheduleService } from '../schedules/schedules.service';
 import { PersonService } from '../people/people.service';
 import { CommentService } from '../comments/comments.service';
+import { LettextService } from '../lettexts/lettexts.service';
+import { LetvarService } from '../letvars/letvars.service';
 import { OutputService } from '../outputs/outputs.service';
 import { RunService } from '../runs/runs.service';
 import { DriveService } from '../drives/drives.service';
@@ -48,6 +49,8 @@ export class ServicesModule {
             providers: [
               DriveService,
               EventService,
+              LettextService,
+              LetvarService,
               RideService,
               PlaceService,
               RunService,
@@ -61,7 +64,7 @@ export class ServicesModule {
        /*     [LogService, BugService, CommentService,DayService, DriveService, EventService, FeedService,
          InvoiceService, Iso3166Service, Iso639Service,
          LangerrService, LangService, Lang1Service, Lang2Service, Lang3Service, Lang4Service,
-         LetterService, LettextService, LetvarService, LineitemService, OutputService, PersonService,
+         LetterService, LineitemService, OutputService, PersonService,
          PhotoService, PlaceService, PopupService, PostService, RideService, RunService, ScheduleService, UserService, ZeroService ]*/
      };
     }
