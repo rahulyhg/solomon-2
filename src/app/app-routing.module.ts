@@ -12,15 +12,12 @@ const appRoutes: Routes = [
     {path: 'iso639s', loadChildren:'./iso639s/iso639s.module#Iso639sModule'},
     {path: 'iso3166s', loadChildren:'./iso3166s/iso3166s.module#Iso3166sModule'},
     {path: 'invoices', loadChildren:'./invoices/invoices.module#InvoicesModule'},
-    {path: 'letters', loadChildren:'./letters/letters.module#LettersModule'},
     {path: 'lineitems', loadChildren:'./lineitems/lineitems.module#LineitemsModule'},
-    {path: 'logs', loadChildren:'./logs/logs.module#LogsModule'},
-    {path: 'people', loadChildren:'./people/people.module#PeopleModule'},
     {path: 'photos', loadChildren:'./photos/photos.module#PhotosModule'},
     {path: 'popups', loadChildren:'./popups/popups.module#PopupsModule'},
     {path: 'posts', loadChildren:'./posts/posts.module#PostsModule'},
     {path: 'feeds', loadChildren:'./feeds/feeds.module#FeedsModule'}
- *  {path: 'zeros', loadChildren: './zeros/zeros.module#ZerosModule'}
+ * 
 
 */
     {path: 'comments', loadChildren: './comments/comments.module#CommentsModule'},
@@ -30,6 +27,8 @@ const appRoutes: Routes = [
     {path: 'events', loadChildren: './events/events.module#EventsModule'},
     {path: 'lettexts', loadChildren: './lettexts/lettexts.module#LettextsModule'},
     {path: 'letvars', loadChildren: './letvars/letvars.module#LetvarsModule'},
+    {path: 'letters', loadChildren: './letters/letters.module#LettersModule'},
+    {path: 'logs', loadChildren: './logs/logs.module#LogsModule'},
     {path: 'outputs', loadChildren: './outputs/outputs.module#OutputsModule'},
     {path: 'people', loadChildren: './people/people.module#PeopleModule'},
     {path: 'places', loadChildren: './places/places.module#PlacesModule'},
@@ -38,7 +37,8 @@ const appRoutes: Routes = [
     {path: 'sched86s', loadChildren: './sched86s/sched86s.module#Sched86sModule'},
     {path: 'schedules', loadChildren: './schedules/schedules.module#SchedulesModule'},
     {path: 'usergrid', loadChildren: './usergrid/usergrid.module#UserGridModule'},
-    {path: 'users', loadChildren: './users/users.module#UsersModule'}
+    {path: 'users', loadChildren: './users/users.module#UsersModule'},
+    {path: 'zeros', loadChildren: './zeros/zeros.module#ZerosModule'}
 ];
 
 @NgModule({

@@ -1,0 +1,81 @@
+ <div *ngIf="selectedLetter" class="selectedLetter">
+       <row-meta [rowmetadata]="selectedDrive"></row-meta>
+                 <h2>{{selectedLetter.Letter}}</h2> 
+       <form #LetterFormRef="ngForm" (ngSubmit)="onSubmit(LetterFormRef.value)" name="LetterForm" class="letterform">      
+              <md-input-container>
+                <input type="text" mdInput #Letter="ngModel" name="Letter" [(ngModel)]="selectedLetter.Letter" placeholder="Letter"/>
+           </md-input-container>
+              <md-input-container>
+                <input  type="text" mdInput #Type="ngModel" name="Type" [(ngModel)]="selectedLetter.Type" placeholder="Type"/>
+             </md-input-container>
+              <md-input-container>
+                <input  type="text" mdInput #Pattern="ngModel" name="Pattern" [(ngModel)]="selectedLetter.Pattern" placeholder="Pattern"/>
+           </md-input-container>
+              <md-input-container>
+                <input type="text" mdInput #Trig="ngModel" name="Trig"  [(ngModel)]="selectedLetter.Trig" placeholder="Trig"/>
+             </md-input-container>
+              <md-input-container>
+                <input type="text" mdInput #Definition="ngModel" name="Definition"  [(ngModel)]="selectedLetter.Definition" placeholder="Definition"/>
+             </md-input-container>
+              <md-input-container>
+                <input type="text" mdInput #Channel="ngModel" name="Channel"  [(ngModel)]="selectedLetter.Channel" placeholder="Channel"/>
+             </md-input-container>
+              <md-input-container>
+                <input type="text" mdInput #Vendor="ngModel" name="Vendor"  [(ngModel)]="selectedLetter.Vendor" placeholder="Vendor"/>
+               </md-input-container>
+              <md-input-container>
+                <input type="text" mdInput #Count="ngModel" name="Count"  [(ngModel)]="selectedLetter.Count" placeholder="Count"/>
+           </md-input-container>
+ 		<button md-raised-button (click)="onDeSelect()">Back</button>
+    	<button md-raised-button (click)="onDeSelect()">Save</button>
+   </form> 
+</div>
+
+<div *ngIf="!selectedLetter">
+  <div class="floatright searchwidth MRight100">
+            <md-input-container>
+ 				<input mdInput type="search"  #letterSearch  md-autofocus type="search" (input)="term$.next($event.target.value)" placeholder="User Id or Letter" />
+            </md-input-container>
+            <button md-raised-button color="accent"  (click)="add(eventSearch.value)"><md-icon>add</md-icon> </button> 
+        </div>
+ <div *ngIf="!appservice.admin">
+<table class="table">
+ 		 <thead align="left">
+ 	 	<tr>
+			 <th>Id</th>
+			 <th>Pid<br>Did</th>
+			 <th class="">DriveFromName<br>DriveToName</th>
+			 <th class="">DriveDate</th>
+			 <th class="">DriveStart<br>DriveEnd</th>
+			 <th>Min<br>Max</th>
+			 <th>Dist<br>Duration</th>
+			 <th class="full-width "><span class="spacer"></span></th>
+			 <th class="">Delete</th> 
+			 <th class="">Details</th>
+			 </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let letter of letters" (click)="onSelect(letter)"
+            [class.selected]="letter === selectedLetter">
+              <td class="Id"><b>{{letter.Id}}</b></td> 
+              <td class="Did">{{letter.Letter}}</td> 
+              <td class="Did">{{letter.Type}}</td> 
+              <td class="Did">{{letter.Pattern}}</td> 
+              <td class="Did">{{letter.Trig}}</td> 
+              <td class="Did">{{letter.Definition}}</td> 
+              <td class="Did">{{letter.Channel}}</td> 
+              <td class="Did">{{letter.Vendor}}</td> 
+              <td class="Did">{{letter.Count}}</td>   
+              <td  class="full-width"><span class="spacer"></span></td>
+		 	  <td class="full-width"><button class="md-button" (click)="delete(drive); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
+		 	  <td class="full-width"><button class="md-button" (click)="gotoDetail(letter); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
+		  </tr>
+        </tbody>
+  </table>
+  </div>
+
+
+
+
+
+

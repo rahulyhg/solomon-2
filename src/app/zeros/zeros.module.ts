@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { Sched86Component } from './sched86.component';
-import { Sched86sComponent } from './sched86s.component';
-import { Sched86sRoutingModule } from './sched86s-routing.module';
+import { ZeroComponent } from './zero.component';
+import { ZerosComponent } from './zeros.component';
+import { ZerosRoutingModule } from './zeros-routing.module';
 
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
@@ -14,11 +14,11 @@ import {WidgetsModule } from '../widgets/widgets.module';
   imports: [
     CommonModule,
     FormsModule,
-    Sched86sRoutingModule,
+    ZerosRoutingModule,
     MaterialModule,
     WidgetsModule
   ],
-  declarations: [Sched86sComponent, Sched86Component],
+  declarations: [ZerosComponent, ZeroComponent],
   providers: []
 })
-export class Sched86sModule { }
+export class ZerosModule { }

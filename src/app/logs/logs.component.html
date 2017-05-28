@@ -1,0 +1,108 @@
+	<div *ngIf="selectedLog" class="selectedLog">
+      <row-meta [rowmetadata]="selectedLog"></row-meta>
+      <h2>{{selectedLog.Name}}</h2>
+  <form #LogFormRef="ngForm" (ngSubmit)="onSubmit(LogFormRef.value)" name="LogForm" class="logform">      
+     <md-input-container>
+        <input [(ngModel)]="selectedLog.Did" placeholder="Did"/>
+     </md-input-container>
+      <md-input-container>
+        <input [(ngModel)]="selectedLog.Pid" placeholder="Pid"/>
+     </md-input-container>
+      <md-input-container>
+        <input [(ngModel)]="selectedLog.Name" placeholder="Name"/>
+    </md-input-container>
+      <md-input-container>
+        <input [(ngModel)]="selectedLog.Page" placeholder="Page"/>
+      </md-input-container>
+      <md-input-container>
+        <input [(ngModel)]="selectedLog.Descrip" placeholder="Descrip"/>
+     </md-input-container>
+      <md-input-container>
+        <input [(ngModel)]="selectedLog.Message" placeholder="Message"/>
+     </md-input-container>
+      <md-input-container>
+        <input [(ngModel)]="selectedLog.IP" placeholder="IP"/>
+       </md-input-container>
+      <md-input-container>
+        <input [(ngModel)]="selectedLog.Referer" placeholder="Referer"/>
+    </md-input-container>
+      <md-input-container>
+        <input [(ngModel)]="selectedLog.RHost" placeholder="RHost"/>
+      </md-input-container> 
+      <md-input-container>
+        <input [(ngModel)]="selectedLog.Host" placeholder="Host"/>
+     </md-input-container>
+      <md-input-container>
+        <input [(ngModel)]="selectedLog.Agent" placeholder="Agent"/>
+     </md-input-container>
+      <md-input-container>
+        <input [(ngModel)]="selectedLog.Server" placeholder="Server"/>
+    </md-input-container>
+ <button md-raised-button (click)="onDeSelect()">Back</button>
+    <button md-raised-button (click)="onDeSelect()">Save</button>
+   </form> 
+</div>
+
+<div *ngIf="!selectedLog">
+<div class="floatright searchwidth MRight100">
+            <md-input-container>
+ 				<input mdInput type="search"  #logSearch  md-autofocus type="search" (input)="term$.next($event.target.value)" placeholder="User Id or Name" />
+            </md-input-container>
+            <button md-raised-button color="accent"  (click)="add(eventSearch.value)"><md-icon>add</md-icon> </button> 
+        </div>
+ <div *ngIf="!appservice.admin">
+  <table class="table">
+ 		 <thead align="left">
+ 	 	<tr>
+			 <th>Id</th>
+			 <th>Pid<br>Did</th>
+			 <th class="">DriveFromName<br>DriveToName</th>
+			 <th class="">DriveDate</th>
+			 <th class="">DriveStart<br>DriveEnd</th>
+			 <th>Min<br>Max</th>
+			 <th>Dist<br>Duration</th>
+			 <th class="full-width "><span class="spacer"></span></th>
+			 <th class="">Delete</th> 
+			 <th class="">Details</th>
+			 </tr>
+        </thead>
+  <tbody>
+  <tr *ngFor="let log of logs" (click)="onSelect(log)" [class.selected]="log === selectedLog">
+				<td class="Id"><b>{{log.Id}}</b></td> 
+				<td class="Did">{{log.Did}}</td> 
+        		<td class="Pid"><b>{{log.Pid}}</b></td> 
+				<td class="Name">{{log.Name}}</td> 
+				<td class="Page">{{log.Page}}</td> 
+				<td class="Descrip">{{log.Descrip}}</td> 
+				<td class="Message">{{log.Message}}</td> 
+      </tr>
+  </tbody></table>
+</div>
+  
+<div *ngIf="!appservice.admin">
+  <table class="table">
+ 		 <thead align="left">
+ 	 	<tr>
+			 <th>Id</th>
+			 <th>Pid<br>Did</th>
+			 <th class="">DriveFromName<br>DriveToName</th>
+			 <th class="">DriveDate</th>
+			 <th class="">DriveStart<br>DriveEnd</th>
+			 <th>Min<br>Max</th>
+			 <th>Dist<br>Duration</th>
+			 <th class="full-width "><span class="spacer"></span></th>
+			 <th class="">Delete</th> 
+			 <th class="">Details</th>
+			 </tr>
+        </thead>
+  <tbody>
+  <tr *ngFor="let log of logs" (click)="onSelect(log)" [class.selected]="log === selectedLog">
+		<td class="IP">{{log.IP}}</td> 
+		<td class="Referer">{{log.Referer}}</td>  
+        <td class="RHost">{{log.RHost}}</td>  
+        <td class="Host">{{log.Host}}</td>  
+        <td class="Agent">{{log.Agent}}</td>  
+        <td class="Server">{{log.Server}}</td>   
+</tr>
+  </tbody></table>
+  </div>

@@ -9,6 +9,7 @@ import { RidesRoutingModule } from './rides-routing.module';
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
 import {WidgetsModule } from '../widgets/widgets.module';
+
 import { AgmCoreModule } from 'angular2-google-maps/core';
 
 @NgModule({
