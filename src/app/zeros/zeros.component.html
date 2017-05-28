@@ -1,126 +1,103 @@
-<!-- <div class="container">	 -->
-<!-- <div *ngIf="selectedZero" class="selectedZero"> -->
-<!-- <div class="row"> -->
-<!-- <div class="card text-xs-center"> -->
-<!-- <div class="card-block"> -->
-<!--    <div class="card-header"> -->
-<!--       <fieldset class="form-group  col-md-12"> -->
-<!--         {{selectedZero.RideDate}} -->
-<!--       </fieldset> -->
-<!--       <fieldset class="form-group col-md-3"> -->
-<!--               {{selectedZero.Id}}  -->
-<!--       </fieldset> -->
-<!--       <fieldset class="form-group col-md-3"> -->
-<!--               {{selectedZero.DFC | date}}  -->
-<!--       </fieldset> -->
-<!--       <fieldset class="form-group col-md-3"> -->
-<!--               {{selectedZero.DLC | date}}  -->
-<!--       </fieldset> -->
-<!--       <fieldset class="form-group col-md-3"> -->
-<!--               {{selectedZero.User}} -->
-<!--       </fieldset> -->
-<!--       <fieldset class="form-group  col-md-12"> -->
-<!--         <label>PO: </label> -->
-<!--         <input [(ngModel)]="selectedZero.PO" placeholder="PO"/> -->
-<!--      </fieldset> -->
-<!--       <fieldset class="form-group"> -->
-<!--         <label>RideId: </label> -->
-<!--         <input [(ngModel)]="selectedZero.RideId" placeholder="RideId"/> -->
-<!--       </fieldset> -->
-<!--       <fieldset class="form-group"> -->
-<!--         <label>RidePid: </label> -->
-<!--         <input [(ngModel)]="selectedZero.RidePid" placeholder="RidePid"/> -->
-<!--      </fieldset> -->
-<!-- 		 <fieldset class="form-group"> -->
-<!--         <label>RideDate: </label> -->
-<!--         <input [(ngModel)]="selectedZero.RideDate" placeholder="RideDate"/> -->
-<!--      </fieldset> -->
-<!-- 		 <fieldset class="form-group"> -->
-<!--         <label>RideTime: </label> -->
-<!--         <input [(ngModel)]="selectedZero.RideTime" placeholder="RideTime"/> -->
-<!--      </fieldset> -->
-<!-- 		 <fieldset class="form-group"> -->
-<!--         <label>RideToName: </label> -->
-<!--         <input [(ngModel)]="selectedZero.RideToName" placeholder="RideToName"/> -->
-<!--      </fieldset> -->
-<!-- 		 <fieldset class="form-group"> -->
-<!--         <label>RideFromName: </label> -->
-<!--         <input [(ngModel)]="selectedZero.RideFromName" placeholder="RideFromName"/> -->
-<!--      </fieldset> -->
-<!-- 		 <fieldset class="form-group"> -->
-<!--         <label>RideScore: </label> -->
-<!--         <input [(ngModel)]="selectedZero.RideScore" placeholder="RideScore"/> -->
-<!--      </fieldset> -->
-<!-- 		 <fieldset class="form-group"> -->
-<!--         <label>RideComments: </label> -->
-<!--         <input [(ngModel)]="selectedZero.RideComments" placeholder="RideComments"/> -->
-<!--      </fieldset> -->
-<!-- 		 <fieldset class="form-group"> -->
-<!--         <label>DriveId: </label> -->
-<!--         <input [(ngModel)]="selectedZero.DriveId" placeholder="DriveId"/> -->
-<!--      </fieldset> -->
-<!-- 		 <fieldset class="form-group"> -->
-<!--         <label>DrivePid: </label> -->
-<!--         <input [(ngModel)]="selectedZero.DrivePid" placeholder="DrivePid"/> -->
-<!--      </fieldset> -->
-<!-- 		 <fieldset class="form-group"> -->
-<!--         <label>DriveDate: </label> -->
-<!--         <input [(ngModel)]="selectedZero.DriveDate" placeholder="DriveDate"/> -->
-<!--      </fieldset> -->
-<!-- 		 <fieldset class="form-group"> -->
-<!--         <label>DriveTime: </label> -->
-<!--         <input [(ngModel)]="selectedZero.DriveTime" placeholder="DriveTime"/> -->
-<!--      </fieldset> -->
-<!-- 		 	 <fieldset class="form-group"> -->
-<!--         <label>DriveToName: </label> -->
-<!--         <input [(ngModel)]="selectedZero.DriveToName" placeholder="DriveToName"/> -->
-<!--      </fieldset> -->
-<!-- 		 	 <fieldset class="form-group"> -->
-<!--         <label>DriveFromName: </label> -->
-<!--         <input [(ngModel)]="selectedZero.DriveFromName" placeholder="DriveFromName"/> -->
-<!--      </fieldset> -->
-<!-- 		 	 <fieldset class="form-group"> -->
-<!--         <label>DriveScore: </label> -->
-<!--         <input [(ngModel)]="selectedZero.DriveScore" placeholder="DriveScore"/> -->
-<!--      </fieldset> -->
-<!-- 		 	 <fieldset class="form-group"> -->
-<!--         <label>DriveComments: </label> -->
-<!--         <input [(ngModel)]="selectedZero.DriveComments" placeholder="DriveComments"/> -->
-<!--      </fieldset> -->
-<!-- 		 	 <fieldset class="form-group"> -->
-<!--         <label>Charge: </label> -->
-<!--         <input [(ngModel)]="selectedZero.Charge" placeholder="Charge"/> -->
-<!--      </fieldset> -->
-		
-<!--  <button class="btn btn-warning"  (click)="onDeSelect()">View zero</button> -->
-<!--  <button class="btn btn-success" (click)="onDeSelect()">View List</button> -->
-<!--   </div></div></div></div></div> -->
+<div *ngIf="selectedZero" class="selectedZero">
+      <row-meta [rowmetadata]="selectedDrive"></row-meta>
+  <form #ZeroFormRef="ngForm" (ngSubmit)="onSubmit(ZeroFormRef.value)" name="ZeroForm" class="zeroform">      
+     <md-input-container>
+        <input [(ngModel)]="selectedZero.PO" placeholder="PO"/>
+      </md-input-container>
+     <md-input-container>
+        <input [(ngModel)]="selectedZero.RideId" placeholder="RideId"/>
+      </md-input-container>
+     <md-input-container>
+        <input [(ngModel)]="selectedZero.RidePid" placeholder="RidePid"/>
+        </md-input-container>
+     <md-input-container>
+        <input [(ngModel)]="selectedZero.RideDate" placeholder="RideDate"/>
+        </md-input-container>
+     <md-input-container>
+        <input [(ngModel)]="selectedZero.RideTime" placeholder="RideTime"/>
+       </md-input-container>
+     <md-input-container>
+        <input [(ngModel)]="selectedZero.RideToName" placeholder="RideToName"/>
+       </md-input-container>
+     <md-input-container>
+        <input [(ngModel)]="selectedZero.RideFromName" placeholder="RideFromName"/>
+        </md-input-container>
+     <md-input-container>
+        <input [(ngModel)]="selectedZero.RideScore" placeholder="RideScore"/>
+       </md-input-container>
+     <md-input-container>
+        <input [(ngModel)]="selectedZero.RideComments" placeholder="RideComments"/>
+      </md-input-container>
+     <md-input-container>
+        <input [(ngModel)]="selectedZero.DriveId" placeholder="DriveId"/>
+    </md-input-container>
+     <md-input-container>
+        <input [(ngModel)]="selectedZero.DrivePid" placeholder="DrivePid"/>
+   </md-input-container>
+     <md-input-container>
+        <input [(ngModel)]="selectedZero.DriveDate" placeholder="DriveDate"/>
+     </md-input-container>
+     <md-input-container>
+        <input [(ngModel)]="selectedZero.DriveTime" placeholder="DriveTime"/>
+      </md-input-container>
+     <md-input-container>
+        <input [(ngModel)]="selectedZero.DriveToName" placeholder="DriveToName"/>
+      </md-input-container>
+     <md-input-container>
+        <input [(ngModel)]="selectedZero.DriveFromName" placeholder="DriveFromName"/>
+       </md-input-container>
+     <md-input-container>
+        <input [(ngModel)]="selectedZero.DriveScore" placeholder="DriveScore"/>
+     </md-input-container>
+     <md-input-container>
+        <input [(ngModel)]="selectedZero.DriveComments" placeholder="DriveComments"/>
+    </md-input-container>
+     <md-input-container>
+        <input [(ngModel)]="selectedZero.Charge" placeholder="Charge"/>
+   </md-input-container>
+	<button md-raised-button (click)="onDeSelect()">Back</button>
+    <button md-raised-button (click)="onDeSelect()">Save</button>
+   </form> 
+</div>
 
-<!-- <div *ngIf="!selectedZero"> -->
-<!--   <div class="row"> -->
-<!--   <div class="card text-xs-center"> -->
-<!--         <div class="card-block"> -->
-<!--             <label>Zeros by UserId:</label><input #zeroSearch (input)="term$.next($event.target.value)" placeholder="Enter Id or zero" /> -->
-<!--              <button class="btn btn-danger" (click)="add(zeroSearch.value)"> Add </button> -->
-<!--       </div> -->
-<!-- <div class="table-responsive"> -->
-<!--   <table class="table"> -->
-<!--   <tbody> -->
-<!--   <tr *ngFor="let zero of zeros" (click)="onSelect(zero)"> -->
-<!--         <td class="Id"><b>{{zero.Id}}</b></td>  -->
-<!--         <td class="DFC">{{zero.DFC}}<br>{{zero.DLC}}</td>  -->
-<!--         <td class="DFC">{{zero.User}}<br>{{zero.PO}}</td>  -->
-<!--         <td class="DFC">{{zero.RideId}}<br>{{zero.DriveId}}</td>  -->
-<!--         <td class="DFC">{{zero.RidePid}}<br>{{zero.DrivePid}}</td>  -->
-<!--         <td class="DFC">{{zero.RideDate}} {{zero.RideTime}}<br>{{zero.DriveDate}} {{zero.DriveTime}}</td>  -->
-<!--         <td class="DFC">{{zero.RideFromName}} {{zero.RideToName}}<br>{{zero.DriveFromName}} {{zero.DriveToName}}</td>  -->
-<!--         <td class="DFC">{{zero.RideScore}}<br>{{zero.RideComments}}</td>  -->
-<!--         <td class="DFC">{{zero.DriveScore}}<br>{{zero.DriveComments}}</td>  -->
-<!--         <td class="Referer">{{zero.Charge}}</td>   -->
-<!--       	<td><button class="btn-xs btn-danger" (click)="delete(zero); $event.stopPropagation()">x</button></td> -->
-<!--     </tr> -->
-<!-- </tbody> -->
-<!-- </table> -->
-<!--         </div> -->
-<!-- </div></div></div></div> -->
+<div *ngIf="!selectedZero">
+  <div class="floatright searchwidth MRight100">
+            <md-input-container>
+ 				<input mdInput type="search"  #driveSearch  md-autofocus type="search" (input)="term$.next($event.target.value)" placeholder="User Id or DriveFromName" />
+            </md-input-container>
+            <button md-raised-button color="accent"  (click)="add(eventSearch.value)"><md-icon>add</md-icon> </button> 
+        </div>
+ <div *ngIf="!appservice.admin">
+  <table class="table">
+ 		 <thead align="left">
+ 	 	<tr>
+			 <th>Id</th>
+			 <th>Pid<br>Did</th>
+			 <th class="">DriveFromName<br>DriveToName</th>
+			 <th class="">DriveDate</th>
+			 <th class="">DriveStart<br>DriveEnd</th>
+			 <th>Min<br>Max</th>
+			 <th>Dist<br>Duration</th>
+			 <th class="full-width "><span class="spacer"></span></th>
+			 <th class="">Delete</th> 
+			 <th class="">Details</th>
+			 </tr>
+        </thead>
+        <tbody>
+  <tr *ngFor="let zero of zeros" (click)="onSelect(zero)">
+        <td class="Id"><b>{{zero.Id}}</b></td> 
+        <td class="DFC">{{zero.DFC}}<br>{{zero.DLC}}</td> 
+        <td class="DFC">{{zero.User}}<br>{{zero.PO}}</td> 
+        <td class="DFC">{{zero.RideId}}<br>{{zero.DriveId}}</td> 
+        <td class="DFC">{{zero.RidePid}}<br>{{zero.DrivePid}}</td> 
+        <td class="DFC">{{zero.RideDate}} {{zero.RideTime}}<br>{{zero.DriveDate}} {{zero.DriveTime}}</td> 
+        <td class="DFC">{{zero.RideFromName}} {{zero.RideToName}}<br>{{zero.DriveFromName}} {{zero.DriveToName}}</td> 
+        <td class="DFC">{{zero.RideScore}}<br>{{zero.RideComments}}</td> 
+        <td class="DFC">{{zero.DriveScore}}<br>{{zero.DriveComments}}</td> 
+        <td class="Referer">{{zero.Charge}}</td>  
+      	<td><button class="btn-xs btn-danger" (click)="delete(zero); $event.stopPropagation()">x</button></td>
+     </tr>
+        </tbody>
+  </table>
+  </div>
 
