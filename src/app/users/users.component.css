@@ -1,0 +1,14 @@
+.selectedUser{
+	width: 50%;
+	float:right;
+
+}
+.selectedSearch{
+	width:50%;
+	float:none;
+
+}
+.selectedList{
+	width:50%;
+	float:none;
+}

@@ -1,201 +1,256 @@
-    <div *ngIf="selectedUser" class="selectedUser">
-      <md-card>
-               <md-card-content>
-      <row-meta [rowmetadata]="selectedUser"></row-meta>
-<form #UserFormRef="ngForm" (ngSubmit)="onSubmit(UserFormRef.value)" name="UserForm" class="userform">
-            
-             <md-input-container>
- <input mdInput name="UserName" #usernameRef="ngModel" required minlength="3" [(ngModel)]="selectedUser.UserName"  placeholder="Enter User Name">
-             </md-input-container>
- <div *ngIf="usernameRef.errors?.required">UserName is required!</div>
- <div *ngIf="usernameRef.errors?.minlength"> UserName must be greater than three characters</div>
-             <md-input-container>
- <input mdInput  type="password"  name="Pass" #passwordRef="ngModel" required  [(ngModel)]="selectedUser.Password" placeholder="Enter Password">
-            </md-input-container>
-             <md-input-container>
- <input mdInput type="text" name="Email"  #emailRef="ngModel" required [(ngModel)]="selectedUser.Email"  placeholder="Email" >
-            </md-input-container>
-             <md-input-container>
- <input mdInput type="text" name="Country" #countryRef="ngModel" required  [(ngModel)]="selectedUser.Country" name="Country">
-            </md-input-container>
-       
-             <md-input-container>
- <input mdInput  type="text"placeholder="Language" [(ngModel)]="selectedUser.Lang" name="Lang" >
-            </md-input-container>
-            <md-input-container class="Did">
- <input mdInput type="number" placeholder="Did" [(ngModel)]="selectedUser.Did" name="Did">
-            </md-input-container>
-            <md-input-container class="Acct">
- <input mdInput  type="number" placeholder="Acct" [(ngModel)]="selectedUser.Acct" name="Acct">
-            </md-input-container>
-            <md-input-container class="Admin">
-              <input mdInput  type="number" placeholder="Admin" [(ngModel)]="selectedUser.Admin" name="Admin">
-            </md-input-container>
-                
-            <md-input-container class="LangEd">
-              <input mdInput  type="number" placeholder="LangEd" [(ngModel)]="selectedUser.LangEd" name="LangEd">
-            </md-input-container>
-            <md-input-container class="Sales">
-              <input mdInput  type="number" placeholder="Sales" [(ngModel)]="selectedUser.Sales" name="Sales">
-            </md-input-container>  
-            <md-input-container class="LangBar">
-              <input mdInput type="text" placeholder="LangBar" [(ngModel)]="selectedUser.LangBar" name="LangBar">
-            </md-input-container>
-            <md-input-container class="Agent">
- <input mdInput placeholder="Agent" [(ngModel)]="selectedUser.Agent" name="Agent">
-            </md-input-container>
-            <md-input-container class="Source">
- <input mdInput placeholder="Source" [(ngModel)]="selectedUser.Source" name="Source">
-            </md-input-container>
-            <md-input-container class="Followups">
- <input mdInput placeholder="Followups" [(ngModel)]="selectedUser.Followups" name="Followups">
-              </md-input-container>
-              <md-input-container class="DriveMax">
- <input mdInput type="number" placeholder="DriveMax" [(ngModel)]="selectedUser.DriveMax" name="DriveMax">
- </md-input-container>
- <md-input-container class="DriveMin">
- <input mdInput type="number" placeholder="DriveMin" [(ngModel)]="selectedUser.DriveMin" name="DriveMin">
- </md-input-container>
- <md-input-container class="DriveRate">
- <input mdInput type="number"  placeholder="DriveRate" [(ngModel)]="selectedUser.DriveRate" name="DriveRate">
- </md-input-container>
- <md-input-container class="DriveFee">
- <input mdInput  type="number"  placeholder="DriveFee" [(ngModel)]="selectedUser.DriveFee" name="DriveFee">
-              </md-input-container>
-              <md-input-container class="MapPrefs">
- <input mdInput type="text" placeholder="MapPrefs" [(ngModel)]="selectedUser.MapPrefs" name="MapPrefs">
-              </md-input-container>
-   <section class="MailPrefs">
-       <md-button-toggle-group name="MailPrefs" [vertical]="isVertical" (click)="setmailprefs($event)" >
-       <md-button-toggle value="images"><md-icon>format_align_left</md-icon></md-button-toggle>
-       <md-button-toggle value="html"><md-icon>format_align_center</md-icon></md-button-toggle>
-       <md-button-toggle value="text"><md-icon>format_align_right</md-icon></md-button-toggle>
-       <md-button-toggle value="None" [disabled]="isDisabled"><md-icon>format_align_justify</md-icon></md-button-toggle>
-       </md-button-toggle-group>
-   </section>
-  <md-input-container class="MailPrefs">
-      <input mdInput placeholder="MailPrefs" [(ngModel)]="selectedUser.MailPrefs" name="MailPrefs">
-   </md-input-container>
-  <md-input-container class="MatchPrefs">
- <input mdInput placeholder="MatchPrefs" [(ngModel)]="selectedUser.MatchPrefs" name="MatchPrefs">
-              </md-input-container>
-
-      <button md-raised-button (click)="onDeSelect()">Back</button>
-      <button md-raised-button (click)="onDeSelect()">Save</button>
-     
-  </form>
-  </md-card-content>
- </md-card>  
+<div *ngIf="selectedUser" class="selectedUser">
+	<md-card class="userCard"> <md-card-content>
+	<row-meta [rowmetadata]="selectedUser"></row-meta>
+	<form #UserFormRef="ngForm" (ngSubmit)="onSubmit(UserFormRef.value)"
+		name="UserForm" class="userform">
+		<md-input-container> <input mdInput
+			name="UserName" #usernameRef="ngModel" required minlength="3"
+			[(ngModel)]="selectedUser.UserName" placeholder="Enter User Name">
+		</md-input-container>
+		<div *ngIf="usernameRef.errors?.required">UserName is required!</div>
+		<div *ngIf="usernameRef.errors?.minlength">UserName must be
+			greater than three characters</div>
+		<md-input-container> <input mdInput
+			type="password" name="Pass" #passwordRef="ngModel" required
+			[(ngModel)]="selectedUser.Password" placeholder="Enter Password">
+		</md-input-container>
+		<md-input-container> <input mdInput type="text"
+			name="Email" #emailRef="ngModel" required
+			[(ngModel)]="selectedUser.Email" placeholder="Email"> </md-input-container>
+		<md-input-container> <input mdInput type="text"
+			name="Country" #countryRef="ngModel" required
+			[(ngModel)]="selectedUser.Country" name="Country"> </md-input-container>
+		<md-input-container> <input mdInput type="text"
+			placeholder="Language" [(ngModel)]="selectedUser.Lang" name="Lang">
+		</md-input-container>
+		<md-input-container class="Did"> <input mdInput
+			type="number" placeholder="Did" [(ngModel)]="selectedUser.Did"
+			name="Did"> </md-input-container>
+		<md-input-container class="Acct"> <input mdInput
+			type="number" placeholder="Acct" [(ngModel)]="selectedUser.Acct"
+			name="Acct"> </md-input-container>
+		<md-input-container class="Admin"> <input mdInput
+			type="number" placeholder="Admin" [(ngModel)]="selectedUser.Admin"
+			name="Admin"> </md-input-container>
+		<md-input-container class="LangEd"> <input
+			mdInput type="number" placeholder="LangEd"
+			[(ngModel)]="selectedUser.LangEd" name="LangEd"> </md-input-container>
+		<md-input-container class="Sales"> <input mdInput
+			type="number" placeholder="Sales" [(ngModel)]="selectedUser.Sales"
+			name="Sales"> </md-input-container>
+		<md-input-container class="LangBar"> <input
+			mdInput type="text" placeholder="LangBar"
+			[(ngModel)]="selectedUser.LangBar" name="LangBar"> </md-input-container>
+		<md-input-container class="Agent"> <input mdInput
+			placeholder="Agent" [(ngModel)]="selectedUser.Agent" name="Agent">
+		</md-input-container>
+		<md-input-container class="Source"> <input
+			mdInput placeholder="Source" [(ngModel)]="selectedUser.Source"
+			name="Source"> </md-input-container>
+		<md-input-container class="Followups"> <input
+			mdInput placeholder="Followups" [(ngModel)]="selectedUser.Followups"
+			name="Followups"> </md-input-container>
+		<md-input-container class="DriveMax"> <input
+			mdInput type="number" placeholder="DriveMax"
+			[(ngModel)]="selectedUser.DriveMax" name="DriveMax"> </md-input-container>
+		<md-input-container class="DriveMin"> <input
+			mdInput type="number" placeholder="DriveMin"
+			[(ngModel)]="selectedUser.DriveMin" name="DriveMin"> </md-input-container>
+		<md-input-container class="DriveRate"> <input
+			mdInput type="number" placeholder="DriveRate"
+			[(ngModel)]="selectedUser.DriveRate" name="DriveRate"> </md-input-container>
+		<md-input-container class="DriveFee"> <input
+			mdInput type="number" placeholder="DriveFee"
+			[(ngModel)]="selectedUser.DriveFee" name="DriveFee"> </md-input-container>
+		<md-input-container class="MapPrefs"> <input
+			mdInput type="text" placeholder="MapPrefs"
+			[(ngModel)]="selectedUser.MapPrefs" name="MapPrefs"> </md-input-container>
+		<section class="MailPrefs">
+			<md-button-toggle-group name="MailPrefs" [vertical]="isVertical"
+				(click)="setmailprefs($event)"> <md-button-toggle
+				value="images">
+			<md-icon>format_align_left</md-icon></md-button-toggle> <md-button-toggle value="html">
+			<md-icon>format_align_center</md-icon></md-button-toggle> <md-button-toggle value="text">
+			<md-icon>format_align_right</md-icon></md-button-toggle> <md-button-toggle value="None"
+				[disabled]="isDisabled">
+			<md-icon>format_align_justify</md-icon></md-button-toggle> </md-button-toggle-group>
+		</section>
+		<md-input-container class="MailPrefs"> <input
+			mdInput placeholder="MailPrefs" [(ngModel)]="selectedUser.MailPrefs"
+			name="MailPrefs"> </md-input-container>
+		<md-input-container class="MatchPrefs"> <input
+			mdInput placeholder="MatchPrefs"
+			[(ngModel)]="selectedUser.MatchPrefs" name="MatchPrefs"> </md-input-container>
+		<button md-raised-button (click)="onDeSelect()">Back</button>
+		<button md-raised-button (click)="onDeSelect()">Save</button>
+	</form>
+	</md-card-content> </md-card>
 </div>
-  
-      <div *ngIf="!selectedUser">
-          <md-card>
-               <md-card-content>
-          <div class="floatright searchwidth rightM100">
- <md-input-container class="searchusers">
-     <input mdInput #userSearch md-autofocus type="search" (input)="term$.next($event.target.value)" name="searchusers" id="searchusers" placeholder="Enter Id or Email" />
- </md-input-container>
- <button md-raised-button color="accent" id="userbutton" class="userbutton" (click)="add(userSearch.value)"><md-icon>add</md-icon></button> 
-          </div> 
-           </md-card-content>
-        </md-card>      
-<div *ngIf="!appservice.admin">
-<md-card>
-<md-card-content>
-  <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp full-width">
- 	<thead align="left">
-   		<tr>
-	       <th class="Id">Id</th>
-	       <th class="UserName ">User Name</th>
-	       <th class="Email ">Email</th>
-	       <th>IP</th>
-	       <th>Fup</th>
-	       <th>Max</th>
-	       <th>Min</th>
-	       <th>Rate</th>
-	       <th>Fee</th>
-	       <th>Map</th>
-	       <th>Mail</th>
-	       <th>Match</th>
-	       <th>LBar</th>
-	       <th class="full-width "><span class="spacer"></span></th>
-	       <th class="">Delete</th> 
-	       <th class="">Details</th>
-   </tr>
- </thead>
- <tbody>
-     <tr *ngFor="let user of users" (click)="onSelect(user)"
-           [class.selected]="user === selectedUser">
-    <td class="Id">{{user.Id}}</td>
-    <td>{{user.UserName}}</td>
-    <td class="">{{user.Email | slice:0:10}}</td>
-    <td>{{user.IP}}</td>
-    <td>{{user.Followups}}</td>
-    <td>{{user.DriveMax}}</td>
-    <td>{{user.DriveMin}}</td>
-    <td>{{user.DriveRate}}</td>
-    <td>{{user.DriveFee}}</td>
-    <td>{{user.MapPrefs}}</td>
-    <td>{{user.MailPrefs}}</td>
-    <td>{{user.MatchPrefs}}</td>
-    <td>{{user.LangBar}}</td>
-    <td  class="full-width "><span class="spacer"></span></td>
-    <td class="full-width "><button class="md-button" (click)="delete(user); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
-    <td class=""><button redtoggle class="md-button" (click)="gotoDetail(user); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
-     </tr>
- </tbody>
-  </table>
- </md-card-content>
-</md-card>
+<div *ngIf="selectedUser" class="selectedSearch">
+	<md-card>
+		  <md-card-content>
+		          <div class="floatright searchwidthrightM100">
+			<md-input-container class="searchusers"> <input mdInput #userSearch md-autofocus type="search"
+				(input)="term$.next($event.target.value)" name="searchusers"
+				id="searchusers" placeholder="Enter Id or Email" /> 
+			</md-input-container>
+			<button md-raised-button color="accent" id="userbutton"
+				class="userbutton" (click)="add(userSearch.value)">
+				<md-icon>add</md-icon>
+			</button>
+			</div>
+		</md-card-content>
+	</md-card>
+</div>
+<div *ngIf="selectedUser" class="selectedList">
+	<md-card> <md-card-content>
+	<table
+		class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp full-width">
+		<thead align="left">
+			<tr>
+				<th class="Id">Id</th>
+				<th class="UserName ">User Name</th>
+				<th class="Email ">Email</th>
+				<th>IP</th>
+				<th>Fup</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let user of users" (click)="onSelect(user)"
+				[class.selected]="user === selectedUser">
+				<td class="Id">{{user.Id}}</td>
+				<td>{{user.UserName}}</td>
+				<td class="">{{user.Email | slice:0:10}}</td>
+				<td>{{user.IP}}</td>
+				<td>{{user.Followups}}</td>
+			</tr>
+		</tbody>
+	</table>
+	</md-card-content> </md-card>
 </div>
 
-<div *ngIf="appservice.admin">
-<md-card>
-<md-card-content>
-  <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp full-width">
- 	<thead align="left">
-   		<tr>
-	       <th>Id</th>
-	       <th>Dates</th>
-	       <th>User</th>
-	       <th>Lang</th>
-	       <th>Acct</th>
-	       <th>Country</th>
-	       <th>Did</th>
-	       <th>Admin</th>
-	       <th>LangEd</th>
-	       <th>Sales</th>
-	       <th>EmailConfirm</th>
-	       <th>Agent</th>
-	       <th>Source</th>
-	       <th class="full-width "><span class="spacer"></span></th>
-	       <th class="">Delete</th> 
-	       <th class="">Detail</th> 
-        </tr>
- </thead>
- <tbody>
- <tr *ngFor="let user of users" (click)="onSelect(user)">
-		  <td><b>{{user.Id}}</b></td>
-		  <td class="">{{user.DFC | date}}<br>{{user.DLC | date}}</td>
-		  <td class="">{{user.User}}</td>
-		  <td class="">{{user.Lang}}</td>
-		  <td class="">{{user.Acct}}</td>
-		  <td class="">{{user.Country}}</td>
-		  <td>{{user.Did}}</td>
-		  <td>{{user.Admin}}</td>
-		  <td>{{user.LangEd}}</td>
-		  <td>{{user.Sales}}</td>
-		  <td>{{user.EmailConfirm}}</td>
-		  <td class="">{{user.Agent | slice:0:22}}</td>
-		  <td class="">{{user.Source | slice:7:22}}</td>
-		  <td  class="full-width "><span class="spacer"></span></td>
-		  <td class=""><button class="md-button" (click)="delete(user); $event.stopPropagation()"><md-icon>delete</md-icon></button></td>
-		  <td class=""><button class="md-button" (click)="gotoDetail(user); $event.stopPropagation()"><md-icon>list</md-icon></button></td>
-    </tr>
- </tbody>
- </table>
- </md-card-content>
-</md-card>
-</div>
-<!--EndNGIf-->
-    
+<div *ngIf="!selectedUser">
+	<md-card> <md-card-content>
+	<div class="floatright searchwidth rightM100">
+		<md-input-container class="searchusers"> <input
+			mdInput #userSearch md-autofocus type="search"
+			(input)="term$.next($event.target.value)" name="searchusers"
+			id="searchusers" placeholder="Enter Id or Email" /> </md-input-container>
+		<button md-raised-button color="accent" id="userbutton"
+			class="userbutton" (click)="add(userSearch.value)">
+			<md-icon>add</md-icon>
+		</button>
+	</div>
+	</md-card-content> </md-card>
+	<div *ngIf="!appservice.admin">
+		<md-card> <md-card-content>
+		<table
+			class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp full-width">
+			<thead align="left">
+				<tr>
+					<th class="Id">Id</th>
+					<th class="UserName ">User Name</th>
+					<th class="Email ">Email</th>
+					<th>IP</th>
+					<th>Fup</th>
+					<th>Max</th>
+					<th>Min</th>
+					<th>Rate</th>
+					<th>Fee</th>
+					<th>Map</th>
+					<th>Mail</th>
+					<th>Match</th>
+					<th>LBar</th>
+					<th class="full-width "><span class="spacer"></span></th>
+					<th class="">Delete</th>
+					<th class="">Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let user of users" (click)="onSelect(user)"
+					[class.selected]="user === selectedUser">
+					<td class="Id">{{user.Id}}</td>
+					<td>{{user.UserName}}</td>
+					<td class="">{{user.Email | slice:0:10}}</td>
+					<td>{{user.IP}}</td>
+					<td>{{user.Followups}}</td>
+					<td>{{user.DriveMax}}</td>
+					<td>{{user.DriveMin}}</td>
+					<td>{{user.DriveRate}}</td>
+					<td>{{user.DriveFee}}</td>
+					<td>{{user.MapPrefs}}</td>
+					<td>{{user.MailPrefs}}</td>
+					<td>{{user.MatchPrefs}}</td>
+					<td>{{user.LangBar}}</td>
+					<td class="full-width "><span class="spacer"></span></td>
+					<td class="full-width "><button class="md-button"
+							(click)="delete(user); $event.stopPropagation()">
+							<md-icon>delete</md-icon>
+						</button></td>
+					<td class=""><button redtoggle class="md-button"
+							(click)="gotoDetail(user); $event.stopPropagation()">
+							<md-icon>list</md-icon>
+						</button></td>
+				</tr>
+			</tbody>
+		</table>
+		</md-card-content> </md-card>
+	</div>
+
+	<div *ngIf="appservice.admin">
+		<md-card> <md-card-content>
+		<table
+			class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp full-width">
+			<thead align="left">
+				<tr>
+					<th>Id</th>
+					<th>Dates</th>
+					<th>User</th>
+					<th>Lang</th>
+					<th>Acct</th>
+					<th>Country</th>
+					<th>Did</th>
+					<th>Admin</th>
+					<th>LangEd</th>
+					<th>Sales</th>
+					<th>EmailConfirm</th>
+					<th>Agent</th>
+					<th>Source</th>
+					<th class="full-width "><span class="spacer"></span></th>
+					<th class="">Delete</th>
+					<th class="">Detail</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let user of users" (click)="onSelect(user)">
+					<td><b>{{user.Id}}</b></td>
+					<td class="">{{user.DFC | date}}<br>{{user.DLC | date}}
+					</td>
+					<td class="">{{user.User}}</td>
+					<td class="">{{user.Lang}}</td>
+					<td class="">{{user.Acct}}</td>
+					<td class="">{{user.Country}}</td>
+					<td>{{user.Did}}</td>
+					<td>{{user.Admin}}</td>
+					<td>{{user.LangEd}}</td>
+					<td>{{user.Sales}}</td>
+					<td>{{user.EmailConfirm}}</td>
+					<td class="">{{user.Agent | slice:0:22}}</td>
+					<td class="">{{user.Source | slice:7:22}}</td>
+					<td class="full-width "><span class="spacer"></span></td>
+					<td class=""><button class="md-button"
+							(click)="delete(user); $event.stopPropagation()">
+							<md-icon>delete</md-icon>
+						</button></td>
+					<td class=""><button class="md-button"
+							(click)="gotoDetail(user); $event.stopPropagation()">
+							<md-icon>list</md-icon>
+						</button></td>
+				</tr>
+			</tbody>
+		</table>
+		</md-card-content> 
+	</md-card>
+	</div>
+	</div>
+	
