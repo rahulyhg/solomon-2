@@ -6,7 +6,7 @@
         <md-icon>more_vert</md-icon>
         </button>
         <md-menu #menu="mdMenu">
-      <button md-menu-item (click)="onClickAdmin(appservice.admin)">
+      <button md-menu-item (click)="onClickAdmin()">
         <md-icon>fingerprint</md-icon>
         <span>Show Admin</span>
       </button>
@@ -33,7 +33,7 @@
     </md-menu>
 </md-toolbar>
 <div class="title"><p>{{title}}</p></div>
-<md-slide-toggle class="toggle" [(ngModel)]="appservice.admin" blueflash >Admin Data</md-slide-toggle>
+<md-slide-toggle class="toggle" [(ngModel)]="appservice.admin" >Admin Data</md-slide-toggle>
 <md-tab-group>
   <md-tab label="User">
       <p>

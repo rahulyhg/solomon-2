@@ -21,7 +21,7 @@ export class LettersComponent implements OnInit {
   constructor(
     private letterservice: LetterService,
     private router: Router,
-    private appservice: AppService) {
+    public appservice: AppService) {
     this.letterservice.searchLetters(this.term$).subscribe(results => this.letters = results);
     }
   getAllLetters(): void {

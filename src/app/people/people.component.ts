@@ -21,7 +21,7 @@ export class PeopleComponent implements OnInit {
   constructor(
     private personservice: PersonService,
     private router: Router,
-    private appservice: AppService) {
+    public appservice: AppService) {
         this.personservice.searchPeople(this.term$).subscribe(results => this.people = results);
     }
 

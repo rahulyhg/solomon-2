@@ -20,7 +20,7 @@ export class RunsComponent implements OnInit {
   constructor(
     private runservice: RunService,
     private router: Router,
-    private appservice: AppService) {
+    public appservice: AppService) {
       this.runservice.searchRuns(this.term$).subscribe(results => this.runs = results);
      }
 

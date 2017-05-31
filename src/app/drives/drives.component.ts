@@ -25,7 +25,7 @@ export class DrivesComponent implements OnInit {
   constructor(
     private driveservice: DriveService,
     private router: Router,
-    private appservice: AppService) {
+    public appservice: AppService) {
       this.driveservice.searchDrives(this.term$).subscribe(results => this.drives = results);
      }
 

@@ -20,7 +20,7 @@ export class OutputsComponent implements OnInit {
   selectedOutput: Output;
   term$ = new Subject<string>();
   constructor(
-    private appservice: AppService,
+    public appservice: AppService,
     private outputservice: OutputService,
     private router: Router) {
       this.outputservice.searchOutputs(this.term$).subscribe(results => this.outputs = results);

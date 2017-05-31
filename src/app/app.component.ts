@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   showbuttons = false;
   place = {Lat: '51.673858', Lng: '7.815982'};
   constructor(
-      private appservice: AppService,
+      public appservice: AppService,
       private activatedroute: ActivatedRoute,
       private router: Router
     ) {}
@@ -25,8 +25,11 @@ getAllTables(): void {
         .getAllTables()
         .then(pages => this.pages =  pages);
   }
-onClickAdmin(admin) {
-    admin = this.appservice.onAdmin(admin);
+  setAdmin() {
+
+}
+onClickAdmin() {
+   this.appservice.admin = !this.appservice.admin;
   }
 
 onClick(showbuttons) {

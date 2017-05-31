@@ -20,12 +20,12 @@ export class UsersComponent implements OnInit {
   users: User[];
   selectedUser: User;
   term$ = new Subject<string>();
-
+  
   constructor(
     private userservice: UserService,
     private router: Router,
     private activeroute: ActivatedRoute,
-    private appservice: AppService) {
+    public appservice: AppService) {
       this.userservice.searchUsers(this.term$).subscribe(results => this.users = results);
      }
 
@@ -52,7 +52,13 @@ export class UsersComponent implements OnInit {
           if (this.selectedUser === user) { this.selectedUser = null; }
         });
   }
-
+//  onClickAdmin(admin) {
+//    //admin = this.appservice.onAdmin(admin);
+//  }
+//  
+//  getAdmin() {
+//  return this.appservice.admin;
+//  }
   ngOnInit(): void {
     this.getAllUsers();
   }

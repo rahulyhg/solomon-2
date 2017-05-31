@@ -21,7 +21,7 @@ export class Sched86sComponent implements OnInit {
   constructor(
     private sched86service: Sched86Service,
     private router: Router,
-    private appservice: AppService) {
+    public appservice: AppService) {
   this.sched86service.searchSched86s(this.term$).subscribe(results => this.sched86s = results);
  }
 

@@ -1,7 +1,7 @@
  
  <div class="searchbox">
         <section class="example-section">
-              <md-checkbox class="example-margin" (change)="appservice.onAdmin($event)">Meta Data</md-checkbox>
+              <md-checkbox class="example-margin" (change)="onAdmin($event)">Meta Data</md-checkbox>
           </section>
           <md-input-container class="searchusers">
               <input mdInput #userSearch md-autofocus type="search" (input)="term$.next($event.target.value)" name="searchusers" id="searchusers" placeholder="Enter Id or Email" />

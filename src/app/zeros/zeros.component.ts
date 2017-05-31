@@ -21,7 +21,7 @@ export class ZerosComponent implements OnInit {
   constructor(
     private zeroservice: ZeroService,
     private router: Router,
-    private appservice: AppService) {
+    public appservice: AppService) {
       this.zeroservice.searchZeros(this.term$).subscribe(results => this.zeros = results);
      }
 

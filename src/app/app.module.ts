@@ -20,7 +20,7 @@ import { WidgetsModule } from './widgets/widgets.module';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { UserGridComponent } from './usergrid/usergrid.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [

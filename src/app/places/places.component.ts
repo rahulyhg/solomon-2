@@ -33,7 +33,7 @@ export class PlacesComponent implements OnInit {
     private placeservice: PlaceService,
     private router: Router,
     private activeroute: ActivatedRoute,
-    private appservice: AppService) {
+    public appservice: AppService) {
       this.placeservice.searchPlaces(this.term$).subscribe(results => this.places = results);
     }
 searchPlaces(term$) {

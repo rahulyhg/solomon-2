@@ -114,7 +114,7 @@
             <md-input-container>
  				<input mdInput type="search"  #lettextSearch  md-autofocus type="search" (input)="term$.next($event.target.value)" placeholder="Search by Letter or DomainId:" />
             </md-input-container>
-            <button md-raised-button color="accent"  (click)="add(eventSearch.value)"><md-icon>add</md-icon> </button> 
+            <button md-raised-button color="accent"><md-icon>add</md-icon></button> 
         </div>
     	<div *ngIf="!appservice.admin">
        <table class="table">

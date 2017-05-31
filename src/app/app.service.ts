@@ -14,6 +14,10 @@ constructor(private http: Http) { }
     this.admin = !this.admin;
     return this.admin;
   }
+  setAdmin() {
+    this.admin = !this.admin;
+    return this.admin;
+  }
   getAllTables(): Promise<[string]> {
       const url = `${this.tablesUrl}`;
     return this.http.get(url)

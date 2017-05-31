@@ -21,7 +21,7 @@ export class LettextsComponent implements OnInit {
   constructor(
     private lettextservice: LettextService,
     private router: Router,
-    private appservice: AppService) {
+    public appservice: AppService) {
          this.lettextservice.searchLettexts(this.term$).subscribe(results => this.lettexts = results);
      }
   getAllLettexts(): void {

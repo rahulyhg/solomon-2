@@ -21,7 +21,7 @@ export class SchedulesComponent implements OnInit {
   constructor(
     private scheduleservice: ScheduleService,
     private router: Router,
-    private appservice: AppService) {
+    public appservice: AppService) {
        this.scheduleservice.searchSchedules(this.term$).subscribe(results => this.schedules = results);
     }
 

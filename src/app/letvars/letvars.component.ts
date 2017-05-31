@@ -21,7 +21,7 @@ export class LetvarsComponent implements OnInit {
   constructor(
     private letvarservice: LetvarService,
     private router: Router,
-    private appservice: AppService) {
+    public appservice: AppService) {
          this.letvarservice.searchLetvars(this.term$).subscribe(results => this.letvars = results);
      }
 

@@ -26,7 +26,7 @@ export class UserGridComponent implements OnInit {
     private usergridservice: UserGridService,
     private router: Router,
     private activeroute: ActivatedRoute,
-    private appservice: AppService) {
+    public appservice: AppService) {
       this.usergridservice.searchUsers(this.term$).subscribe(results => this.users = results);
      }
   getAllUsers(): void {
@@ -56,7 +56,9 @@ export class UserGridComponent implements OnInit {
   ngOnInit(): void {
     this.getAllUsers();
   }
-
+  onAdmin($event) {
+  this.appservice.admin = !this.appservice.admin;
+}
   onSelect(user: User): void {
     this.selectedUser = user;
   }

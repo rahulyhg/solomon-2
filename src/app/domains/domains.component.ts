@@ -20,7 +20,7 @@ export class DomainsComponent implements OnInit {
   constructor(
     private domainservice: DomainService,
     private router: Router,
-    private appservice: AppService) {
+    public appservice: AppService) {
             this.domainservice.searchDomains(this.term$).subscribe(results => this.domains = results);
 
      }

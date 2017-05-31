@@ -8,8 +8,9 @@ import { AppService } from '../app.service';
   styleUrls: ['./geodata.component.css']
 })
 export class GeodataComponent implements OnInit {
-@Input() geodata;
-  constructor(private appservice: AppService) { }
+  @Input() geodata;
+  admin = false;
+  constructor(public appservice: AppService) { }
 
   ngOnInit() {
   }

@@ -22,7 +22,7 @@ export class DaysComponent implements OnInit {
   constructor(
     private dayservice: DayService,
     private router: Router,
-    private appservice: AppService) {
+    public appservice: AppService) {
           this.dayservice.searchDays(this.term$).subscribe(results => this.days = results);
      }
   searchDays(term$) {

@@ -21,7 +21,7 @@ export class CommentsComponent implements OnInit {
   constructor(
     private commentservice: CommentService,
     private router: Router,
-    private appservice: AppService) {
+    public appservice: AppService) {
         this.commentservice.searchComments(this.term$).subscribe(results => this.comments = results);
     }
   searchComments(term$) {

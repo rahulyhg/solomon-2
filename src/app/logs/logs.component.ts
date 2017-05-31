@@ -20,7 +20,7 @@ export class LogsComponent implements OnInit {
   constructor(
     private logservice: LogService,
     private router: Router,
-    private appservice: AppService) {
+    public appservice: AppService) {
          this.logservice.searchLogs(this.term$).subscribe(results => this.logs = results);
     }
 

@@ -26,7 +26,7 @@ places: Place[];
 Id: number;
 
   constructor(
-    private appservice: AppService,
+    public appservice: AppService,
     private router: Router,
     private activeroute: ActivatedRoute,
     private location: Location,

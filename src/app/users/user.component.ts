@@ -53,7 +53,7 @@ outputs: Output[];
     private outputservice: OutputService,
     private commentservice: CommentService,
     private router: Router,
-    private appservice: AppService,
+    public appservice: AppService,
     private activeroute: ActivatedRoute,
     private location: Location
   ) { }

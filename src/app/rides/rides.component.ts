@@ -22,7 +22,7 @@ export class RidesComponent implements OnInit {
   constructor(
     private rideservice: RideService,
     private router: Router,
-    private appservice: AppService) {
+    public appservice: AppService) {
         this.rideservice.searchRides(this.term$).subscribe(results => this.rides = results);
     }
   getAllRides(): void {

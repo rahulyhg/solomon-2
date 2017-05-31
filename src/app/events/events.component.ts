@@ -23,7 +23,7 @@ export class EventsComponent implements OnInit {
   constructor(
     private eventservice: EventService,
     private router: Router,
-    private appservice: AppService) {
+    public appservice: AppService) {
       this.eventservice.searchEvents(this.term$).subscribe(resultobos => this.events = resultobos);
     }
 
